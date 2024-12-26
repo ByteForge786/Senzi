@@ -1,0 +1,16 @@
+# Open the text file to read
+with open('your_file.txt', 'r') as file:
+    lines = file.readlines()
+
+# Create a dictionary to store the content
+data_dict = {}
+
+# Loop through the lines and process them
+for line in lines:
+    # Split each line into key-value pair based on '='
+    if '=' in line:
+        key, value = line.split('=', 1)  # Only split at the first '='
+        data_dict[key.strip()] = value.strip()
+
+# Print the dictionary
+print(data_dict)
