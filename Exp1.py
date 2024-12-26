@@ -8,6 +8,7 @@ import xgboost as xgb
 from typing import List, Dict, Optional, Tuple
 import logging
 import re
+from scipy.special import softmax
 
 # Set up logging
 logging.basicConfig(
@@ -22,36 +23,51 @@ class LabelDefinitionParser:
     @staticmethod
     def parse_label_definitions(filepath: str) -> Dict[str, str]:
         """
-        Parse label definitions from a text file where each definition
-        can span multiple lines.
+        Parse label definitions from a text file with sections.
         
-        Format expected:
-        label_name=definition text spanning
-        multiple lines...
-        another_label=another definition
-        spanning lines...
+        Expected format:
+        Sensitive PII:
+        <definition>
+        
+        Confidential information:
+        <definition>
+        
+        Non sensitive PII:
+        <definition>
+        
+        Licensed data:
+        <definition>
         
         Args:
             filepath: Path to the text file containing label definitions
             
         Returns:
-            Dictionary mapping label names to their full definitions
+            Dictionary mapping label names to their definitions
         """
         try:
             with open(filepath, 'r', encoding='utf-8') as f:
                 content = f.read()
             
-            # Split on pattern that matches label=definition
-            label_pattern = r'([a-zA-Z_]+)=((?:(?!\n[a-zA-Z_]+=).)*)'
-            matches = re.finditer(label_pattern, content, re.DOTALL)
+            # Define the expected labels and their text markers
+            label_markers = {
+                'sensitive_pii': 'Sensitive PII:',
+                'confidential': 'Confidential information:',
+                'non_sensitive_pii': 'Non sensitive PII:',
+                'licensed': 'Licensed data:'
+            }
             
             definitions = {}
-            for match in matches:
-                label = match.group(1).strip()
-                definition = match.group(2).strip()
-                # Clean up any excessive whitespace/newlines
-                definition = ' '.join(definition.split())
-                definitions[label] = definition
+            
+            # Extract content between markers
+            for label, marker in label_markers.items():
+                pattern = f"{marker}(.*?)(?={list(label_markers.values())[0]}|$)"
+                matches = re.findall(pattern, content, re.DOTALL)
+                if matches:
+                    # Clean up the definition text
+                    definition = matches[0].strip()
+                    # Normalize whitespace and clean up
+                    definition = ' '.join(definition.split())
+                    definitions[label] = definition
             
             if not definitions:
                 raise ValueError("No valid label definitions found in file")
@@ -66,12 +82,7 @@ class TextProcessor:
     """Handles text processing and embedding generation."""
     
     def __init__(self, model_name: str = 'all-MiniLM-L6-v2'):
-        """
-        Initialize with specified sentence transformer model.
-        
-        Args:
-            model_name: Name of the sentence-transformer model to use
-        """
+        """Initialize with specified sentence transformer model."""
         try:
             self.model = SentenceTransformer(model_name)
         except Exception as e:
@@ -80,51 +91,49 @@ class TextProcessor:
             
     def chunk_and_embed(self, text: str, chunk_size: int = 512) -> np.ndarray:
         """
-        Handle long text by chunking and generating embeddings.
+        Handle long text by chunking and generating context-aware embeddings.
         
         Args:
             text: Input text to be chunked and embedded
             chunk_size: Maximum size of each chunk
             
         Returns:
-            np.ndarray: Concatenated embeddings of all chunks
-            
-        Raises:
-            ValueError: If text is empty or chunk_size <= 0
+            np.ndarray: Context-aware embedding
         """
         if not text or chunk_size <= 0:
             raise ValueError("Text must not be empty and chunk_size must be positive")
-            
-        # Split text into chunks
+        
+        # Create overlapping chunks to maintain context
         words = text.split()
         chunks: List[str] = []
         current_chunk: List[str] = []
         current_length = 0
+        overlap = 50  # Words to overlap between chunks
         
-        for word in words:
+        for i, word in enumerate(words):
             if current_length + len(word) + 1 > chunk_size:
                 chunks.append(' '.join(current_chunk))
-                current_chunk = [word]
-                current_length = len(word)
-            else:
-                current_chunk.append(word)
-                current_length += len(word) + 1
+                # Keep overlap words for context
+                current_chunk = words[max(0, i-overlap):i]
+                current_length = sum(len(w) for w in current_chunk) + len(current_chunk)
+            current_chunk.append(word)
+            current_length += len(word) + 1
         
         if current_chunk:
             chunks.append(' '.join(current_chunk))
         
-        # Process chunks in batches for better performance
-        batch_size = 8
-        all_embeddings = []
-        
-        for i in range(0, len(chunks), batch_size):
-            batch = chunks[i:i + batch_size]
-            batch_embeddings = self.model.encode(batch)
-            if len(batch) == 1:
-                batch_embeddings = [batch_embeddings]
-            all_embeddings.extend(batch_embeddings)
+        # Get embeddings for chunks
+        chunk_embeddings = self.model.encode(chunks)
+        if len(chunks) == 1:
+            return chunk_embeddings.reshape(1, -1)
             
-        return np.concatenate(all_embeddings, axis=0)
+        # Weight chunks by position (later chunks get slightly higher weight)
+        chunk_weights = np.linspace(0.9, 1.0, len(chunk_embeddings))
+        chunk_weights = chunk_weights / chunk_weights.sum()
+        
+        # Compute weighted average of chunk embeddings
+        weighted_embedding = np.average(chunk_embeddings, axis=0, weights=chunk_weights)
+        return weighted_embedding.reshape(1, -1)
 
 class AttributeAnalyzer:
     """Main class for analyzing attributes and making predictions."""
@@ -133,23 +142,13 @@ class AttributeAnalyzer:
         """Initialize with text processor and empty cache."""
         self.text_processor = TextProcessor()
         self.label_embeddings_cache: Dict[str, np.ndarray] = {}
-        
+    
     def _get_label_embedding(self, label: str, definition: str) -> np.ndarray:
-        """
-        Get cached embedding for label definition or compute if not cached.
-        
-        Args:
-            label: Label name
-            definition: Label definition text
-            
-        Returns:
-            np.ndarray: Embedding for the label definition
-        """
+        """Get cached embedding for label definition or compute if not cached."""
         cache_key = f"{label}_{hash(definition)}"
         if cache_key not in self.label_embeddings_cache:
-            def_text = f"the definition of label {label} is: {definition}"
-            def_embedding = self.text_processor.chunk_and_embed(def_text)
-            self.label_embeddings_cache[cache_key] = def_embedding
+            def_text = f"Label {label} is defined as: {definition}"
+            self.label_embeddings_cache[cache_key] = self.text_processor.chunk_and_embed(def_text)
         return self.label_embeddings_cache[cache_key]
         
     def analyze_cosine_similarities(self, data: pd.DataFrame, 
@@ -168,16 +167,19 @@ class AttributeAnalyzer:
         results = []
         
         for idx, row in data.iterrows():
-            desc = f"here is the description: {row['description']}"
-            attr_name = f"the attribute name is: {row['attribute_name']}"
+            # Combine attribute info with context
+            text_with_context = (
+                f"Attribute name: {row['attribute_name']} "
+                f"Description context: {row['description']}"
+            )
             
-            desc_embedding = self.text_processor.chunk_and_embed(desc)
-            attr_name_embedding = self.text_processor.chunk_and_embed(attr_name)
+            # Get context-aware embedding
+            combined_embedding = self.text_processor.chunk_and_embed(text_with_context)
             
             similarities = {}
             for label, definition in label_definitions.items():
                 def_embedding = self._get_label_embedding(label, definition)
-                sim_score = cosine_similarity([desc_embedding], [def_embedding])[0][0]
+                sim_score = cosine_similarity(combined_embedding, def_embedding)[0][0]
                 similarities[f'similarity_{label}'] = sim_score
             
             result = {
@@ -187,7 +189,6 @@ class AttributeAnalyzer:
                 **similarities
             }
             
-            # Get predicted label based on highest similarity
             sim_scores = {k.replace('similarity_', ''): v for k, v in similarities.items()}
             result['predicted_label'] = max(sim_scores.items(), key=lambda x: x[1])[0]
             
@@ -207,30 +208,42 @@ class AttributeAnalyzer:
         Returns:
             Tuple of (feature DataFrame, label array)
         """
-        feature_names = ['attribute_name', 'attribute_description'] + [f'label_{label}' for label in label_definitions.keys()]
         features = []
         
         for idx, row in data.iterrows():
-            desc = f"here is the description: {row['description']}"
-            attr_name = f"the attribute name is: {row['attribute_name']}"
+            text_with_context = (
+                f"Attribute name: {row['attribute_name']} "
+                f"Description context: {row['description']}"
+            )
             
-            desc_embedding = self.text_processor.chunk_and_embed(desc)
-            attr_name_embedding = self.text_processor.chunk_and_embed(attr_name)
+            # Get context-aware embedding
+            combined_embedding = self.text_processor.chunk_and_embed(text_with_context)
             
-            row_features = {
-                'attribute_name': attr_name_embedding,
-                'attribute_description': desc_embedding
+            # Create feature dictionary
+            feature_dict = {
+                'text_embedding': combined_embedding.flatten()
             }
             
+            # Add similarities to label definitions as features
             for label, definition in label_definitions.items():
                 def_embedding = self._get_label_embedding(label, definition)
-                row_features[f'label_{label}'] = def_embedding
-                
-            features.append(row_features)
+                sim_score = cosine_similarity(combined_embedding, def_embedding)[0][0]
+                feature_dict[f'similarity_{label}'] = sim_score
             
-        features_df = pd.DataFrame(features)
-        labels = data['label'].values
+            features.append(feature_dict)
         
+        # Convert features to DataFrame
+        features_df = pd.DataFrame(features)
+        
+        # Extract text embedding columns
+        embedding_cols = features_df['text_embedding'].apply(pd.Series)
+        embedding_cols.columns = [f'emb_{i}' for i in range(embedding_cols.shape[1])]
+        
+        # Combine with similarity features
+        similarity_cols = [col for col in features_df.columns if col.startswith('similarity_')]
+        features_df = pd.concat([embedding_cols, features_df[similarity_cols]], axis=1)
+        
+        labels = data['label'].values
         return features_df, labels
 
     def train_xgboost(self, X: pd.DataFrame, y: np.ndarray, 
@@ -273,35 +286,19 @@ class AttributeAnalyzer:
     
     def get_label_probabilities(self, X: pd.DataFrame, y: np.ndarray, 
                               cv_folds: int = 5) -> pd.DataFrame:
-        """
-        Get probability scores for each label.
-        
-        Args:
-            X: Feature DataFrame
-            y: Label array
-            cv_folds: Number of cross-validation folds
-            
-        Returns:
-            DataFrame with probability scores for each label
-        """
+        """Get probability scores for each label."""
         xgboost_results = self.train_xgboost(X, y, cv_folds)
         y_prob = xgboost_results['probabilities']
         
-        label_columns = [col for col in X.columns if col.startswith('label_')]
-        labels = [col.replace('label_', '') for col in label_columns]
+        # Get unique labels from training data
+        labels = np.unique(y)
         
         label_prob_df = pd.DataFrame(y_prob, columns=labels)
-        label_prob_df['attribute_name'] = X['attribute_name'].apply(lambda x: np.array2string(x, separator=' '))
-        label_prob_df['attribute_description'] = X['attribute_description'].apply(lambda x: np.array2string(x, separator=' '))
-        
         return label_prob_df
 
 def main():
     """
     Main function to run the attribute analysis pipeline.
-    
-    Returns:
-        Tuple containing cosine results, XGBoost results, and label probabilities
     """
     try:
         # Load and validate input data
@@ -334,6 +331,10 @@ def main():
         
         logger.info("Computing label probabilities...")
         label_prob_df = analyzer.get_label_probabilities(X_train, y_train)
+        
+        # Save results
+        cosine_results.to_csv('cosine_similarities.csv', index=False)
+        label_prob_df.to_csv('label_probabilities.csv', index=False)
         
         return cosine_results, xgboost_results, label_prob_df
         
