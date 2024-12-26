@@ -3,62 +3,54 @@ import numpy as np
 from collections import defaultdict
 import re
 
+def extract_patterns_from_name(name):
+    """
+    Extract meaningful patterns from attribute names, handling various naming conventions
+    """
+    if pd.isna(name):
+        return []
+        
+    # Convert to lowercase
+    name = str(name).lower()
+    
+    # Handle common separators (snake_case, camelCase, etc.)
+    # First split by underscores
+    parts = name.split('_')
+    
+    # Then handle camelCase in each part
+    tokens = []
+    for part in parts:
+        # Split camelCase
+        camel_tokens = re.findall('[a-z]+|[A-Z][a-z]*', part)
+        tokens.extend([t.lower() for t in camel_tokens])
+        
+    # Also get common prefixes/suffixes
+    prefixes = ['is', 'has', 'was', 'start', 'end', 'client', 'customer', 'user', 'company']
+    for prefix in prefixes:
+        if name.startswith(prefix):
+            tokens.append(f"starts_with_{prefix}")
+            
+    suffixes = ['id', 'date', 'time', 'name', 'code', 'type', 'status']
+    for suffix in suffixes:
+        if name.endswith(suffix):
+            tokens.append(f"ends_with_{suffix}")
+    
+    # Check for specific patterns
+    patterns = []
+    if 'date' in name or 'time' in name:
+        patterns.append('temporal_field')
+    if 'id' in name or 'key' in name:
+        patterns.append('identifier_field')
+    if 'status' in name or 'state' in name:
+        patterns.append('status_field')
+        
+    return tokens + patterns
+
 def analyze_patterns(df):
     """
     Analyzes patterns focusing primarily on attribute names, handling null descriptions
     """
-    """
-    Analyzes patterns in data attributes to identify sensitivity classification rules
-    
-    Parameters:
-    df: DataFrame with columns [attribute_name, description, additional_context, 
-                              data_source_name, sensitivity_label]
-    """
     patterns = defaultdict(lambda: defaultdict(list))
-    
-    # Function to clean and tokenize text
-    def extract_patterns_from_name(name):
-        """
-        Extract meaningful patterns from attribute names, handling various naming conventions
-        """
-        if pd.isna(name):
-            return []
-            
-        # Convert to lowercase
-        name = str(name).lower()
-        
-        # Handle common separators (snake_case, camelCase, etc.)
-        # First split by underscores
-        parts = name.split('_')
-        
-        # Then handle camelCase in each part
-        tokens = []
-        for part in parts:
-            # Split camelCase
-            camel_tokens = re.findall('[a-z]+|[A-Z][a-z]*', part)
-            tokens.extend([t.lower() for t in camel_tokens])
-            
-        # Also get common prefixes/suffixes
-        prefixes = ['is', 'has', 'was', 'start', 'end', 'client', 'customer', 'user', 'company']
-        for prefix in prefixes:
-            if name.startswith(prefix):
-                tokens.append(f"starts_with_{prefix}")
-                
-        suffixes = ['id', 'date', 'time', 'name', 'code', 'type', 'status']
-        for suffix in suffixes:
-            if name.endswith(suffix):
-                tokens.append(f"ends_with_{suffix}")
-        
-        # Check for specific patterns
-        patterns = []
-        if 'date' in name or 'time' in name:
-            patterns.append('temporal_field')
-        if 'id' in name or 'key' in name:
-            patterns.append('identifier_field')
-        if 'status' in name or 'state' in name:
-            patterns.append('status_field')
-            
-        return tokens + patterns
     
     # Analyze each sensitivity label
     for label in df['sensitivity_label'].unique():
@@ -81,7 +73,7 @@ def analyze_patterns(df):
         if not label_data['description'].isna().all():
             desc_patterns = defaultdict(int)
             for desc in label_data['description'].dropna():
-                tokens = re.findall(r'\w+', str(desc).lower())
+                tokens = extract_patterns_from_name(desc)
                 for token in tokens:
                     desc_patterns[token] += 1
             
@@ -103,14 +95,17 @@ def analyze_patterns(df):
                                 if v >= threshold}
         patterns[label]['source_patterns'] = common_source_patterns
         
-        # Analyze context patterns
-        if 'additional_context' in label_data.columns:
+        # Analyze context patterns if not all null
+        if 'additional_context' in label_data.columns and not label_data['additional_context'].isna().all():
             context_patterns = defaultdict(int)
-            for context in label_data['additional_context']:
-                tokens = tokenize(context)
+            for context in label_data['additional_context'].dropna():
+                tokens = extract_patterns_from_name(context)
                 for token in tokens:
                     context_patterns[token] += 1
                     
+            valid_context_records = len(label_data['additional_context'].dropna())
+            threshold = 0.3 * valid_context_records if valid_context_records > 0 else 1
+            
             common_context_patterns = {k: v for k, v in context_patterns.items() 
                                     if v >= threshold}
             patterns[label]['context_patterns'] = common_context_patterns
@@ -133,7 +128,7 @@ def generate_pattern_summary(patterns):
             for token, count in sorted_attrs[:5]:
                 summary.append(f"- '{token}' appears {count} times")
         
-        if label_patterns['description_patterns']:
+        if label_patterns.get('description_patterns'):
             summary.append("\nCommon description patterns:")
             sorted_desc = sorted(label_patterns['description_patterns'].items(), 
                                key=lambda x: x[1], reverse=True)
@@ -147,7 +142,7 @@ def generate_pattern_summary(patterns):
             for token, count in sorted_source[:5]:
                 summary.append(f"- '{token}' appears {count} times")
                 
-        if 'context_patterns' in label_patterns:
+        if label_patterns.get('context_patterns'):
             summary.append("\nCommon context patterns:")
             sorted_context = sorted(label_patterns['context_patterns'].items(), 
                                   key=lambda x: x[1], reverse=True)
@@ -158,7 +153,7 @@ def generate_pattern_summary(patterns):
 
 def find_correlations(df):
     """
-    Finds correlations between different fields and sensitivity labels
+    Finds correlations between data sources and sensitivity labels
     """
     correlations = defaultdict(list)
     
