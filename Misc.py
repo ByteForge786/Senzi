@@ -1,3 +1,54 @@
+def train_xgboost(self, X: pd.DataFrame, y: np.ndarray, 
+                  cv_folds: int = 5,
+                  params: Optional[Dict] = None) -> Dict:
+    """
+    Train XGBoost model with cross-validation and validation set for early stopping.
+    """
+    from sklearn.model_selection import train_test_split
+    
+    # Simple train/validation split for early stopping
+    X_train, X_val, y_train, y_val = train_test_split(
+        X, y, 
+        test_size=0.2,  # 20% validation set
+        random_state=42,
+        stratify=y
+    )
+    
+    default_params = {
+        'objective': 'multi:softprob',
+        'max_depth': 6,
+        'learning_rate': 0.1,
+        'n_estimators': 100,
+        'eval_metric': 'mlogloss',
+        'early_stopping_rounds': 10
+    }
+    
+    if params:
+        default_params.update(params)
+        
+    model = xgb.XGBClassifier(**default_params)
+    
+    # Train with early stopping
+    model.fit(
+        X_train, y_train,
+        eval_set=[(X_val, y_val)],
+        early_stopping_rounds=10,
+        verbose=False
+    )
+    
+    # Get cross-validation predictions using the full dataset
+    y_pred = cross_val_predict(model, X, y, cv=cv_folds)
+    y_prob = cross_val_predict(model, X, y, cv=cv_folds, method='predict_proba')
+    
+    return {
+        'predictions': y_pred,
+        'probabilities': y_prob,
+        'report': classification_report(y, y_pred, output_dict=True)
+    }
+
+
+
+
 class TextProcessor:
     def chunk_and_embed(self, text: str, chunk_size: int = 512) -> np.ndarray:
         """
