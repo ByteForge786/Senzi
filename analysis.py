@@ -67,7 +67,7 @@ def analyze_patterns(df):
         # Analyze attribute names
         attr_patterns = defaultdict(int)
         for attr in label_data['attribute_name']:
-            tokens = tokenize(attr)
+            tokens = extract_patterns_from_name(attr)
             for token in tokens:
                 attr_patterns[token] += 1
         
@@ -95,7 +95,7 @@ def analyze_patterns(df):
         # Analyze data sources
         source_patterns = defaultdict(int)
         for source in label_data['data_source_name']:
-            tokens = tokenize(source)
+            tokens = extract_patterns_from_name(source)
             for token in tokens:
                 source_patterns[token] += 1
                 
