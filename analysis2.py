@@ -3,60 +3,151 @@ import numpy as np
 from collections import defaultdict
 import re
 
+# Define stop words to remove
+STOP_WORDS = {
+    'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of',
+    'with', 'by', 'from', 'up', 'about', 'into', 'over', 'after', 'is', 'was',
+    'were', 'be', 'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did',
+    'will', 'would', 'shall', 'should', 'may', 'might', 'must', 'can', 'could',
+    'this', 'that', 'these', 'those', 'i', 'you', 'he', 'she', 'it', 'we', 'they',
+    'who', 'which', 'what', 'whose', 'where', 'when', 'why', 'how'
+}
+
+def remove_stop_words(text):
+    """
+    Remove stop words from text while preserving important technical terms
+    """
+    if pd.isna(text):
+        return ""
+    
+    # Split by underscores first to preserve technical terms
+    parts = str(text).split('_')
+    cleaned_parts = []
+    
+    for part in parts:
+        # Split into words
+        words = part.split()
+        # Remove stop words but keep technical terms
+        cleaned_words = [word for word in words if word.lower() not in STOP_WORDS]
+        cleaned_parts.append(' '.join(cleaned_words))
+    
+    return '_'.join(cleaned_parts)
+
+def clean_text(text):
+    """
+    Clean text by removing special characters and standardizing format
+    """
+    if pd.isna(text):
+        return ""
+    
+    # Convert to lowercase and remove special characters except underscore
+    text = re.sub(r'[^a-zA-Z0-9_\s]', '', str(text).lower())
+    # Replace multiple spaces/underscores with single underscore
+    text = re.sub(r'[\s_]+', '_', text)
+    # Remove leading/trailing underscores
+    text = text.strip('_')
+    # Remove stop words
+    text = remove_stop_words(text)
+    return text
+
+def clean_dataframe(df):
+    """
+    Standardizes and cleans dataframe columns and values
+    """
+    # Clean column names
+    df.columns = [clean_text(col) for col in df.columns]
+    
+    # Standardize required column names
+    column_mapping = {
+        'attribute_name': ['attribute_name', 'attributename', 'attribute', 'column_name', 'columnname', 'field_name', 'fieldname'],
+        'description': ['description', 'desc', 'column_description', 'field_description'],
+        'additional_context': ['additional_context', 'context', 'extra_context', 'additionalcontext'],
+        'data_source_name': ['data_source_name', 'datasource', 'source_name', 'sourcename', 'data_source'],
+        'sensitivity_label': ['sensitivity_label', 'label', 'sensitivity', 'classification']
+    }
+    
+    # Find and rename columns based on mapping
+    for standard_name, variations in column_mapping.items():
+        for col in df.columns:
+            if col in variations:
+                df = df.rename(columns={col: standard_name})
+                break
+    
+    # Clean string values in each column
+    for col in df.columns:
+        if df[col].dtype == 'object':
+            df[col] = df[col].apply(clean_text)
+    
+    # Standardize sensitivity labels
+    standard_labels = {
+        'sensitive': ['sensitive', 'personal', 'protected', 'restricted'],
+        'non_sensitive': ['nonsensitive', 'non-sensitive', 'non_sensitive', 'public', 'normal'],
+        'confidential': ['confidential', 'internal', 'private', 'company_confidential'],
+        'licensed': ['licensed', 'third_party', 'thirdparty', 'external', 'vendor']
+    }
+    
+    def standardize_label(label):
+        if pd.isna(label):
+            return label
+        label = clean_text(label)
+        for standard, variations in standard_labels.items():
+            if label in variations or any(var in label for var in variations):
+                return standard
+        return label
+    
+    df['sensitivity_label'] = df['sensitivity_label'].apply(standardize_label)
+    
+    return df
+
 def extract_patterns_from_name(name):
     """
-    Extract meaningful patterns from attribute names, handling various naming conventions and special characters
+    Extract meaningful patterns from names, handling various naming conventions
     """
     if pd.isna(name):
         return []
-        
-    # Convert to lowercase and remove special characters except underscore
-    name = re.sub(r'[^a-zA-Z0-9_\s]', '', str(name).lower())
-    # Replace multiple spaces/underscores with single underscore
-    name = re.sub(r'[\s_]+', '_', name)
-    # Remove leading/trailing underscores
-    name = name.strip('_')
     
-    # Handle common separators (snake_case, camelCase, etc.)
-    # First split by underscores
+    # Clean the name first
+    name = clean_text(name)
+    
+    # Split on underscores
     parts = name.split('_')
     
-    # Then handle camelCase in each part
+    # Handle camelCase in each part
     tokens = []
     for part in parts:
         # Split camelCase
         camel_tokens = re.findall('[a-z]+|[A-Z][a-z]*', part)
-        tokens.extend([t.lower() for t in camel_tokens])
-        
-    # Also get common prefixes/suffixes
-    prefixes = ['is', 'has', 'was', 'start', 'end', 'client', 'customer', 'user', 'company']
+        tokens.extend([clean_text(t) for t in camel_tokens])
+    
+    # Check for important prefixes/suffixes
+    prefixes = ['client', 'customer', 'user', 'company']
     for prefix in prefixes:
         if name.startswith(prefix):
             tokens.append(f"starts_with_{prefix}")
-            
+    
     suffixes = ['id', 'date', 'time', 'name', 'code', 'type', 'status']
     for suffix in suffixes:
         if name.endswith(suffix):
             tokens.append(f"ends_with_{suffix}")
     
-    # Check for specific patterns
-    patterns = []
+    # Add special pattern indicators
     if 'date' in name or 'time' in name:
-        patterns.append('temporal_field')
+        tokens.append('temporal_field')
     if 'id' in name or 'key' in name:
-        patterns.append('identifier_field')
+        tokens.append('identifier_field')
     if 'status' in name or 'state' in name:
-        patterns.append('status_field')
-        
-    return tokens + patterns
+        tokens.append('status_field')
+    
+    # Remove empty tokens and duplicates
+    tokens = [t for t in tokens if t]
+    return list(dict.fromkeys(tokens))  # Remove duplicates while preserving order
 
 def analyze_patterns(df):
     """
-    Analyzes patterns focusing primarily on attribute names, handling null descriptions
+    Analyzes patterns focusing primarily on attribute names
     """
     patterns = defaultdict(lambda: defaultdict(list))
     
-    # Analyze each sensitivity label
     for label in df['sensitivity_label'].unique():
         label_data = df[df['sensitivity_label'] == label]
         
@@ -67,7 +158,6 @@ def analyze_patterns(df):
             for token in tokens:
                 attr_patterns[token] += 1
         
-        # Keep patterns that appear in at least 30% of records
         threshold = 0.3 * len(label_data)
         common_attr_patterns = {k: v for k, v in attr_patterns.items() 
                               if v >= threshold}
@@ -95,65 +185,10 @@ def analyze_patterns(df):
             for token in tokens:
                 source_patterns[token] += 1
                 
+        threshold = 0.3 * len(label_data)
         common_source_patterns = {k: v for k, v in source_patterns.items() 
                                 if v >= threshold}
         patterns[label]['source_patterns'] = common_source_patterns
-        
-        # Analyze context patterns if not all null
-        if 'additional_context' in label_data.columns and not label_data['additional_context'].isna().all():
-            context_patterns = defaultdict(int)
-            for context in label_data['additional_context'].dropna():
-                tokens = extract_patterns_from_name(context)
-                for token in tokens:
-                    context_patterns[token] += 1
-                    
-            valid_context_records = len(label_data['additional_context'].dropna())
-            threshold = 0.3 * valid_context_records if valid_context_records > 0 else 1
-            
-            common_context_patterns = {k: v for k, v in context_patterns.items() 
-                                    if v >= threshold}
-            patterns[label]['context_patterns'] = common_context_patterns
-    
-    return patterns
-
-def generate_pattern_summary(patterns):
-    """
-    Generates a human-readable summary of the patterns found
-    """
-    summary = []
-    
-    for label, label_patterns in patterns.items():
-        summary.append(f"\nPatterns for {label} data:")
-        
-        if label_patterns['attribute_patterns']:
-            summary.append("\nCommon attribute name patterns:")
-            sorted_attrs = sorted(label_patterns['attribute_patterns'].items(), 
-                                key=lambda x: x[1], reverse=True)
-            for token, count in sorted_attrs[:5]:
-                summary.append(f"- '{token}' appears {count} times")
-        
-        if label_patterns.get('description_patterns'):
-            summary.append("\nCommon description patterns:")
-            sorted_desc = sorted(label_patterns['description_patterns'].items(), 
-                               key=lambda x: x[1], reverse=True)
-            for token, count in sorted_desc[:5]:
-                summary.append(f"- '{token}' appears {count} times")
-        
-        if label_patterns['source_patterns']:
-            summary.append("\nCommon data source patterns:")
-            sorted_source = sorted(label_patterns['source_patterns'].items(), 
-                                 key=lambda x: x[1], reverse=True)
-            for token, count in sorted_source[:5]:
-                summary.append(f"- '{token}' appears {count} times")
-                
-        if label_patterns.get('context_patterns'):
-            summary.append("\nCommon context patterns:")
-            sorted_context = sorted(label_patterns['context_patterns'].items(), 
-                                  key=lambda x: x[1], reverse=True)
-            for token, count in sorted_context[:5]:
-                summary.append(f"- '{token}' appears {count} times")
-    
-    return "\n".join(summary)
 
 def find_correlations(df):
     """
@@ -161,70 +196,19 @@ def find_correlations(df):
     """
     correlations = defaultdict(list)
     
-    # Analyze correlation between data sources and labels
     source_label_dist = pd.crosstab(df['data_source_name'], 
                                    df['sensitivity_label'], 
                                    normalize='index')
     
-    # Find sources that strongly correlate with specific labels
     for source in source_label_dist.index:
         max_label = source_label_dist.loc[source].idxmax()
-        if source_label_dist.loc[source, max_label] >= 0.7:  # 70% threshold
+        if source_label_dist.loc[source, max_label] >= 0.7:
             correlations['source_label'].append(
                 f"Data source '{source}' is strongly associated with '{max_label}' "
                 f"({source_label_dist.loc[source, max_label]:.1%})"
             )
     
     return correlations
-
-def clean_dataframe(df):
-    """
-    Standardizes and cleans dataframe columns and values
-    """
-    # Clean column names: lowercase, remove special chars, replace spaces with underscore
-    df.columns = [re.sub(r'[^a-zA-Z0-9\s]', '', col.lower()).replace(' ', '_') for col in df.columns]
-    
-    # Standardize required column names
-    column_mapping = {
-        'attribute_name': ['attribute_name', 'attributename', 'attribute', 'column_name', 'columnname', 'field_name', 'fieldname'],
-        'description': ['description', 'desc', 'column_description', 'field_description'],
-        'additional_context': ['additional_context', 'context', 'extra_context', 'additionalcontext'],
-        'data_source_name': ['data_source_name', 'datasource', 'source_name', 'sourcename', 'data_source'],
-        'sensitivity_label': ['sensitivity_label', 'label', 'sensitivity', 'classification']
-    }
-    
-    # Find and rename columns based on mapping
-    for standard_name, variations in column_mapping.items():
-        for col in df.columns:
-            if col in variations:
-                df = df.rename(columns={col: standard_name})
-                break
-    
-    # Clean string values in each column
-    for col in df.columns:
-        if df[col].dtype == 'object':
-            df[col] = df[col].apply(lambda x: re.sub(r'[^a-zA-Z0-9\s_-]', '', str(x).lower().strip()) if pd.notna(x) else x)
-    
-    # Standardize sensitivity labels
-    standard_labels = {
-        'sensitive': ['sensitive', 'personal', 'protected', 'restricted'],
-        'non_sensitive': ['nonsensitive', 'non-sensitive', 'non_sensitive', 'public', 'normal'],
-        'confidential': ['confidential', 'internal', 'private', 'company_confidential'],
-        'licensed': ['licensed', 'third_party', 'thirdparty', 'external', 'vendor']
-    }
-    
-    def standardize_label(label):
-        if pd.isna(label):
-            return label
-        label = str(label).lower().strip()
-        for standard, variations in standard_labels.items():
-            if label in variations or any(var in label for var in variations):
-                return standard
-        return label  # Keep original if no match found
-    
-    df['sensitivity_label'] = df['sensitivity_label'].apply(standardize_label)
-    
-    return df
 
 def analyze_sample_data(file_path):
     """
