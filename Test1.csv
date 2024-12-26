@@ -1,0 +1,21 @@
+attribute_name,description,sample_values,label
+surv_opr_name,Surveillance operator name,Tim Lee||Amy Shah||Ben Wu||Sara Park||Max Chen,Non-Sensitive PII
+bio_auth_data,Biometric authentication patterns,BIO_SCAN_001||BIO_SCAN_002||BIO_SCAN_003||BIO_SCAN_004||BIO_SCAN_005,Sensitive PII
+nsdq_surv_data,Licensed Nasdaq surveillance feed,NSDQ_SRV_001||NSDQ_SRV_002||NSDQ_SRV_003||NSDQ_SRV_004||NSDQ_SRV_005,Licensed Data
+alert_rules,Confidential surveillance rules,RULE_INS_1||RULE_MKT_2||RULE_WASH_3||RULE_SPOOF_4||RULE_LAY_5,Confidential Information
+krn_rrn,Korean resident registration number,KRN_001||KRN_002||KRN_003||KRN_004||KRN_005,Sensitive PII
+emp_loc,Employee location code,SRV_NY||SRV_LN||SRV_TK||SRV_HK||SRV_SG,Non-Sensitive PII
+bbg_surv_feed,Licensed Bloomberg surveillance data,BBG_SRV_001||BBG_SRV_002||BBG_SRV_003||BBG_SRV_004||BBG_SRV_005,Licensed Data
+case_files,Confidential investigation cases,CASE_A1||CASE_B2||CASE_C3||CASE_D4||CASE_E5,Confidential Information
+pol_views,Political affiliation information,POL_001||POL_002||POL_003||POL_004||POL_005,Sensitive PII
+wrk_ext,Work extension number,EXT_701||EXT_702||EXT_703||EXT_704||EXT_705,Non-Sensitive PII
+ref_surv_data,Licensed Refinitiv surveillance feed,REF_SRV_001||REF_SRV_002||REF_SRV_003||REF_SRV_004||REF_SRV_005,Licensed Data
+risk_scores,Confidential risk scoring model,RISK_A1||RISK_B2||RISK_C3||RISK_D4||RISK_E5,Confidential Information
+fin_cred_data,Financial credit information,FIN_CR_001||FIN_CR_002||FIN_CR_003||FIN_CR_004||FIN_CR_005,Sensitive PII
+bus_mail,Business email address,surv1@firm.com||surv2@firm.com||surv3@firm.com||surv4@firm.com||surv5@firm.com,Non-Sensitive PII
+ice_surv_data,Licensed ICE surveillance data,ICE_SRV_001||ICE_SRV_002||ICE_SRV_003||ICE_SRV_004||ICE_SRV_005,Licensed Data
+pat_detect,Confidential pattern detection rules,PAT_1||PAT_2||PAT_3||PAT_4||PAT_5,Confidential Information
+crim_rec,Criminal record information,CRIM_001||CRIM_002||CRIM_003||CRIM_004||CRIM_005,Sensitive PII
+dept_id,Department identifier code,SURV_01||SURV_02||SURV_03||SURV_04||SURV_05,Non-Sensitive PII
+cme_surv_feed,Licensed CME surveillance feed,CME_SRV_001||CME_SRV_002||CME_SRV_003||CME_SRV_004||CME_SRV_005,Licensed Data
+alert_thresh,Confidential alert thresholds,THRESH_1||THRESH_2||THRESH_3||THRESH_4||THRESH_5,Confidential Information
