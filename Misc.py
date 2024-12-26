@@ -1,3 +1,115 @@
+class TextProcessor:
+    def chunk_and_embed(self, text: str, chunk_size: int = 512) -> np.ndarray:
+        """
+        Handle long text by chunking and generating embeddings.
+        Returns concatenated context-aware embedding.
+        """
+        if not text or chunk_size <= 0:
+            raise ValueError("Text must not be empty and chunk_size must be positive")
+            
+        # Create overlapping chunks to maintain context
+        words = text.split()
+        chunks: List[str] = []
+        current_chunk: List[str] = []
+        current_length = 0
+        overlap = 50  # Number of words to overlap between chunks
+        
+        for i, word in enumerate(words):
+            if current_length + len(word) + 1 > chunk_size:
+                chunks.append(' '.join(current_chunk))
+                # Keep last 'overlap' words for context
+                current_chunk = words[max(0, i-overlap):i]
+                current_length = sum(len(w) for w in current_chunk) + len(current_chunk)
+            current_chunk.append(word)
+            current_length += len(word) + 1
+        
+        if current_chunk:
+            chunks.append(' '.join(current_chunk))
+        
+        # Process chunks with attention to context
+        embeddings = []
+        
+        # Encode all chunks
+        chunk_embeddings = self.model.encode(chunks)
+        if len(chunks) == 1:
+            chunk_embeddings = [chunk_embeddings]
+            
+        # Use attention mechanism to weight the importance of each chunk
+        chunk_weights = np.ones(len(chunk_embeddings)) / len(chunk_embeddings)
+        weighted_embedding = np.average(chunk_embeddings, axis=0, weights=chunk_weights)
+        
+        return weighted_embedding.reshape(1, -1)
+
+class AttributeAnalyzer:
+    def analyze_cosine_similarities(self, data: pd.DataFrame, 
+                                  label_definitions: Dict[str, str]) -> pd.DataFrame:
+        logger.info(f"Computing similarities for {len(data)} attributes")
+        results = []
+        
+        for idx, row in data.iterrows():
+            # Combine description and attribute name with context markers
+            text_with_context = (
+                f"Attribute name: {row['attribute_name']} "
+                f"Description context: {row['description']}"
+            )
+            
+            # Get context-aware embedding
+            combined_embedding = self.text_processor.chunk_and_embed(text_with_context)
+            
+            similarities = {}
+            for label, definition in label_definitions.items():
+                def_text = f"Label: {label} Definition: {definition}"
+                def_embedding = self._get_label_embedding(label, def_text)
+                
+                # Compute semantic similarity with attention to context
+                attention_weights = self._compute_attention(combined_embedding, def_embedding)
+                sim_score = self._compute_weighted_similarity(
+                    combined_embedding, 
+                    def_embedding, 
+                    attention_weights
+                )
+                similarities[f'similarity_{label}'] = sim_score
+            
+            result = {
+                'attribute_name': row['attribute_name'],
+                'description': row['description'],
+                'original_label': row['label'],
+                **similarities
+            }
+            
+            sim_scores = {k.replace('similarity_', ''): v for k, v in similarities.items()}
+            result['predicted_label'] = max(sim_scores.items(), key=lambda x: x[1])[0]
+            
+            results.append(result)
+            
+        return pd.DataFrame(results)
+
+    def _compute_attention(self, query_emb: np.ndarray, key_emb: np.ndarray) -> np.ndarray:
+        """Compute attention weights between embeddings."""
+        attention_scores = np.dot(query_emb, key_emb.T)
+        return softmax(attention_scores, axis=-1)
+    
+    def _compute_weighted_similarity(self, 
+                                   emb1: np.ndarray, 
+                                   emb2: np.ndarray, 
+                                   weights: np.ndarray) -> float:
+        """Compute weighted cosine similarity with attention weights."""
+        weighted_emb1 = emb1 * weights
+        weighted_emb2 = emb2 * weights
+        return cosine_similarity(weighted_emb1, weighted_emb2)[0][0]
+
+    def _get_label_embedding(self, label: str, definition: str) -> np.ndarray:
+        """Get cached context-aware embedding for label definition."""
+        cache_key = f"{label}_{hash(definition)}"
+        if cache_key not in self.label_embeddings_cache:
+            self.label_embeddings_cache[cache_key] = self.text_processor.chunk_and_embed(definition)
+        return self.label_embeddings_cache[cache_key]
+
+
+
+
+
+
 class LabelDefinitionParser:
     """Parser for unstructured label definitions from text file."""
     
