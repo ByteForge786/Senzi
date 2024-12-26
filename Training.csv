@@ -1,0 +1,378 @@
+attribute_name,description,sample_values,sensitivity_label
+emp_ethnicity,employee racial or ethnic background,ASIAN||AFRICAN_AMERICAN||HISPANIC||CAUCASIAN||PACIFIC_ISLANDER,sensitive_pii
+health_info,employee health records and conditions,HEALTH_REC_001||HEALTH_REC_002||HEALTH_REC_003||HEALTH_REC_004||HEALTH_REC_005,sensitive_pii
+jp_my_number,japan specific identification number,MN12345678901||MN23456789012||MN34567890123||MN45678901234||MN56789012345,sensitive_pii
+union_member,trade union membership status,UNION_MEM_001||UNION_MEM_002||UNION_MEM_003||UNION_MEM_004||UNION_MEM_005,sensitive_pii
+login_cred,system login credentials,HASH_PWD_001||HASH_PWD_002||HASH_PWD_003||HASH_PWD_004||HASH_PWD_005,sensitive_pii
+performance_data,confidential employee performance records,PERF_2024_Q1||PERF_2024_Q2||PERF_2024_Q3||PERF_2024_Q4||PERF_ANNUAL,confidential
+comp_structure,compensation and bonus framework,COMP_STRUCT_1||COMP_STRUCT_2||COMP_STRUCT_3||COMP_STRUCT_4||COMP_STRUCT_5,confidential
+succession_plan,internal succession planning details,SUCC_PLAN_1||SUCC_PLAN_2||SUCC_PLAN_3||SUCC_PLAN_4||SUCC_PLAN_5,confidential
+interview_notes,candidate interview feedback,INT_NOTE_001||INT_NOTE_002||INT_NOTE_003||INT_NOTE_004||INT_NOTE_005,confidential
+hr_strategy,human resources strategic plans,HR_STRAT_2024_1||HR_STRAT_2024_2||HR_STRAT_2024_3||HR_STRAT_2024_4||HR_STRAT_2024_5,confidential
+first_name,employee first name,John||Mary||Robert||David||Sarah,non_sensitive_pii
+last_name,employee last name,Smith||Johnson||Williams||Brown||Davis,non_sensitive_pii
+work_email,corporate email address,j.smith@company.com||m.johnson@company.com||r.williams@company.com||d.brown@company.com,non_sensitive_pii
+emp_id,employee identification number,EMP001||EMP002||EMP003||EMP004||EMP005,non_sensitive_pii
+dept_code,department code identifier,HR01||FIN02||IT03||OPS04||LEGAL05,non_sensitive_pii
+workday_license,workday hcm platform license,WD_LIC_001||WD_LIC_002||WD_LIC_003||WD_LIC_004||WD_LIC_005,licensed_data
+linkedin_corp,linkedin corporate recruiter license,LI_CORP_001||LI_CORP_002||LI_CORP_003||LI_CORP_004||LI_CORP_005,licensed_data
+glassdoor_pro,glassdoor employer platform license,GD_PRO_001||GD_PRO_002||GD_PRO_003||GD_PRO_004||GD_PRO_005,licensed_data
+adp_service,adp payroll service license,ADP_001||ADP_002||ADP_003||ADP_004||ADP_005,licensed_data
+cornerstone_lms,learning management system license,LMS_001||LMS_002||LMS_003||LMS_004||LMS_005,licensed_data
+attribute_name,description,sample_values,sensitivity_label
+trader_ssn,trader social security number,123-45-6789||234-56-7890||345-67-8901||456-78-9012||567-89-0123,sensitive_pii
+kr_trader_rrn,korean resident registration number,RRN123456789||RRN234567890||RRN345678901||RRN456789012||RRN567890123,sensitive_pii
+desk_location,precise trading desk geolocation,35.6762_139.6503||40.7128_74.0060||51.5074_0.1278||1.3521_103.8198||22.3193_114.1694,sensitive_pii
+trading_creds,trading system credentials,TRADE_AUTH_001||TRADE_AUTH_002||TRADE_AUTH_003||TRADE_AUTH_004||TRADE_AUTH_005,sensitive_pii
+biometric_auth,biometric authentication data,BIO_HASH_001||BIO_HASH_002||BIO_HASH_003||BIO_HASH_004||BIO_HASH_005,sensitive_pii
+prop_strategy,proprietary trading algorithms,ALGO_VWAP_1||ALGO_TWAP_2||ALGO_DARK_3||ALGO_SMART_4||ALGO_HEDGE_5,confidential
+client_orders,client order information,ORDER_001_BUY||ORDER_002_SELL||ORDER_003_SHORT||ORDER_004_HEDGE||ORDER_005_SWAP,confidential
+trading_book,internal trading book positions,POS_EQUITY_1||POS_FIXED_2||POS_DERIV_3||POS_FX_4||POS_COMMODITY_5,confidential
+risk_limits,trading risk limit framework,LIMIT_001||LIMIT_002||LIMIT_003||LIMIT_004||LIMIT_005,confidential
+profit_loss,desk profit and loss details,PNL_DESK_1||PNL_DESK_2||PNL_DESK_3||PNL_DESK_4||PNL_DESK_5,confidential
+trader_id,trader identifier code,TDR001||TDR002||TDR003||TDR004||TDR005,non_sensitive_pii
+desk_name,trading desk identifier,EQUITY_CASH||FX_SPOT||RATES_FLOW||CREDIT_FLOW||STRUCT_PROD,non_sensitive_pii
+trade_date,trade execution date,2024-03-01||2024-03-02||2024-03-02||2024-03-04||2024-03-05,non_sensitive_pii
+book_code,trading book identifier,BOOK001||BOOK002||BOOK003||BOOK004||BOOK005,non_sensitive_pii
+product_type,trading product category,EQUITY||BONDS||FX||FUTURES||OPTIONS,non_sensitive_pii
+bloomberg_data,bloomberg terminal license,BBG_001||BBG_002||BBG_003||BBG_004||BBG_005,licensed_data
+refinitiv_eikon,refinitiv terminal license,EIK_001||EIK_002||EIK_003||EIK_004||EIK_005,licensed_data
+factset_feed,factset market data license,FST_001||FST_002||FST_003||FST_004||FST_005,licensed_data
+ice_data,exchange data feed license,ICE_001||ICE_002||ICE_003||ICE_004||ICE_005,licensed_data
+markit_data,pricing data service license,MKT_001||MKT_002||MKT_003||MKT_004||MKT_005,licensed_data
+attribute_name,description,sample_values,sensitivity_label
+investigate_subj,investigation subject details,INV_SUBJ_001||INV_SUBJ_002||INV_SUBJ_003||INV_SUBJ_004||INV_SUBJ_005,sensitive_pii
+criminal_record,employee criminal history,CRIM_REC_001||CRIM_REC_002||CRIM_REC_003||CRIM_REC_004||CRIM_REC_005,sensitive_pii
+med_disclosure,medical information disclosure,MED_DISC_001||MED_DISC_002||MED_DISC_003||MED_DISC_004||MED_DISC_005,sensitive_pii
+auth_password,compliance system credentials,AUTH_HASH_001||AUTH_HASH_002||AUTH_HASH_003||AUTH_HASH_004||AUTH_HASH_005,sensitive_pii
+report_content,investigation email contents,EMAIL_INV_001||EMAIL_INV_002||EMAIL_INV_003||EMAIL_INV_004||EMAIL_INV_005,sensitive_pii
+kyc_details,client kyc documentation,KYC_DOC_001||KYC_DOC_002||KYC_DOC_003||KYC_DOC_004||KYC_DOC_005,confidential
+breach_report,internal breach findings,BREACH_001||BREACH_002||BREACH_003||BREACH_004||BREACH_005,confidential
+surveillance_data,trading surveillance findings,SURV_001||SURV_002||SURV_003||SURV_004||SURV_005,confidential
+audit_findings,internal audit results,AUDIT_001||AUDIT_002||AUDIT_003||AUDIT_004||AUDIT_005,confidential
+policy_draft,unpublished policy documents,POL_DRAFT_1||POL_DRAFT_2||POL_DRAFT_3||POL_DRAFT_4||POL_DRAFT_5,confidential
+case_number,compliance case identifier,CASE001||CASE002||CASE003||CASE004||CASE005,non_sensitive_pii
+reviewer_id,compliance reviewer code,REV001||REV002||REV003||REV004||REV005,non_sensitive_pii
+review_date,review completion date,2024-03-01||2024-03-02||2024-03-03||2024-03-04||2024-03-05,non_sensitive_pii
+status_code,case status identifier,OPEN||IN_PROGRESS||PENDING||CLOSED||ESCALATED,non_sensitive_pii
+dept_name,department name,COMPLIANCE||AUDIT||LEGAL||RISK||OPERATIONS,non_sensitive_pii
+lexis_data,lexis nexis database license,LEX_001||LEX_002||LEX_003||LEX_004||LEX_005,licensed_data
+dow_jones_risk,risk screening license,DJ_001||DJ_002||DJ_003||DJ_004||DJ_005,licensed_data
+refinitiv_kyc,kyc screening license,RKY_001||RKY_002||RKY_003||RKY_004||RKY_005,licensed_data
+actimize_tool,surveillance system license,ACT_001||ACT_002||ACT_003||ACT_004||ACT_005,licensed_data
+nice_recorder,voice recording license,NICE_001||NICE_002||NICE_003||NICE_004||NICE_005,licensed_data
+attribute_name,description,sample_values,sensitivity_label
+credit_report,financial credit record information,CR_DATA_001||CR_DATA_002||CR_DATA_003||CR_DATA_004||CR_DATA_005,sensitive_pii
+health_status,employee health assessment data,HEALTH_001||HEALTH_002||HEALTH_003||HEALTH_004||HEALTH_005,sensitive_pii
+political_view,employee political affiliations,POL_DATA_001||POL_DATA_002||POL_DATA_003||POL_DATA_004||POL_DATA_005,sensitive_pii
+sys_credentials,risk system access credentials,SYS_PWD_001||SYS_PWD_002||SYS_PWD_003||SYS_PWD_004||SYS_PWD_005,sensitive_pii
+email_content,risk incident email details,EMAIL_CASE_001||EMAIL_CASE_002||EMAIL_CASE_003||EMAIL_CASE_004||EMAIL_CASE_005,sensitive_pii
+risk_model,proprietary risk calculation models,VAR_MODEL_1||STRESS_MODEL_2||CREDIT_MODEL_3||MARKET_MODEL_4||OPS_MODEL_5,confidential
+limit_framework,internal risk limit structure,LIMIT_FRM_1||LIMIT_FRM_2||LIMIT_FRM_3||LIMIT_FRM_4||LIMIT_FRM_5,confidential
+client_exposure,client risk exposure details,EXP_CLI_001||EXP_CLI_002||EXP_CLI_003||EXP_CLI_004||EXP_CLI_005,confidential
+stress_scenario,internal stress test scenarios,STRESS_001||STRESS_002||STRESS_003||STRESS_004||STRESS_005,confidential
+capital_calc,internal capital calculations,CAP_CALC_1||CAP_CALC_2||CAP_CALC_3||CAP_CALC_4||CAP_CALC_5,confidential
+risk_id,risk identifier code,RISK001||RISK002||RISK003||RISK004||RISK005,non_sensitive_pii
+analyst_code,risk analyst identifier,RSKANA001||RSKANA002||RSKANA003||RSKANA004||RSKANA005,non_sensitive_pii
+report_date,report generation date,2024-03-01||2024-03-02||2024-03-03||2024-03-04||2024-03-05,non_sensitive_pii
+risk_category,risk classification type,MARKET||CREDIT||OPERATIONAL||LIQUIDITY||STRATEGIC,non_sensitive_pii
+region_code,regional identifier,APAC||EMEA||AMER||JAPAN||GLOBAL,non_sensitive_pii
+moodys_data,moodys analytics license,MOODY_001||MOODY_002||MOODY_003||MOODY_004||MOODY_005,licensed_data
+sp_risk_feed,s&p risk data license,SP_001||SP_002||SP_003||SP_004||SP_005,licensed_data
+fitch_scores,fitch ratings data license,FITCH_001||FITCH_002||FITCH_003||FITCH_004||FITCH_005,licensed_data
+axioma_risk,risk analytics platform license,AX_001||AX_002||AX_003||AX_004||AX_005,licensed_data
+kamakura_data,risk modeling data license,KAM_001||KAM_002||KAM_003||KAM_004||KAM_005,licensed_data
+attribute_name,description,sample_values,sensitivity_label
+victim_data,legal case victim information,VIC_001||VIC_002||VIC_003||VIC_004||VIC_005,sensitive_pii
+genetic_info,genetic information in cases,GEN_001||GEN_002||GEN_003||GEN_004||GEN_005,sensitive_pii
+religious_info,religious belief information,REL_001||REL_002||REL_003||REL_004||REL_005,sensitive_pii
+login_auth,legal system authentication,AUTH_001||AUTH_002||AUTH_003||AUTH_004||AUTH_005,sensitive_pii
+driver_license,driver's license numbers,DL_001||DL_002||DL_003||DL_004||DL_005,sensitive_pii
+settlement_terms,confidential settlement details,SETTLE_001||SETTLE_002||SETTLE_003||SETTLE_004||SETTLE_005,confidential
+legal_strategy,case strategy documents,STRAT_001||STRAT_002||STRAT_003||STRAT_004||STRAT_005,confidential
+board_minutes,confidential board meeting notes,BOARD_001||BOARD_002||BOARD_003||BOARD_004||BOARD_005,confidential
+merger_docs,confidential merger documents,MERG_001||MERG_002||MERG_003||MERG_004||MERG_005,confidential
+ip_portfolio,intellectual property details,IP_001||IP_002||IP_003||IP_004||IP_005,confidential
+case_id,legal case identifier,CASE001||CASE002||CASE003||CASE004||CASE005,non_sensitive_pii
+attorney_id,attorney identifier code,ATT001||ATT002||ATT003||ATT004||ATT005,non_sensitive_pii
+filing_date,document filing date,2024-03-01||2024-03-02||2024-03-03||2024-03-04||2024-03-05,non_sensitive_pii
+court_code,court identifier code,CRT001||CRT002||CRT003||CRT004||CRT005,non_sensitive_pii
+doc_type,document type identifier,CONTRACT||FILING||MOTION||BRIEF||MEMO,non_sensitive_pii
+westlaw_data,westlaw database license,WL_001||WL_002||WL_003||WL_004||WL_005,licensed_data
+lexis_advance,lexisnexis license,LX_001||LX_002||LX_003||LX_004||LX_005,licensed_data
+practical_law,thomson reuters license,PL_001||PL_002||PL_003||PL_004||PL_005,licensed_data
+docusign_lic,electronic signature license,DS_001||DS_002||DS_003||DS_004||DS_005,licensed_data
+relativity,ediscovery platform license,REL_001||REL_002||REL_003||REL_004||REL_005,licensed_data
+attribute_name,description,sample_values,sensitivity_label
+ops_access_pwd,operations system password,HASH_OPS_001||HASH_OPS_002||HASH_OPS_003||HASH_OPS_004||HASH_OPS_005,sensitive_pii
+med_leave_data,medical leave documentation,MED_LEAVE_001||MED_LEAVE_002||MED_LEAVE_003||MED_LEAVE_004||MED_LEAVE_005,sensitive_pii
+exact_desk_loc,precise desk geolocation,35.6824_139.7648||40.7589_73.9851||51.5074_0.1278||1.2843_103.8607||22.3193_114.1694,sensitive_pii
+racial_data,employee racial information,RACE_DATA_001||RACE_DATA_002||RACE_DATA_003||RACE_DATA_004||RACE_DATA_005,sensitive_pii
+union_records,union membership details,UNION_001||UNION_002||UNION_003||UNION_004||UNION_005,sensitive_pii
+settle_process,settlement process details,SETTLE_PROC_1||SETTLE_PROC_2||SETTLE_PROC_3||SETTLE_PROC_4||SETTLE_PROC_5,confidential
+client_account,client account information,CLI_ACC_001||CLI_ACC_002||CLI_ACC_003||CLI_ACC_004||CLI_ACC_005,confidential
+ops_procedure,operational procedures,OPS_PROC_001||OPS_PROC_002||OPS_PROC_003||OPS_PROC_004||OPS_PROC_005,confidential
+vendor_terms,vendor agreement details,VENDOR_001||VENDOR_002||VENDOR_003||VENDOR_004||VENDOR_005,confidential
+system_config,system configuration details,SYS_CONF_001||SYS_CONF_002||SYS_CONF_003||SYS_CONF_004||SYS_CONF_005,confidential
+employee_id,employee identifier,EMP001||EMP002||EMP003||EMP004||EMP005,non_sensitive_pii
+desk_phone,office phone extension,x1234||x5678||x9012||x3456||x7890,non_sensitive_pii
+shift_code,work shift identifier,SHIFT_A||SHIFT_B||SHIFT_C||SHIFT_D||SHIFT_E,non_sensitive_pii
+process_date,processing date,2024-03-01||2024-03-02||2024-03-03||2024-03-04||2024-03-05,non_sensitive_pii
+team_code,team identifier code,TEAM_001||TEAM_002||TEAM_003||TEAM_004||TEAM_005,non_sensitive_pii
+omgeo_ctl,trade matching license,OMG_001||OMG_002||OMG_003||OMG_004||OMG_005,licensed_data
+swift_alliance,swift network license,SWIFT_001||SWIFT_002||SWIFT_003||SWIFT_004||SWIFT_005,licensed_data
+broadridge_bps,back office system license,BPS_001||BPS_002||BPS_003||BPS_004||BPS_005,licensed_data
+dtcc_service,clearing house data license,DTCC_001||DTCC_002||DTCC_003||DTCC_004||DTCC_005,licensed_data
+calypso_sys,operations platform license,CAL_001||CAL_002||CAL_003||CAL_004||CAL_005,licensed_data
+attribute_name,description,sample_values,sensitivity_label
+client_ssn,client social security number,SSN_001||SSN_002||SSN_003||SSN_004||SSN_005,sensitive_pii
+client_passport,client passport numbers,PASS_001||PASS_002||PASS_003||PASS_004||PASS_005,sensitive_pii
+kr_client_pci,korean client credit information,KR_PCI_001||KR_PCI_002||KR_PCI_003||KR_PCI_004||KR_PCI_005,sensitive_pii
+portal_pwd,client portal password,PORT_PWD_001||PORT_PWD_002||PORT_PWD_003||PORT_PWD_004||PORT_PWD_005,sensitive_pii
+client_health,client health information,HEALTH_001||HEALTH_002||HEALTH_003||HEALTH_004||HEALTH_005,sensitive_pii
+investment_strat,client investment strategy,INV_STRAT_001||INV_STRAT_002||INV_STRAT_003||INV_STRAT_004||INV_STRAT_005,confidential
+fee_structure,client fee arrangements,FEE_001||FEE_002||FEE_003||FEE_004||FEE_005,confidential
+service_level,service agreement details,SLA_001||SLA_002||SLA_003||SLA_004||SLA_005,confidential
+meeting_notes,client meeting minutes,MEET_001||MEET_002||MEET_003||MEET_004||MEET_005,confidential
+portfolio_data,client portfolio details,PORT_001||PORT_002||PORT_003||PORT_004||PORT_005,confidential
+client_code,client identifier code,CLI001||CLI002||CLI003||CLI004||CLI005,non_sensitive_pii
+service_type,service category code,SERV_A||SERV_B||SERV_C||SERV_D||SERV_E,non_sensitive_pii
+region_code,client region code,APAC||EMEA||AMER||JAPAN||GLOBAL,non_sensitive_pii
+status_code,account status code,ACTIVE||INACTIVE||PENDING||CLOSED||SUSPENDED,non_sensitive_pii
+segment_code,client segment code,RETAIL||CORP||INST||GOVT||HNW,non_sensitive_pii
+salesforce_lic,crm system license,SF_001||SF_002||SF_003||SF_004||SF_005,licensed_data
+factset_port,portfolio system license,FS_001||FS_002||FS_003||FS_004||FS_005,licensed_data
+bloomberg_term,terminal service license,BBG_001||BBG_002||BBG_003||BBG_004||BBG_005,licensed_data
+morningstar_adv,advisory platform license,MS_001||MS_002||MS_003||MS_004||MS_005,licensed_data
+refinitiv_one,client platform license,RT_001||RT_002||RT_003||RT_004||RT_005,licensed_data
+attribute_name,description,sample_values,sensitivity_label
+bank_pwd,banking system password credentials,PWD_HASH_001||PWD_HASH_002||PWD_HASH_003||PWD_HASH_004||PWD_HASH_005,sensitive_pii
+acc_login,financial system login credentials,LOGIN_001||LOGIN_002||LOGIN_003||LOGIN_004||LOGIN_005,sensitive_pii
+jp_my_num,japan my number for payroll,JPN_MN_001||JPN_MN_002||JPN_MN_003||JPN_MN_004||JPN_MN_005,sensitive_pii
+kr_pci_data,korean personal credit records,KR_PCI_001||KR_PCI_002||KR_PCI_003||KR_PCI_004||KR_PCI_005,sensitive_pii
+credit_record,personal credit information,CRED_001||CRED_002||CRED_003||CRED_004||CRED_005,sensitive_pii
+pnl_report,profit loss statement details,PNL_Q1_24||PNL_Q2_24||PNL_Q3_24||PNL_Q4_24||PNL_YE_24,confidential
+fund_strategy,funding strategy details,FUND_001||FUND_002||FUND_003||FUND_004||FUND_005,confidential
+capital_plan,capital allocation plans,CAP_001||CAP_002||CAP_003||CAP_004||CAP_005,confidential
+cost_structure,internal cost framework,COST_001||COST_002||COST_003||COST_004||COST_005,confidential
+budget_review,confidential budget analysis,BUD_001||BUD_002||BUD_003||BUD_004||BUD_005,confidential
+first_name,employee first name,John||Mary||Robert||David||Sarah,non_sensitive_pii
+last_name,employee last name,Smith||Johnson||Williams||Brown||Jones,non_sensitive_pii
+work_email,corporate email address,j.smith@nomura.com||m.johnson@nomura.com||r.williams@nomura.com||d.brown@nomura.com,non_sensitive_pii
+title,job title,Accountant||Controller||Manager||Director||VP,non_sensitive_pii
+emp_id,employee identifier,E001||E002||E003||E004||E005,non_sensitive_pii
+sap_license,enterprise system license,SAP_001||SAP_002||SAP_003||SAP_004||SAP_005,licensed_data
+oracle_fin,financial system license,ORA_001||ORA_002||ORA_003||ORA_004||ORA_005,licensed_data
+bloomberg_data,market data license,BBG_001||BBG_002||BBG_003||BBG_004||BBG_005,licensed_data
+factset_data,financial data license,FST_001||FST_002||FST_003||FST_004||FST_005,licensed_data
+refinitiv_eikon,market data terminal license,EIK_001||EIK_002||EIK_003||EIK_004||EIK_005,licensed_data
+attribute_name,description,sample_values,sensitivity_label
+custodian_auth,custodian account credentials,CUST_PWD_001||CUST_PWD_002||CUST_PWD_003||CUST_PWD_004||CUST_PWD_005,sensitive_pii
+broker_kyc,broker personal identity details,BRK_ID_001||BRK_ID_002||BRK_ID_003||BRK_ID_004||BRK_ID_005,sensitive_pii
+trader_origin,trader ethnic background data,ETH_001||ETH_002||ETH_003||ETH_004||ETH_005,sensitive_pii
+agent_license,personal trading license numbers,LIC_001||LIC_002||LIC_003||LIC_004||LIC_005,sensitive_pii
+secure_token,settlement system token auth,TOK_001||TOK_002||TOK_003||TOK_004||TOK_005,sensitive_pii
+margin_rates,internal margin calculation rates,MAR_RATE_001||MAR_RATE_002||MAR_RATE_003||MAR_RATE_004||MAR_RATE_005,confidential
+netting_rules,proprietary netting logic,NET_RULE_001||NET_RULE_002||NET_RULE_003||NET_RULE_004||NET_RULE_005,confidential
+broker_terms,confidential broker agreements,BRK_TERM_001||BRK_TERM_002||BRK_TERM_003||BRK_TERM_004||BRK_TERM_005,confidential
+fail_metrics,settlement fail statistics,FAIL_001||FAIL_002||FAIL_003||FAIL_004||FAIL_005,confidential
+clearing_cost,internal clearing cost structure,CLR_COST_001||CLR_COST_002||CLR_COST_003||CLR_COST_004||CLR_COST_005,confidential
+agent_name,settlement agent name,Robert Smith||Mary Johnson||David Chen||Sarah Wilson||James Brown,non_sensitive_pii
+settle_code,unique settlement reference,STL_001||STL_002||STL_003||STL_004||STL_005,non_sensitive_pii
+broker_email,broker contact email,broker1@company.com||broker2@company.com||broker3@company.com||broker4@company.com||broker5@company.com,non_sensitive_pii
+agent_ext,agent phone extension,EXT_001||EXT_002||EXT_003||EXT_004||EXT_005,non_sensitive_pii
+entity_code,legal entity identifier,ENT_001||ENT_002||ENT_003||ENT_004||ENT_005,non_sensitive_pii
+euroclear_data,clearing house data license,ECL_001||ECL_002||ECL_003||ECL_004||ECL_005,licensed_data
+clearstream_api,settlement system license,CST_001||CST_002||CST_003||CST_004||CST_005,licensed_data
+crestco_feed,settlement data feed license,CRS_001||CRS_002||CRS_003||CRS_004||CRS_005,licensed_data
+jasdec_link,japan depository connection,JAS_001||JAS_002||JAS_003||JAS_004||JAS_005,licensed_data
+finastra_sys,settlement platform license,FIN_001||FIN_002||FIN_003||FIN_004||FIN_005,licensed_data
+attribute_name,description,sample_values,sensitivity_label
+analyst_belief,analyst religious affiliation data,REL_ANA_001||REL_ANA_002||REL_ANA_003||REL_ANA_004||REL_ANA_005,sensitive_pii
+expert_health,expert network health records,EXP_MED_001||EXP_MED_002||EXP_MED_003||EXP_MED_004||EXP_MED_005,sensitive_pii
+kol_location,key opinion leader precise location,35.6897_139.6922||51.5099_0.1337||40.7178_74.0111||22.3964_114.1095||1.3656_103.8518,sensitive_pii
+research_2fa,research portal 2factor auth,2FA_RES_001||2FA_RES_002||2FA_RES_003||2FA_RES_004||2FA_RES_005,sensitive_pii
+expert_union,expert network union membership,UNION_EXP_001||UNION_EXP_002||UNION_EXP_003||UNION_EXP_004||UNION_EXP_005,sensitive_pii
+alpha_models,proprietary stock ranking models,ALPHA_001||ALPHA_002||ALPHA_003||ALPHA_004||ALPHA_005,confidential
+coverage_plan,research coverage strategy,COV_PLAN_001||COV_PLAN_002||COV_PLAN_003||COV_PLAN_004||COV_PLAN_005,confidential
+expert_terms,expert network agreement details,EXP_TERM_001||EXP_TERM_002||EXP_TERM_003||EXP_TERM_004||EXP_TERM_005,confidential
+channel_data,channel check findings,CHNL_001||CHNL_002||CHNL_003||CHNL_004||CHNL_005,confidential
+survey_results,proprietary survey analysis,SURV_001||SURV_002||SURV_003||SURV_004||SURV_005,confidential
+analyst_alias,research analyst alias,ANA_001||ANA_002||ANA_003||ANA_004||ANA_005,non_sensitive_pii
+sector_name,coverage sector name,Technology||Healthcare||Finance||Energy||Consumer,non_sensitive_pii
+pub_status,publication status code,Draft||Review||Final||Published||Archived,non_sensitive_pii
+report_type,research report category,Initiation||Update||Flash||Deep_Dive||Sector_View,non_sensitive_pii
+distribution,report distribution list,DIST_001||DIST_002||DIST_003||DIST_004||DIST_005,non_sensitive_pii
+ibes_estimates,earnings estimate license,IBES_001||IBES_002||IBES_003||IBES_004||IBES_005,licensed_data
+visible_alpha,consensus data platform,VA_001||VA_002||VA_003||VA_004||VA_005,licensed_data
+alphasense_api,research platform license,AS_001||AS_002||AS_003||AS_004||AS_005,licensed_data
+expertnet_data,expert network database,EN_001||EN_002||EN_003||EN_004||EN_005,licensed_data
+streetevents,events transcript license,SE_001||SE_002||SE_003||SE_004||SE_005,licensed_data
+attribute_name,description,sample_values,sensitivity_label
+dealer_ssn,dealer social security numbers,SSN_DLR_001||SSN_DLR_002||SSN_DLR_003||SSN_DLR_004||SSN_DLR_005,sensitive_pii
+trader_finance,trader financial records data,FIN_TRD_001||FIN_TRD_002||FIN_TRD_003||FIN_TRD_004||FIN_TRD_005,sensitive_pii
+member_status,union membership verification,MEM_UNI_001||MEM_UNI_002||MEM_UNI_003||MEM_UNI_004||MEM_UNI_005,sensitive_pii
+control_auth,product control system password,CTL_PWD_001||CTL_PWD_002||CTL_PWD_003||CTL_PWD_004||CTL_PWD_005,sensitive_pii
+pnl_access,profit loss system credentials,PNL_ACC_001||PNL_ACC_002||PNL_ACC_003||PNL_ACC_004||PNL_ACC_005,sensitive_pii
+pricing_model,proprietary pricing methodology,PRICE_001||PRICE_002||PRICE_003||PRICE_004||PRICE_005,confidential
+booking_rules,internal booking guidelines,BOOK_001||BOOK_002||BOOK_003||BOOK_004||BOOK_005,confidential
+reserve_calc,reserve calculation logic,RES_001||RES_002||RES_003||RES_004||RES_005,confidential
+exposure_limit,product exposure thresholds,EXP_001||EXP_002||EXP_003||EXP_004||EXP_005,confidential
+margin_logic,margin calculation rules,MAR_001||MAR_002||MAR_003||MAR_004||MAR_005,confidential
+controller_id,product controller identifier,PC_001||PC_002||PC_003||PC_004||PC_005,non_sensitive_pii
+book_name,trading book designation,FX_Book||Rates_Book||Credit_Book||Equity_Book||Commodity_Book,non_sensitive_pii
+verify_level,verification level code,Level1||Level2||Level3||Level4||Level5,non_sensitive_pii
+desk_alias,trading desk alias,Desk_A||Desk_B||Desk_C||Desk_D||Desk_E,non_sensitive_pii
+queue_id,verification queue number,Q001||Q002||Q003||Q004||Q005,non_sensitive_pii
+murex_system,trading system license,MX_001||MX_002||MX_003||MX_004||MX_005,licensed_data
+summit_platform,product control platform,SUM_001||SUM_002||SUM_003||SUM_004||SUM_005,licensed_data
+sophis_toolkit,derivatives system license,SPH_001||SPH_002||SPH_003||SPH_004||SPH_005,licensed_data
+calypso_market,market data integration,CAL_001||CAL_002||CAL_003||CAL_004||CAL_005,licensed_data
+openlink_end,eod processing license,OL_001||OL_002||OL_003||OL_004||OL_005,licensed_data
+attribute_name,description,sample_values,sensitivity_label
+risk_auth_pwd,market risk system password,PWD_RISK_001||PWD_RISK_002||PWD_RISK_003||PWD_RISK_004||PWD_RISK_005,sensitive_pii
+genetic_data,employee genetic test results,GEN_TEST_001||GEN_TEST_002||GEN_TEST_003||GEN_TEST_004||GEN_TEST_005,sensitive_pii
+voter_status,political affiliation records,POL_AFF_001||POL_AFF_002||POL_AFF_003||POL_AFF_004||POL_AFF_005,sensitive_pii
+biometric_scan,risk access biometric data,BIO_SCAN_001||BIO_SCAN_002||BIO_SCAN_003||BIO_SCAN_004||BIO_SCAN_005,sensitive_pii
+crime_record,risk staff criminal history,CRIM_001||CRIM_002||CRIM_003||CRIM_004||CRIM_005,sensitive_pii
+var_limits,internal var limit framework,VAR_LMT_001||VAR_LMT_002||VAR_LMT_003||VAR_LMT_004||VAR_LMT_005,confidential
+scenario_def,proprietary scenario definitions,SCEN_001||SCEN_002||SCEN_003||SCEN_004||SCEN_005,confidential
+greeks_calc,greek calculation methodology,GREEK_001||GREEK_002||GREEK_003||GREEK_004||GREEK_005,confidential
+corr_matrix,correlation matrix details,CORR_001||CORR_002||CORR_003||CORR_004||CORR_005,confidential
+factor_model,risk factor model specs,FACT_001||FACT_002||FACT_003||FACT_004||FACT_005,confidential
+analyst_phone,risk analyst work phone,x8001||x8002||x8003||x8004||x8005,non_sensitive_pii
+desk_contact,trading desk contact email,desk1@company.com||desk2@company.com||desk3@company.com||desk4@company.com||desk5@company.com,non_sensitive_pii
+unit_name,business unit name,Equity_Risk||FX_Risk||Rates_Risk||Credit_Risk||Commodity_Risk,non_sensitive_pii
+report_alias,report distribution alias,REPORT_A||REPORT_B||REPORT_C||REPORT_D||REPORT_E,non_sensitive_pii
+review_code,risk review identifier,REV_001||REV_002||REV_003||REV_004||REV_005,non_sensitive_pii
+msci_model,risk model license data,MSCI_001||MSCI_002||MSCI_003||MSCI_004||MSCI_005,licensed_data
+axioma_port,portfolio analytics license,AX_001||AX_002||AX_003||AX_004||AX_005,licensed_data
+riskmetrics,risk metrics data service,RM_001||RM_002||RM_003||RM_004||RM_005,licensed_data
+blackrock_aladdin,risk platform license,BR_001||BR_002||BR_003||BR_004||BR_005,licensed_data
+barclays_point,fixed income risk data,BP_001||BP_002||BP_003||BP_004||BP_005,licensed_data
+attribute_name,description,sample_values,sensitivity_label
+treasury_login,treasury system credentials,TPWD_001||TPWD_002||TPWD_003||TPWD_004||TPWD_005,sensitive_pii
+jp_residence,japan domicile information,JPN_DOM_001||JPN_DOM_002||JPN_DOM_003||JPN_DOM_004||JPN_DOM_005,sensitive_pii
+med_clearance,treasury staff health records,MED_CLR_001||MED_CLR_002||MED_CLR_003||MED_CLR_004||MED_CLR_005,sensitive_pii
+card_details,corporate card numbers,CARD_001||CARD_002||CARD_003||CARD_004||CARD_005,sensitive_pii
+gps_location,staff precise location data,35.6961_139.7636||51.5074_0.1278||40.7128_74.0060||1.3521_103.8198||22.3193_114.1694,sensitive_pii
+funding_rates,internal funding rate model,FUND_001||FUND_002||FUND_003||FUND_004||FUND_005,confidential
+collat_haircut,collateral haircut rules,COLL_001||COLL_002||COLL_003||COLL_004||COLL_005,confidential
+buffer_policy,liquidity buffer policy,BUF_001||BUF_002||BUF_003||BUF_004||BUF_005,confidential
+broker_limits,money broker limit structure,BRK_LMT_001||BRK_LMT_002||BRK_LMT_003||BRK_LMT_004||BRK_LMT_005,confidential
+margin_alloc,margin allocation strategy,MAR_ALLOC_001||MAR_ALLOC_002||MAR_ALLOC_003||MAR_ALLOC_004||MAR_ALLOC_005,confidential
+treasury_name,treasury staff name,James Wilson||Sarah Chen||Michael Brown||Lisa Taylor||Robert Park,non_sensitive_pii
+team_email,treasury team email,team1@treasury.com||team2@treasury.com||team3@treasury.com||team4@treasury.com||team5@treasury.com,non_sensitive_pii
+desk_location,general office location,Tokyo||London||NewYork||Singapore||HongKong,non_sensitive_pii
+group_code,treasury group code,TG_001||TG_002||TG_003||TG_004||TG_005,non_sensitive_pii
+role_type,treasury role designation,Dealer||Manager||Analyst||Controller||Supervisor,non_sensitive_pii
+fis_treasury,treasury system license,FIS_001||FIS_002||FIS_003||FIS_004||FIS_005,licensed_data
+kyriba_access,treasury platform license,KYR_001||KYR_002||KYR_003||KYR_004||KYR_005,licensed_data
+refinitiv_fxall,fx trading platform license,FXA_001||FXA_002||FXA_003||FXA_004||FXA_005,licensed_data
+360t_platform,trading platform license,360T_001||360T_002||360T_003||360T_004||360T_005,licensed_data
+bloomberg_fxgo,fx dealing license,FXGO_001||FXGO_002||FXGO_003||FXGO_004||FXGO_005,licensed_data
+attribute_name,description,sample_values,sensitivity_label
+isda_passport,trader passport identification,PASS_001||PASS_002||PASS_003||PASS_004||PASS_005,sensitive_pii
+bond_auth_key,bond system login credentials,AUTH_FI_001||AUTH_FI_002||AUTH_FI_003||AUTH_FI_004||AUTH_FI_005,sensitive_pii
+kr_credit_info,korean dealer credit records,KR_CRD_001||KR_CRD_002||KR_CRD_003||KR_CRD_004||KR_CRD_005,sensitive_pii
+health_waiver,dealer health certification,HLTH_001||HLTH_002||HLTH_003||HLTH_004||HLTH_005,sensitive_pii
+track_device,precise dealer location tracker,40.7589_73.9851||51.5074_0.1278||35.6961_139.7636||1.2843_103.8607||22.2783_114.1747,sensitive_pii
+spread_model,bond spread calculation model,SPR_MOD_001||SPR_MOD_002||SPR_MOD_003||SPR_MOD_004||SPR_MOD_005,confidential
+curve_method,yield curve construction method,CURVE_001||CURVE_002||CURVE_003||CURVE_004||CURVE_005,confidential
+quote_matrix,internal quote determination,QUOTE_001||QUOTE_002||QUOTE_003||QUOTE_004||QUOTE_005,confidential
+dealer_flow,dealer flow analysis metrics,FLOW_001||FLOW_002||FLOW_003||FLOW_004||FLOW_005,confidential
+issuance_plan,new issuance planning data,ISSUE_001||ISSUE_002||ISSUE_003||ISSUE_004||ISSUE_005,confidential
+dealer_nick,dealer nickname,NICK_001||NICK_002||NICK_003||NICK_004||NICK_005,non_sensitive_pii
+book_email,booking desk email,book1@fi.com||book2@fi.com||book3@fi.com||book4@fi.com||book5@fi.com,non_sensitive_pii
+position_ref,position reference number,POS_001||POS_002||POS_003||POS_004||POS_005,non_sensitive_pii
+bond_alias,bond trading desk alias,GOVT_DESK||CORP_DESK||HY_DESK||EM_DESK||TIPS_DESK,non_sensitive_pii
+flow_type,trading flow category,Primary||Secondary||Repo||Switch||Unwind,non_sensitive_pii
+tradeweb_sys,bond trading platform license,TW_001||TW_002||TW_003||TW_004||TW_005,licensed_data
+marketaxess,trading system license,MA_001||MA_002||MA_003||MA_004||MA_005,licensed_data
+bondvision,bond pricing platform license,BV_001||BV_002||BV_003||BV_004||BV_005,licensed_data
+fenics_data,pricing data service license,FEN_001||FEN_002||FEN_003||FEN_004||FEN_005,licensed_data
+bval_service,bloomberg valuation license,BVAL_001||BVAL_002||BVAL_003||BVAL_004||BVAL_005,licensed_data
+attribute_name,description,sample_values,sensitivity_label
+deriv_auth,derivatives system credentials,DER_PWD_001||DER_PWD_002||DER_PWD_003||DER_PWD_004||DER_PWD_005,sensitive_pii
+social_number,trader social security id,SSN_TR_001||SSN_TR_002||SSN_TR_003||SSN_TR_004||SSN_TR_005,sensitive_pii
+dealer_biometric,dealer biometric scan data,BIO_DER_001||BIO_DER_002||BIO_DER_003||BIO_DER_004||BIO_DER_005,sensitive_pii
+origin_data,dealer ethnic origin info,ETH_DER_001||ETH_DER_002||ETH_DER_003||ETH_DER_004||ETH_DER_005,sensitive_pii
+license_num,trading license numbers,LIC_DER_001||LIC_DER_002||LIC_DER_003||LIC_DER_004||LIC_DER_005,sensitive_pii
+vol_surface,volatility surface models,VOL_001||VOL_002||VOL_003||VOL_004||VOL_005,confidential
+hedge_strat,hedging strategy details,HEDGE_001||HEDGE_002||HEDGE_003||HEDGE_004||HEDGE_005,confidential
+pricing_rule,internal pricing guidelines,PRICE_001||PRICE_002||PRICE_003||PRICE_004||PRICE_005,confidential
+skew_model,skew calculation methodology,SKEW_001||SKEW_002||SKEW_003||SKEW_004||SKEW_005,confidential
+basket_weights,proprietary basket weights,BSKT_001||BSKT_002||BSKT_003||BSKT_004||BSKT_005,confidential
+dealer_initial,dealer initials,JMS||RBT||MKL||SAR||DVD,non_sensitive_pii
+desk_contact,desk contact details,desk1@deriv.com||desk2@deriv.com||desk3@deriv.com||desk4@deriv.com||desk5@deriv.com,non_sensitive_pii
+product_code,derivative product code,OPT_001||FUT_002||SWP_003||WAR_004||CFD_005,non_sensitive_pii
+queue_ref,processing queue reference,Q001||Q002||Q003||Q004||Q005,non_sensitive_pii
+batch_id,processing batch identifier,B001||B002||B003||B004||B005,non_sensitive_pii
+superderivs,derivatives pricing license,SD_001||SD_002||SD_003||SD_004||SD_005,licensed_data
+numerix_pkg,pricing model license,NX_001||NX_002||NX_003||NX_004||NX_005,licensed_data
+fincad_suite,analytics package license,FIN_001||FIN_002||FIN_003||FIN_004||FIN_005,licensed_data
+oneview_risk,risk analytics license,OV_001||OV_002||OV_003||OV_004||OV_005,licensed_data
+razor_risk,risk system license,RR_001||RR_002||RR_003||RR_004||RR_005,licensed_data
+attribute_name,description,sample_values,sensitivity_label
+access_pin,trading terminal pin code,PIN_123||PIN_456||PIN_789||PIN_012||PIN_345,sensitive_pii
+trader_dob,trader date of birth data,DOB_001||DOB_002||DOB_003||DOB_004||DOB_005,sensitive_pii
+desk_gps,exact trading desk coordinates,35.6861_139.7244||51.5099_0.1337||40.7128_74.0060||1.2834_103.8607||22.2843_114.1615,sensitive_pii
+private_mail,trader personal email content,MAIL_001||MAIL_002||MAIL_003||MAIL_004||MAIL_005,sensitive_pii
+union_code,trader union membership code,UNI_001||UNI_002||UNI_003||UNI_004||UNI_005,sensitive_pii
+algo_logic,proprietary trading algorithm,ALGO_001||ALGO_002||ALGO_003||ALGO_004||ALGO_005,confidential
+cross_rules,internal crossing rules,CROSS_001||CROSS_002||CROSS_003||CROSS_004||CROSS_005,confidential
+routing_strat,smart order routing strategy,ROUTE_001||ROUTE_002||ROUTE_003||ROUTE_004||ROUTE_005,confidential
+fill_ratios,internal fill ratio metrics,FILL_001||FILL_002||FILL_003||FILL_004||FILL_005,confidential
+venue_cost,venue cost analysis data,COST_001||COST_002||COST_003||COST_004||COST_005,confidential
+trader_alias,trading floor nickname,WOLF||HAWK||EAGLE||BEAR||BULL,non_sensitive_pii
+venue_code,trading venue identifier,NYSE||NASDAQ||LSE||TSE||SGX,non_sensitive_pii
+order_type,order classification type,MARKET||LIMIT||STOP||VWAP||TWAP,non_sensitive_pii
+session_id,trading session identifier,AM_001||PM_002||FULL_003||HALF_004||CLOSE_005,non_sensitive_pii
+flow_code,order flow identifier,RETAIL||INST||PROP||ALGO||DMA,non_sensitive_pii
+ullink_xoff,execution system license,UL_001||UL_002||UL_003||UL_004||UL_005,licensed_data
+pts_platform,trading platform license,PTS_001||PTS_002||PTS_003||PTS_004||PTS_005,licensed_data
+smart_trade,smart routing license,ST_001||ST_002||ST_003||ST_004||ST_005,licensed_data
+fidessa_exp,execution platform license,FID_001||FID_002||FID_003||FID_004||FID_005,licensed_data
+itiviti_sys,order management license,IT_001||IT_002||IT_003||IT_004||IT_005,licensed_data
+attribute_name,description,sample_values,sensitivity_label
+mf_acc_pwd,mutual fund access password,MF_PWD_001||MF_PWD_002||MF_PWD_003||MF_PWD_004||MF_PWD_005,sensitive_pii
+investor_faith,investor religious beliefs data,REL_INV_001||REL_INV_002||REL_INV_003||REL_INV_004||REL_INV_005,sensitive_pii
+block_device,block trader location tracker,35.6594_139.7089||51.5074_0.1278||40.7829_73.9654||22.3193_114.1694||1.2789_103.8536,sensitive_pii
+kyc_mailbox,kyc document email contents,KYC_MAIL_001||KYC_MAIL_002||KYC_MAIL_003||KYC_MAIL_004||KYC_MAIL_005,sensitive_pii
+demat_unique,unique demat account numbers,DEMAT_001||DEMAT_002||DEMAT_003||DEMAT_004||DEMAT_005,sensitive_pii
+dark_pool,dark pool execution logic,DARK_001||DARK_002||DARK_003||DARK_004||DARK_005,confidential
+block_method,block trade execution method,BLOCK_001||BLOCK_002||BLOCK_003||BLOCK_004||BLOCK_005,confidential
+basket_logic,basket trading algorithm,BSKT_001||BSKT_002||BSKT_003||BSKT_004||BSKT_005,confidential
+cross_engine,internal crossing engine rules,CROSS_001||CROSS_002||CROSS_003||CROSS_004||CROSS_005,confidential
+maker_taker,maker-taker fee structure,FEE_001||FEE_002||FEE_003||FEE_004||FEE_005,confidential
+stock_code,stock trading identifier,STOCK_001||STOCK_002||STOCK_003||STOCK_004||STOCK_005,non_sensitive_pii
+branch_id,trading branch identifier,BR_001||BR_002||BR_003||BR_004||BR_005,non_sensitive_pii
+broker_name,stock broker name,John Smith||Mary Johnson||Robert Chen||Sarah Wilson||Mike Davis,non_sensitive_pii
+market_seg,market segment code,CASH||F&O||SLB||BLOCK||ODD_LOT,non_sensitive_pii
+series_type,stock series identifier,EQ||BE||SM||ST||IT,non_sensitive_pii
+iress_quote,stock quote license feed,IRQ_001||IRQ_002||IRQ_003||IRQ_004||IRQ_005,licensed_data
+xstream_data,market data feed license,XS_001||XS_002||XS_003||XS_004||XS_005,licensed_data
+metastock_pro,technical analysis license,MS_001||MS_002||MS_003||MS_004||MS_005,licensed_data
+qt_platform,quantitative trading license,QT_001||QT_002||QT_003||QT_004||QT_005,licensed_data
+nasdaq_taq,trade and quote feed license,TAQ_001||TAQ_002||TAQ_003||TAQ_004||TAQ_005,licensed_data
+attribute_name,description,sample_values,sensitivity_label
+opt_login_key,options terminal login credentials,OPT_PWD_001||OPT_PWD_002||OPT_PWD_003||OPT_PWD_004||OPT_PWD_005,sensitive_pii
+genetic_prof,trader genetic profile data,GEN_001||GEN_002||GEN_003||GEN_004||GEN_005,sensitive_pii
+option_ssn,option trader social security,SSN_OPT_001||SSN_OPT_002||SSN_OPT_003||SSN_OPT_004||SSN_OPT_005,sensitive_pii
+vote_history,trader political affiliation,POL_OPT_001||POL_OPT_002||POL_OPT_003||POL_OPT_004||POL_OPT_005,sensitive_pii
+priv_messages,private chat communications,MSG_001||MSG_002||MSG_003||MSG_004||MSG_005,sensitive_pii
+vol_strategy,volatility trading strategy,VOL_STRAT_001||VOL_STRAT_002||VOL_STRAT_003||VOL_STRAT_004||VOL_STRAT_005,confidential
+gamma_model,gamma hedging methodology,GAMMA_001||GAMMA_002||GAMMA_003||GAMMA_004||GAMMA_005,confidential
+spread_logic,option spread calculations,SPREAD_001||SPREAD_002||SPREAD_003||SPREAD_004||SPREAD_005,confidential
+expiry_rules,internal expiry handling rules,EXP_RULE_001||EXP_RULE_002||EXP_RULE_003||EXP_RULE_004||EXP_RULE_005,confidential
+risk_params,risk parameter settings,RISK_001||RISK_002||RISK_003||RISK_004||RISK_005,confidential
+option_class,option classification code,PUT||CALL||COMBO||LEAP||BINARY,non_sensitive_pii
+strike_code,strike price identifier,STRIKE_001||STRIKE_002||STRIKE_003||STRIKE_004||STRIKE_005,non_sensitive_pii
+expiry_month,option expiry month code,JAN24||FEB24||MAR24||APR24||MAY24,non_sensitive_pii
+series_name,option series name,SERIES_A||SERIES_B||SERIES_C||SERIES_D||SERIES_E,non_sensitive_pii
+lot_size,contract lot size code,LOT_100||LOT_500||LOT_1000||LOT_5000||LOT_10000,non_sensitive_pii
+livevol_pro,options analytics license,LV_001||LV_002||LV_003||LV_004||LV_005,licensed_data
+optionvue,options trading platform license,OV_001||OV_002||OV_003||OV_004||OV_005,licensed_data
+cboe_edge,exchange data feed license,CBOE_001||CBOE_002||CBOE_003||CBOE_004||CBOE_005,licensed_data
+opra_feed,options price reporting license,OPRA_001||OPRA_002||OPRA_003||OPRA_004||OPRA_005,licensed_data
+strike_scan,strike scanner tool license,SS_001||SS_002||SS_003||SS_004||SS_005,licensed_data
