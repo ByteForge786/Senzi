@@ -4,6 +4,7 @@ from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.model_selection import cross_val_predict
 from sklearn.metrics import classification_report
+from sklearn.preprocessing import LabelEncoder
 import xgboost as xgb
 from typing import List, Dict, Optional, Tuple
 import logging
@@ -37,12 +38,6 @@ class LabelDefinitionParser:
         
         Licensed data:
         <definition>
-        
-        Args:
-            filepath: Path to the text file containing label definitions
-            
-        Returns:
-            Dictionary mapping label names to their definitions
         """
         try:
             with open(filepath, 'r', encoding='utf-8') as f:
@@ -92,13 +87,6 @@ class TextProcessor:
     def chunk_and_embed(self, text: str, chunk_size: int = 512) -> np.ndarray:
         """
         Handle long text by chunking and generating context-aware embeddings.
-        
-        Args:
-            text: Input text to be chunked and embedded
-            chunk_size: Maximum size of each chunk
-            
-        Returns:
-            np.ndarray: Context-aware embedding
         """
         if not text or chunk_size <= 0:
             raise ValueError("Text must not be empty and chunk_size must be positive")
@@ -139,9 +127,10 @@ class AttributeAnalyzer:
     """Main class for analyzing attributes and making predictions."""
     
     def __init__(self):
-        """Initialize with text processor and empty cache."""
+        """Initialize with text processor, empty cache, and label encoder."""
         self.text_processor = TextProcessor()
         self.label_embeddings_cache: Dict[str, np.ndarray] = {}
+        self.label_encoder = LabelEncoder()
     
     def _get_label_embedding(self, label: str, definition: str) -> np.ndarray:
         """Get cached embedding for label definition or compute if not cached."""
@@ -155,13 +144,6 @@ class AttributeAnalyzer:
                                   label_definitions: Dict[str, str]) -> pd.DataFrame:
         """
         Compute cosine similarities between attributes and label definitions.
-        
-        Args:
-            data: DataFrame with attribute_name, description, and label columns
-            label_definitions: Dictionary mapping labels to their definitions
-            
-        Returns:
-            DataFrame with similarity scores and predictions
         """
         logger.info(f"Computing similarities for {len(data)} attributes")
         results = []
@@ -197,16 +179,10 @@ class AttributeAnalyzer:
         return pd.DataFrame(results)
     
     def prepare_xgboost_data(self, data: pd.DataFrame, 
-                            label_definitions: Dict[str, str]) -> Tuple[pd.DataFrame, np.ndarray]:
+                            label_definitions: Dict[str, str],
+                            is_training: bool = True) -> Tuple[pd.DataFrame, np.ndarray]:
         """
-        Prepare data for XGBoost training.
-        
-        Args:
-            data: Input DataFrame
-            label_definitions: Dictionary of label definitions
-            
-        Returns:
-            Tuple of (feature DataFrame, label array)
+        Prepare data for XGBoost training with encoded labels.
         """
         features = []
         
@@ -216,15 +192,12 @@ class AttributeAnalyzer:
                 f"Description context: {row['description']}"
             )
             
-            # Get context-aware embedding
             combined_embedding = self.text_processor.chunk_and_embed(text_with_context)
             
-            # Create feature dictionary
             feature_dict = {
                 'text_embedding': combined_embedding.flatten()
             }
             
-            # Add similarities to label definitions as features
             for label, definition in label_definitions.items():
                 def_embedding = self._get_label_embedding(label, definition)
                 sim_score = cosine_similarity(combined_embedding, def_embedding)[0][0]
@@ -232,10 +205,10 @@ class AttributeAnalyzer:
             
             features.append(feature_dict)
         
-        # Convert features to DataFrame
+        # Create features DataFrame
         features_df = pd.DataFrame(features)
         
-        # Extract text embedding columns
+        # Process text embeddings
         embedding_cols = features_df['text_embedding'].apply(pd.Series)
         embedding_cols.columns = [f'emb_{i}' for i in range(embedding_cols.shape[1])]
         
@@ -243,7 +216,12 @@ class AttributeAnalyzer:
         similarity_cols = [col for col in features_df.columns if col.startswith('similarity_')]
         features_df = pd.concat([embedding_cols, features_df[similarity_cols]], axis=1)
         
-        labels = data['label'].values
+        # Handle labels
+        if is_training:
+            labels = self.label_encoder.fit_transform(data['label'].values)
+        else:
+            labels = self.label_encoder.transform(data['label'].values)
+            
         return features_df, labels
 
     def train_xgboost(self, X: pd.DataFrame, y: np.ndarray, 
@@ -251,15 +229,6 @@ class AttributeAnalyzer:
                       params: Optional[Dict] = None) -> Dict:
         """
         Train XGBoost model with cross-validation.
-        
-        Args:
-            X: Feature DataFrame
-            y: Label array
-            cv_folds: Number of cross-validation folds
-            params: Optional XGBoost parameters
-            
-        Returns:
-            Dictionary containing predictions, probabilities, and classification report
         """
         default_params = {
             'objective': 'multi:softprob',
@@ -290,10 +259,9 @@ class AttributeAnalyzer:
         xgboost_results = self.train_xgboost(X, y, cv_folds)
         y_prob = xgboost_results['probabilities']
         
-        # Get unique labels from training data
-        labels = np.unique(y)
+        # Use original label names for columns
+        label_prob_df = pd.DataFrame(y_prob, columns=self.label_encoder.classes_)
         
-        label_prob_df = pd.DataFrame(y_prob, columns=labels)
         return label_prob_df
 
 def main():
@@ -320,14 +288,19 @@ def main():
         cosine_results = analyzer.analyze_cosine_similarities(train_data, label_definitions)
         
         logger.info("Preparing XGBoost data...")
-        X_train, y_train = analyzer.prepare_xgboost_data(train_data, label_definitions)
-        X_test, y_test = analyzer.prepare_xgboost_data(test_data, label_definitions)
+        X_train, y_train = analyzer.prepare_xgboost_data(train_data, label_definitions, is_training=True)
+        X_test, y_test = analyzer.prepare_xgboost_data(test_data, label_definitions, is_training=False)
         
         logger.info("Training XGBoost model...")
         xgboost_results = analyzer.train_xgboost(X_train, y_train)
         
+        # Print classification report with original label names
+        y_pred = xgboost_results['predictions']
+        y_pred_labels = analyzer.label_encoder.inverse_transform(y_pred)
+        y_train_labels = analyzer.label_encoder.inverse_transform(y_train)
+        
         logger.info("\nXGBoost Classification Report (Train):")
-        print(classification_report(y_train, xgboost_results['predictions']))
+        print(classification_report(y_train_labels, y_pred_labels))
         
         logger.info("Computing label probabilities...")
         label_prob_df = analyzer.get_label_probabilities(X_train, y_train)
@@ -335,6 +308,9 @@ def main():
         # Save results
         cosine_results.to_csv('cosine_similarities.csv', index=False)
         label_prob_df.to_csv('label_probabilities.csv', index=False)
+        
+        # Save encoder classes for reference
+        pd.DataFrame({'label': analyzer.label_encoder.classes_}).to_csv('label_mapping.csv', index=False)
         
         return cosine_results, xgboost_results, label_prob_df
         
