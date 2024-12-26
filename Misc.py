@@ -1,3 +1,85 @@
+def main():
+    """
+    Main function to run the attribute analysis pipeline.
+    """
+    try:
+        # Load and validate input data
+        train_data = pd.read_csv('train.csv')
+        test_data = pd.read_csv('test.csv')
+        
+        required_columns = {'attribute_name', 'description', 'label'}
+        if not required_columns.issubset(train_data.columns):
+            raise ValueError(f"Training data missing required columns: {required_columns}")
+            
+        # Parse label definitions from text file
+        label_parser = LabelDefinitionParser()
+        label_definitions = label_parser.parse_label_definitions('label_definitions.txt')
+        
+        # Initialize analyzer and process data
+        analyzer = AttributeAnalyzer()
+        
+        logger.info("Computing cosine similarities...")
+        cosine_results = analyzer.analyze_cosine_similarities(train_data, label_definitions)
+        
+        logger.info("Preparing XGBoost data...")
+        X_train, y_train = analyzer.prepare_xgboost_data(train_data, label_definitions, is_training=True)
+        X_test, y_test = analyzer.prepare_xgboost_data(test_data, label_definitions, is_training=False)
+        
+        logger.info("Training XGBoost model...")
+        xgboost_results = analyzer.train_xgboost(X_train, y_train)
+        
+        # Get predictions on test set using the trained model
+        trained_model = xgboost_results['model']
+        test_predictions = trained_model.predict(X_test)
+        test_probabilities = trained_model.predict_proba(X_test)
+        
+        # Print classification reports with original label names
+        logger.info("\nXGBoost Classification Report (Cross-validation on Train):")
+        print(classification_report(
+            analyzer.label_encoder.inverse_transform(y_train), 
+            analyzer.label_encoder.inverse_transform(xgboost_results['predictions'])
+        ))
+        
+        logger.info("\nXGBoost Classification Report (Test):")
+        print(classification_report(
+            analyzer.label_encoder.inverse_transform(y_test),
+            analyzer.label_encoder.inverse_transform(test_predictions)
+        ))
+        
+        # Save results
+        cosine_results.to_csv('cosine_similarities.csv', index=False)
+        
+        # Save probabilities for both train CV and test
+        train_probs = pd.DataFrame(
+            xgboost_results['probabilities'],
+            columns=analyzer.label_encoder.classes_
+        )
+        test_probs = pd.DataFrame(
+            test_probabilities,
+            columns=analyzer.label_encoder.classes_
+        )
+        
+        train_probs.to_csv('train_probabilities.csv', index=False)
+        test_probs.to_csv('test_probabilities.csv', index=False)
+        
+        # Save label mapping
+        pd.DataFrame({'label': analyzer.label_encoder.classes_}).to_csv('label_mapping.csv', index=False)
+        
+        return cosine_results, xgboost_results, test_predictions, test_probabilities
+        
+    except Exception as e:
+        logger.error(f"Error in main pipeline: {str(e)}")
+        raise
+
+if __name__ == "__main__":
+    try:
+        results = main()
+        logger.info("Analysis completed successfully")
+    except Exception as e:
+        logger.error(f"Pipeline failed: {str(e)}")
+
+
+
 def train_xgboost(self, X: pd.DataFrame, y: np.ndarray, 
                   cv_folds: int = 5,
                   params: Optional[Dict] = None) -> Dict:
