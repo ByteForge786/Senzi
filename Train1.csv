@@ -1,0 +1,21 @@
+attribute_name,description,sample_values,label
+crypto_tdr_name,Cryptocurrency trader name,Jay Kim||Rita Patel||Mike Chen||Sue Park||Dan Lee,Non-Sensitive PII
+face_recog,Facial recognition access data,FACE_ID_001||FACE_ID_002||FACE_ID_003||FACE_ID_004||FACE_ID_005,Sensitive PII
+cmbl_crypto_data,Licensed CoinMarketCap data feed,CMC_001||CMC_002||CMC_003||CMC_004||CMC_005,Licensed Data
+wallet_strat,Confidential wallet strategy details,COLD_WALLET_1||HOT_WALLET_2||MULTI_SIG_3||THRESH_SIG_4||TIME_LOCK_5,Confidential Information
+jp_residence,Japan domicile registration info,JP_DOM_001||JP_DOM_002||JP_DOM_003||JP_DOM_004||JP_DOM_005,Sensitive PII
+emp_id,Employee identifier code,EMP_C1||EMP_C2||EMP_C3||EMP_C4||EMP_C5,Non-Sensitive PII
+cg_market_feed,Licensed CoinGecko market feed,CG_MKT_001||CG_MKT_002||CG_MKT_003||CG_MKT_004||CG_MKT_005,Licensed Data
+trade_algos,Confidential trading algorithms,ALGO_BTC_1||ALGO_ETH_2||ALGO_ALT_3||ALGO_DeFi_4||ALGO_NFT_5,Confidential Information
+bank_acc_sec,Bank account with security codes,BNK_SEC_001||BNK_SEC_002||BNK_SEC_003||BNK_SEC_004||BNK_SEC_005,Sensitive PII
+wrk_phone,Work phone number,555-0801||555-0802||555-0803||555-0804||555-0805,Non-Sensitive PII
+messari_data,Licensed Messari crypto data,MSR_001||MSR_002||MSR_003||MSR_004||MSR_005,Licensed Data
+risk_limits,Confidential risk limit rules,LIMIT_BTC_1||LIMIT_ETH_2||LIMIT_ALT_3||LIMIT_STABLE_4||LIMIT_DeFi_5,Confidential Information
+pwd_hash,System password hash data,PWD_HASH_001||PWD_HASH_002||PWD_HASH_003||PWD_HASH_004||PWD_HASH_005,Sensitive PII
+bus_email,Business email address,crypto1@firm.com||crypto2@firm.com||crypto3@firm.com||crypto4@firm.com||crypto5@firm.com,Non-Sensitive PII
+glassnode_feed,Licensed Glassnode analytics feed,GN_DATA_001||GN_DATA_002||GN_DATA_003||GN_DATA_004||GN_DATA_005,Licensed Data
+exec_strategy,Confidential execution strategy,EXEC_SPOT_1||EXEC_PERP_2||EXEC_OPT_3||EXEC_YIELD_4||EXEC_STAKE_5,Confidential Information
+med_info,Medical condition information,MED_001||MED_002||MED_003||MED_004||MED_005,Sensitive PII
+desk_code,Trading desk code,CRYPTO_01||CRYPTO_02||CRYPTO_03||CRYPTO_04||CRYPTO_05,Non-Sensitive PII
+kaiko_data,Licensed Kaiko market data,KK_DATA_001||KK_DATA_002||KK_DATA_003||KK_DATA_004||KK_DATA_005,Licensed Data
+pos_book,Confidential position book data,POS_BTC_1||POS_ETH_2||POS_ALT_3||POS_STABLE_4||POS_DeFi_5,Confidential Information
