@@ -1,16 +1,57 @@
-# Open the text file to read
-with open('your_file.txt', 'r') as file:
-    lines = file.readlines()
+Sensitive PII:
+Personal Data that falls under the following categories:
 
-# Create a dictionary to store the content
-data_dict = {}
+Racial or Ethnic origin
+Political opinions
+Religion
+Trade Union Membership
+Physical or Mental Health Data
+Genetic Data
+Biometric Data
+Sexual activities
+Criminal History (includes if victim of a crime)
+Registered Domicile Information - Japan Specific
+My Number – Japan Specific Identification Number
+Social Standing by Birth - Japan Specific
 
-# Loop through the lines and process them
-for line in lines:
-    # Split each line into key-value pair based on '='
-    if '=' in line:
-        key, value = line.split('=', 1)  # Only split at the first '='
-        data_dict[key.strip()] = value.strip()
+Financial/Credit Records Information (Denoted as Personal Credit Information (PCI) in Korea)
+Unique Identification/Registration Data (passport, ID Card, Social Security Numbers, resident registration number (RRN), Licences, alien registration number)
+Veteran Status
 
-# Print the dictionary
-print(data_dict)
+For Korean use cases, specific treatment of PCI and PII (i.e. passport, driver's license, resident registration number, alien registration number) data is required.
+
+According to Korea laws and regulations, PII and PCI cannot be transferred or processed outside Korea. Thus, when PII or PCI is included in the data, such information shall be erased or masked in advance before being transferred or processed.
+
+Financial Credit/ Records Information
+Unique Identification/Registration Data (passport, ID Card, Social Security Numbers, Licenses)
+Password/Log-in Credentials
+
+"Sensitive personal information" means:
+(1) Personal information that reveals:
+(A) A consumer's social security, driver's license, state identification card, or passport number
+(B) A consumer's account log-in, financial account, debit card, or credit card number in combination with any required security or access code, password, or credentials allowing access to an account
+(C) A consumer's precise geolocation
+(D) A consumer's racial or ethnic origin, religious or philosophical beliefs, or union membership
+(E) The contents of a consumer's mail, email, and text messages unless the business is the intended recipient of the communication
+(F) A consumer's genetic data
+
+(2) (A) The processing of biometric information for the purpose of uniquely identifying a consumer
+(B) Personal information collected and analyzed concerning a consumer's health
+(C) Personal information collected and analyzed concerning a consumer's sex life or sexual orientation
+
+Confidential information:
+Confidential information means all non-public information regarding the Nomura Group's business, activities and personnel, as well as non-public information provided by or about an external source (such as a client, prospective client (syndicate member), or other third party) with the expectation (which may be enforced through an oral or written agreement or otherwise) that the information will remain protected as confidential and only be used solely for the purpose for which it was revealed, conveyed or as otherwise agreed or permitted by applicable laws.
+
+Confidential Information includes (but is not limited to):
+
+i) Non-public client information which can include, but not limited to: personnel and ownership information, client orders (pending or executed), positions and trading strategies, assets held by Nomura for a client, etc.;
+
+ii) Non-public Nomura proprietary information, for example: research opinions, strategic plans, trading strategies or positions, intellectual property, new business or product development plans, models or programs (including associated metadata), passwords or codes to access Nomura's systems, contracts, and/or details of its proprietary investments or minority shareholding interests in public or private companies where not publicly disclosed;
+
+iii) Certain non-public information obtained from 3rd parties who are not necessarily clients of Nomura (e.g. from vendors, exchanges or regulators, syndicate members, JV partners).
+
+Non sensitive PII:
+All personal data that doesn't falls under sensitive pii eg first name, last name, email etc.
+
+Licensed data:
+Data sourced from third party providers under a commercial agreement
