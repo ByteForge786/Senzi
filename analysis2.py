@@ -189,6 +189,40 @@ def analyze_patterns(df):
         common_source_patterns = {k: v for k, v in source_patterns.items() 
                                 if v >= threshold}
         patterns[label]['source_patterns'] = common_source_patterns
+    
+    return patterns
+
+def generate_pattern_summary(patterns):
+    """
+    Generates a human-readable summary of the patterns found
+    """
+    summary = []
+    
+    for label, label_patterns in patterns.items():
+        summary.append(f"\nPatterns for {label} data:")
+        
+        if label_patterns.get('attribute_patterns'):
+            summary.append("\nCommon attribute name patterns:")
+            sorted_attrs = sorted(label_patterns['attribute_patterns'].items(), 
+                                key=lambda x: x[1], reverse=True)
+            for token, count in sorted_attrs[:5]:
+                summary.append(f"- '{token}' appears {count} times")
+        
+        if label_patterns.get('description_patterns'):
+            summary.append("\nCommon description patterns:")
+            sorted_desc = sorted(label_patterns['description_patterns'].items(), 
+                               key=lambda x: x[1], reverse=True)
+            for token, count in sorted_desc[:5]:
+                summary.append(f"- '{token}' appears {count} times")
+        
+        if label_patterns.get('source_patterns'):
+            summary.append("\nCommon data source patterns:")
+            sorted_source = sorted(label_patterns['source_patterns'].items(), 
+                                 key=lambda x: x[1], reverse=True)
+            for token, count in sorted_source[:5]:
+                summary.append(f"- '{token}' appears {count} times")
+    
+    return "\n".join(summary)
 
 def find_correlations(df):
     """
