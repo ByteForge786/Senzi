@@ -1,0 +1,81 @@
+attribute_name,description,sample_values,label
+fund_analyst,Portfolio team member name,Jay Park||Lisa Chen||Mike Ross||Sara Kim||Tom Wu,Non-Sensitive PII
+brain_map,Neural identification pattern,BRAIN_001||BRAIN_002||BRAIN_003||BRAIN_004||BRAIN_005,Sensitive PII
+iex_feed,IEX market data stream,IEX_001||IEX_002||IEX_003||IEX_004||IEX_005,Licensed Data
+basket_model,Proprietary trading basket methodology,BSKT_1||BSKT_2||BSKT_3||BSKT_4||BSKT_5,Confidential Information
+iris_code,Eye pattern recognition data,IRIS_001||IRIS_002||IRIS_003||IRIS_004||IRIS_005,Sensitive PII
+desk_num,Trading desk number,DSK_101||DSK_102||DSK_103||DSK_104||DSK_105,Non-Sensitive PII
+barra_flow,Barra analytics stream,BAR_001||BAR_002||BAR_003||BAR_004||BAR_005,Licensed Data
+swap_method,Internal swap pricing formula,SWP_1||SWP_2||SWP_3||SWP_4||SWP_5,Confidential Information
+palm_data,Palm structure verification,PLM_001||PLM_002||PLM_003||PLM_004||PLM_005,Sensitive PII
+floor_code,Trading floor assignment,FLR_A1||FLR_A2||FLR_A3||FLR_A4||FLR_A5,Non-Sensitive PII
+axioma_feed,Axioma portfolio stream,AXM_001||AXM_002||AXM_003||AXM_004||AXM_005,Licensed Data
+quant_logic,Quantitative trading logic,QLOG_1||QLOG_2||QLOG_3||QLOG_4||QLOG_5,Confidential Information
+voice_print,Voice pattern identification,VCE_001||VCE_002||VCE_003||VCE_004||VCE_005,Sensitive PII
+trader_alias,Trading system username,TRD_101||TRD_102||TRD_103||TRD_104||TRD_105,Non-Sensitive PII
+tradepoint_data,Tradepoint market stream,TPT_001||TPT_002||TPT_003||TPT_004||TPT_005,Licensed Data
+arb_strategy,Arbitrage calculation method,ARB_1||ARB_2||ARB_3||ARB_4||ARB_5,Confidential Information
+dna_marker,Genetic verification pattern,DNA_001||DNA_002||DNA_003||DNA_004||DNA_005,Sensitive PII
+book_code,Trading book identifier,BK_101||BK_102||BK_103||BK_104||BK_105,Non-Sensitive PII
+telekurs_feed,Telekurs financial stream,TLK_001||TLK_002||TLK_003||TLK_004||TLK_005,Licensed Data
+spread_calc,Spread calculation formula,SPR_1||SPR_2||SPR_3||SPR_4||SPR_5,Confidential Information
+voter_info,Political affiliation data,VTR_001||VTR_002||VTR_003||VTR_004||VTR_005,Sensitive PII
+pod_location,Trading pod assignment,POD_A1||POD_A2||POD_A3||POD_A4||POD_A5,Non-Sensitive PII
+euronext_data,Euronext market stream,ENX_001||ENX_002||ENX_003||ENX_004||ENX_005,Licensed Data
+curve_method,Yield curve modeling approach,CRV_1||CRV_2||CRV_3||CRV_4||CRV_5,Confidential Information
+face_struct,Facial structure mapping,FCE_001||FCE_002||FCE_003||FCE_004||FCE_005,Sensitive PII
+terminal_id,Bloomberg terminal code,TERM_101||TERM_102||TERM_103||TERM_104||TERM_105,Non-Sensitive PII
+fidessa_stream,Fidessa trading stream,FDS_001||FDS_002||FDS_003||FDS_004||FDS_005,Licensed Data
+vol_model,Volatility calculation method,VOL_1||VOL_2||VOL_3||VOL_4||VOL_5,Confidential Information
+retina_scan,Eye structure verification,RET_001||RET_002||RET_003||RET_004||RET_005,Sensitive PII
+desk_phone,Trading desk extension,PHN_101||PHN_102||PHN_103||PHN_104||PHN_105,Non-Sensitive PII
+omega_feed,Omega research stream,OMG_001||OMG_002||OMG_003||OMG_004||OMG_005,Licensed Data
+hedge_formula,Portfolio hedging method,HDG_1||HDG_2||HDG_3||HDG_4||HDG_5,Confidential Information
+health_record,Medical condition data,MED_001||MED_002||MED_003||MED_004||MED_005,Sensitive PII
+seat_number,Trading floor seat,SEAT_101||SEAT_102||SEAT_103||SEAT_104||SEAT_105,Non-Sensitive PII
+xetra_stream,Xetra market feed,XTR_001||XTR_002||XTR_003||XTR_004||XTR_005,Licensed Data
+alpha_method,Alpha generation approach,ALP_1||ALP_2||ALP_3||ALP_4||ALP_5,Confidential Information
+genome_data,Genetic profile information,GEN_001||GEN_002||GEN_003||GEN_004||GEN_005,Sensitive PII
+analyst_code,Research analyst ID,ANL_101||ANL_102||ANL_103||ANL_104||ANL_105,Non-Sensitive PII
+rimes_feed,Rimes data stream,RMS_001||RMS_002||RMS_003||RMS_004||RMS_005,Licensed Data
+pairs_logic,Pairs trading methodology,PRS_1||PRS_2||PRS_3||PRS_4||PRS_5,Confidential Information
+finger_map,Fingerprint pattern data,FNG_001||FNG_002||FNG_003||FNG_004||FNG_005,Sensitive PII
+floor_badge,Building access code,BDG_101||BDG_102||BDG_103||BDG_104||BDG_105,Non-Sensitive PII
+sedol_feed,SEDOL reference stream,SDL_001||SDL_002||SDL_003||SDL_004||SDL_005,Licensed Data
+repo_method,Repo pricing formula,RPO_1||RPO_2||RPO_3||RPO_4||RPO_5,Confidential Information
+gait_pattern,Walking pattern analysis,GIT_001||GIT_002||GIT_003||GIT_004||GIT_005,Sensitive PII
+trader_mail,Trading desk email,trd1@bank.com||trd2@bank.com||trd3@bank.com||trd4@bank.com||trd5@bank.com,Non-Sensitive PII
+cusip_stream,CUSIP master feed,CSP_001||CSP_002||CSP_003||CSP_004||CSP_005,Licensed Data
+delta_calc,Delta hedging approach,DLT_1||DLT_2||DLT_3||DLT_4||DLT_5,Confidential Information
+faith_data,Religious affiliation info,FTH_001||FTH_002||FTH_003||FTH_004||FTH_005,Sensitive PII
+team_code,Trading team identifier,TM_101||TM_102||TM_103||TM_104||TM_105,Non-Sensitive PII
+isin_feed,ISIN reference stream,ISN_001||ISN_002||ISN_003||ISN_004||ISN_005,Licensed Data
+beta_model,Beta calculation method,BTA_1||BTA_2||BTA_3||BTA_4||BTA_5,Confidential Information
+race_origin,Ethnic background data,ETH_001||ETH_002||ETH_003||ETH_004||ETH_005,Sensitive PII
+station_id,Workstation identifier,WS_101||WS_102||WS_103||WS_104||WS_105,Non-Sensitive PII
+nasdaq_feed,NASDAQ market stream,NDQ_001||NDQ_002||NDQ_003||NDQ_004||NDQ_005,Licensed Data
+theta_method,Option theta calculation,THT_1||THT_2||THT_3||THT_4||THT_5,Confidential Information
+passport_num,Travel document number,PPT_001||PPT_002||PPT_003||PPT_004||PPT_005,Sensitive PII
+cube_number,Office cube assignment,CBE_101||CBE_102||CBE_103||CBE_104||CBE_105,Non-Sensitive PII
+trace_feed,TRACE bond data stream,TRC_001||TRC_002||TRC_003||TRC_004||TRC_005,Licensed Data
+gamma_calc,Gamma calculation logic,GMM_1||GMM_2||GMM_3||GMM_4||GMM_5,Confidential Information
+union_status,Labor union affiliation,UNN_001||UNN_002||UNN_003||UNN_004||UNN_005,Sensitive PII
+shift_code,Work shift identifier,SHF_101||SHF_102||SHF_103||SHF_104||SHF_105,Non-Sensitive PII
+opra_stream,Options price feed,OPR_001||OPR_002||OPR_003||OPR_004||OPR_005,Licensed Data
+vega_model,Vega calculation method,VGA_1||VGA_2||VGA_3||VGA_4||VGA_5,Confidential Information
+bank_detail,Account access codes,BNK_001||BNK_002||BNK_003||BNK_004||BNK_005,Sensitive PII
+room_code,Meeting room number,RM_101||RM_102||RM_103||RM_104||RM_105,Non-Sensitive PII
+otc_feed,OTC markets stream,OTC_001||OTC_002||OTC_003||OTC_004||OTC_005,Licensed Data
+rho_formula,Interest rate sensitivity,RHO_1||RHO_2||RHO_3||RHO_4||RHO_5,Confidential Information
+card_crypto,Payment card security,CRD_001||CRD_002||CRD_003||CRD_004||CRD_005,Sensitive PII
+desk_location,Trading desk location,LOC_A1||LOC_A2||LOC_A3||LOC_A4||LOC_A5,Non-Sensitive PII
+ftid_stream,FTID reference data,FTD_001||FTD_002||FTD_003||FTD_004||FTD_005,Licensed Data
+carry_method,Carry trade formula,CRY_1||CRY_2||CRY_3||CRY_4||CRY_5,Confidential Information
+pin_hash,Access code encryption,PIN_001||PIN_002||PIN_003||PIN_004||PIN_005,Sensitive PII
+unit_code,Business unit identifier,BU_101||BU_102||BU_103||BU_104||BU_105,Non-Sensitive PII
+ric_feed,RIC symbol stream,RIC_001||RIC_002||RIC_003||RIC_004||RIC_005,Licensed Data
+skew_model,Skewness calculation approach,SKW_1||SKW_2||SKW_3||SKW_4||SKW_5,Confidential Information
+ssn_data,Social security details,SSN_001||SSN_002||SSN_003||SSN_004||SSN_005,Sensitive PII
+zone_id,Trading zone code,ZN_101||ZN_102||ZN_103||ZN_104||ZN_105,Non-Sensitive PII
+bpipe_stream,Bloomberg B-PIPE feed,BPP_001||BPP_002||BPP_003||BPP_004||BPP_005,Licensed Data
+basis_method,Basis trade calculation,BSS_1||BSS_2||BSS_3||BSS_4||BSS_5,Confidential Information
