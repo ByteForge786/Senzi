@@ -1,0 +1,401 @@
+attribute_name,description,sample_values,label
+trader_id,Unique identifier for trader in system,TR789023||TR789024||TR789025||TR789026||TR789027,Non-Sensitive PII
+trading_strategy,Proprietary trading algorithms and methods,ALGO_HFT_V2||SWING_TRADE_2024||MOMENTUM_V3||ML_PREDICT_1||ARBIT_STRAT_4,Confidential Information
+client_ssn,Social security number of client,783-45-8927||674-90-2341||892-34-7812||456-78-9023||567-89-2345,Sensitive PII
+market_data_feed,Licensed real-time market data source,BLOOMBERG||REFINITIV||S&P_GLOBAL||FACTSET||MORNINGSTAR,Licensed Data
+trade_volume,Daily trading volume per security,50000||75000||100000||25000||80000,Confidential Information
+client_ethnicity,Demographic information of client,ASIAN||CAUCASIAN||HISPANIC||AFRICAN_AMERICAN||PACIFIC_ISLANDER,Sensitive PII
+bloomberg_terminal_id,Licensed Bloomberg terminal identifier,BBG001||BBG002||BBG003||BBG004||BBG005,Licensed Data
+trading_desk_location,Precise location of trading operations,40.7128_-74.0060||51.5074_-0.1278||35.6762_139.6503||22.3193_114.1694||1.3521_103.8198,Sensitive PII
+account_balance,Current balance in trading account,1000000||2500000||5000000||7500000||10000000,Confidential Information
+trader_name,Name of authorized trader,John Smith||Sarah Johnson||Michael Chen||David Brown||Emma Wilson,Non-Sensitive PII
+trade_strategy_performance,Historical performance metrics of trading strategies,ROI_15.5||ROI_12.3||ROI_18.7||ROI_9.8||ROI_22.4,Confidential Information
+client_biometric_data,Biometric authentication data,FINGER_HASH_001||RETINA_SCAN_002||VOICE_PRINT_003||FACE_MAP_004||PALM_SCAN_005,Sensitive PII
+reuters_api_key,Licensed Reuters API access credentials,RTR_KEY_001||RTR_KEY_002||RTR_KEY_003||RTR_KEY_004||RTR_KEY_005,Licensed Data
+trade_book_value,Book value of current positions,5000000||7500000||10000000||12500000||15000000,Confidential Information
+trader_email,Corporate email address of trader,trader1@firm.com||trader2@firm.com||trader3@firm.com||trader4@firm.com||trader5@firm.com,Non-Sensitive PII
+client_health_data,Health information for insurance products,HEALTH_STATUS_A||HEALTH_STATUS_B||HEALTH_STATUS_C||HEALTH_STATUS_D||HEALTH_STATUS_E,Sensitive PII
+market_sentiment_data,Licensed market sentiment indicators,BULL_95||BEAR_85||NEUTRAL_50||BULL_75||BEAR_65,Licensed Data
+position_limits,Internal trading position limits,MAX_1M||MAX_2M||MAX_5M||MAX_10M||MAX_20M,Confidential Information
+trader_phone,Contact number for trader,555-0101||555-0102||555-0103||555-0104||555-0105,Non-Sensitive PII
+trading_algorithm_code,Proprietary trading algorithm source code,ALGO_V1.py||ALGO_V2.py||ALGO_V3.py||ALGO_V4.py||ALGO_V5.py,Confidential Information
+employee_name,Basic name of employee,John Wilson||Maria Garcia||Robert Chen||Sarah Miller||James Brown,Non-Sensitive PII
+union_membership_status,Employee's trade union affiliation status,UAW_MEMBER||SEIU_ACTIVE||AFL_CIO_REP||TWU_LEADER||NALC_MEMBER,Sensitive PII
+corporate_email,Work email address of employee,j.wilson@company.com||m.garcia@company.com||r.chen@company.com||s.miller@company.com||j.brown@company.com,Non-Sensitive PII
+workday_license_key,Licensed Workday HRIS system access key,WD_234567||WD_345678||WD_456789||WD_567890||WD_678901,Licensed Data
+salary_information,Confidential compensation details,85000USD||95000USD||105000USD||125000USD||145000USD,Confidential Information
+medical_leave_status,Health-related leave information,SURGERY_RECOVERY||MENTAL_HEALTH||CHRONIC_CONDITION||MATERNITY||PHYSICAL_THERAPY,Sensitive PII
+successfactor_api_key,Licensed SAP SuccessFactors API credentials,SF_API_001||SF_API_002||SF_API_003||SF_API_004||SF_API_005,Licensed Data
+performance_ratings,Confidential employee performance data,EXCEEDS||MEETS_PLUS||MEETS||NEEDS_IMPROVEMENT||UNSATISFACTORY,Confidential Information
+employee_id,Company identification number,EMP001||EMP002||EMP003||EMP004||EMP005,Non-Sensitive PII
+social_security_number,Government identification number,123-45-6789||234-56-7890||345-67-8901||456-78-9012||567-89-0123,Sensitive PII
+linkedin_recruiter_license,Licensed LinkedIn Recruiter seat credentials,LI_REC_001||LI_REC_002||LI_REC_003||LI_REC_004||LI_REC_005,Licensed Data
+bonus_projections,Confidential compensation forecasts,15000USD||25000USD||35000USD||45000USD||55000USD,Confidential Information
+racial_demographic,Employee racial/ethnic information,ASIAN||CAUCASIAN||AFRICAN_AMERICAN||HISPANIC||NATIVE_AMERICAN,Sensitive PII
+department_code,Internal department identifier,DEPT_001||DEPT_002||DEPT_003||DEPT_004||DEPT_005,Non-Sensitive PII
+background_check_data,Criminal history verification results,NO_RECORD||MINOR_OFFENSE||CLEARED||PENDING||FLAGGED,Sensitive PII
+hr_analytics_license,Licensed HR analytics platform access,ANALYTICS_001||ANALYTICS_002||ANALYTICS_003||ANALYTICS_004||ANALYTICS_005,Licensed Data
+succession_plans,Confidential leadership planning data,EXEC_TRACK||MGMT_TRACK||SPECIALIST||HIGH_POTENTIAL||DEVELOPING,Confidential Information
+emergency_contact,Emergency contact information,CONTACT_001||CONTACT_002||CONTACT_003||CONTACT_004||CONTACT_005,Non-Sensitive PII
+health_insurance_status,Employee health coverage information,FULL_FAMILY||EMPLOYEE_SPOUSE||EMPLOYEE_ONLY||OPTED_OUT||COBRA,Sensitive PII
+severance_packages,Confidential termination agreements,SEV_PKG_1||SEV_PKG_2||SEV_PKG_3||SEV_PKG_4||SEV_PKG_5,Confidential Information
+portfolio_strategy,Confidential investment strategy details,LONG_TERM_GROWTH||HIGH_YIELD_INCOME||AGGRESSIVE_GROWTH||VALUE_INVESTING||MARKET_NEUTRAL,Confidential Information
+client_passport_number,International client identification,P123456||P234567||P345678||P456789||P567890,Sensitive PII
+bloomberg_market_data,Licensed Bloomberg market feed data,BBG_FEED_001||BBG_FEED_002||BBG_FEED_003||BBG_FEED_004||BBG_FEED_005,Licensed Data
+portfolio_manager_name,Name of authorized portfolio manager,Alex Johnson||Maria Rodriguez||Tom Wilson||Sarah Chang||James Murphy,Non-Sensitive PII
+investment_algorithms,Proprietary trading algorithm details,ALGO_MOMENTUM_V1||ALGO_REVERSION_V2||ALGO_ARBITRAGE_V3||ALGO_SENTIMENT_V4||ALGO_VOLATILITY_V5,Confidential Information
+credit_score,Client credit rating information,750_EXCELLENT||680_GOOD||620_FAIR||590_POOR||550_VERY_POOR,Sensitive PII
+refinitiv_eikon_data,Licensed Refinitiv market data feed,REF_DATA_001||REF_DATA_002||REF_DATA_003||REF_DATA_004||REF_DATA_005,Licensed Data
+hedge_positions,Current hedging strategy details,LONG_SPY_SHORT_QQQ||LONG_GOLD_SHORT_USD||OPTIONS_STRADDLE_SPX||FUTURES_HEDGE_OIL||FOREX_HEDGE_EURUSD,Confidential Information
+manager_email,Portfolio manager contact email,alex.j@invest.com||maria.r@invest.com||tom.w@invest.com||sarah.c@invest.com||james.m@invest.com,Non-Sensitive PII
+bank_account_details,Client banking information with access codes,BANK_ACC_001_CODE||BANK_ACC_002_CODE||BANK_ACC_003_CODE||BANK_ACC_004_CODE||BANK_ACC_005_CODE,Sensitive PII
+factset_research_data,Licensed FactSet research content,FS_RESEARCH_001||FS_RESEARCH_002||FS_RESEARCH_003||FS_RESEARCH_004||FS_RESEARCH_005,Licensed Data
+risk_models,Proprietary risk assessment models,RISK_MODEL_VAR||RISK_MODEL_BETA||RISK_MODEL_SHARPE||RISK_MODEL_SORTINO||RISK_MODEL_TREYNOR,Confidential Information
+client_location,Client geolocation data,40.7128_-74.0060||51.5074_-0.1278||35.6762_139.6503||22.3193_114.1694||1.3521_103.8198,Sensitive PII
+morningstar_ratings,Licensed Morningstar fund ratings,FIVE_STAR||FOUR_STAR||THREE_STAR||TWO_STAR||ONE_STAR,Licensed Data
+trading_limits,Internal position size limits,MAX_5M_EQUITY||MAX_2M_OPTIONS||MAX_10M_FUTURES||MAX_3M_FOREX||MAX_1M_CRYPTO,Confidential Information
+investment_advisor_id,Advisor identification number,ADV001||ADV002||ADV003||ADV004||ADV005,Non-Sensitive PII
+biometric_login,Biometric authentication data for trading platform,FINGERPRINT_HASH_001||FACE_ID_002||RETINA_SCAN_003||VOICE_PRINT_004||PALM_SCAN_005,Sensitive PII
+s&p_global_data,Licensed S&P Global market data,SP_DATA_001||SP_DATA_002||SP_DATA_003||SP_DATA_004||SP_DATA_005,Licensed Data
+fund_performance,Confidential fund performance metrics,RETURN_15PCT||RETURN_12PCT||RETURN_18PCT||RETURN_9PCT||RETURN_22PCT,Confidential Information
+margin_positions,Client margin account details,MARGIN_50K_LOAN||MARGIN_100K_LOAN||MARGIN_250K_LOAN||MARGIN_500K_LOAN||MARGIN_1M_LOAN,Sensitive PII
+compliance_officer_name,Name of compliance team member,Robert Smith||Jane Wilson||Michael Lee||Lisa Chen||David Miller,Non-Sensitive PII
+client_kyc_documents,Confidential Know Your Customer verification data,KYC_VERIFIED_001||KYC_PENDING_002||KYC_REVIEW_003||KYC_APPROVED_004||KYC_UPDATED_005,Confidential Information
+regulatory_license_key,Licensed regulatory reporting platform access,REG_KEY_001||REG_KEY_002||REG_KEY_003||REG_KEY_004||REG_KEY_005,Licensed Data
+driver_license_number,Government-issued identification for KYC,DL123456||DL234567||DL345678||DL456789||DL567890,Sensitive PII
+risk_assessment_model,Proprietary risk evaluation methodology,RISK_SCORE_A1||RISK_SCORE_B2||RISK_SCORE_C3||RISK_SCORE_D4||RISK_SCORE_E5,Confidential Information
+aml_screening_data,Licensed AML screening service data,AML_DATA_001||AML_DATA_002||AML_DATA_003||AML_DATA_004||AML_DATA_005,Licensed Data
+transaction_patterns,Confidential transaction monitoring alerts,PATTERN_HIGH_RISK||PATTERN_SUSPICIOUS||PATTERN_UNUSUAL||PATTERN_REGULAR||PATTERN_CLEARED,Confidential Information
+officer_id,Compliance officer identification number,CO001||CO002||CO003||CO004||CO005,Non-Sensitive PII
+client_criminal_record,Background check results for clients,NO_RECORD||MINOR_OFFENSE||CLEARED||FLAGGED||PENDING_REVIEW,Sensitive PII
+lexisnexis_data,Licensed LexisNexis compliance data feed,LEX_001||LEX_002||LEX_003||LEX_004||LEX_005,Licensed Data
+investigation_status,Confidential compliance investigation details,OPEN||UNDER_REVIEW||PENDING_DOCS||ESCALATED||CLOSED,Confidential Information
+employee_login_creds,System access credentials with encryption,LOGIN_HASH_001||LOGIN_HASH_002||LOGIN_HASH_003||LOGIN_HASH_004||LOGIN_HASH_005,Sensitive PII
+thomson_reuters_watch,Licensed World-Check screening data,WATCH_001||WATCH_002||WATCH_003||WATCH_004||WATCH_005,Licensed Data
+risk_exposure_limits,Internal risk threshold configurations,LIMIT_1M||LIMIT_5M||LIMIT_10M||LIMIT_20M||LIMIT_50M,Confidential Information
+compliance_email,Official compliance contact email,comp1@firm.com||comp2@firm.com||comp3@firm.com||comp4@firm.com||comp5@firm.com,Non-Sensitive PII
+client_credit_data,Financial credit history information,SCORE_800||SCORE_750||SCORE_700||SCORE_650||SCORE_600,Sensitive PII
+dow_jones_data,Licensed Dow Jones risk data feed,DJ_RISK_001||DJ_RISK_002||DJ_RISK_003||DJ_RISK_004||DJ_RISK_005,Licensed Data
+audit_findings,Confidential internal audit results,FINDING_CRITICAL||FINDING_HIGH||FINDING_MEDIUM||FINDING_LOW||FINDING_NONE,Confidential Information
+employee_department,Department assignment information,COMPLIANCE||RISK||LEGAL||OPERATIONS||AUDIT,Non-Sensitive PII
+system_access_logs,Secure system access history with credentials,ACCESS_LOG_001||ACCESS_LOG_002||ACCESS_LOG_003||ACCESS_LOG_004||ACCESS_LOG_005,Sensitive PII
+trader_contact,Basic contact information of trader,John Lee||Sarah Kim||Mike Chen||Emma Davis||Tom Wilson,Non-Sensitive PII
+options_strategy,Proprietary options trading methodology,BUTTERFLY_SPREAD||IRON_CONDOR||COVERED_CALL||VERTICAL_SPREAD||STRADDLE_STRATEGY,Confidential Information
+market_data_license,Licensed exchange data feed credentials,NYSE_FEED_001||CME_FEED_002||CBOE_FEED_003||ICE_FEED_004||EUREX_FEED_005,Licensed Data
+trader_biometrics,Biometric trading system access data,FINGER_SCAN_001||RETINA_ID_002||VOICE_PRINT_003||FACE_MAP_004||PALM_SCAN_005,Sensitive PII
+derivatives_model,Proprietary derivatives pricing models,BLACK_SCHOLES_V2||MONTE_CARLO_V3||BINOMIAL_V2||HESTON_V1||VARIANCE_GAMMA_V2,Confidential Information
+credit_card_data,Trader corporate card information,CARD_4589_CODE||CARD_3267_CODE||CARD_7891_CODE||CARD_2345_CODE||CARD_6789_CODE,Sensitive PII
+ice_futures_data,Licensed ICE futures market data,ICE_DATA_001||ICE_DATA_002||ICE_DATA_003||ICE_DATA_004||ICE_DATA_005,Licensed Data
+position_book,Current derivatives position details,EQUITY_OPTIONS||INDEX_FUTURES||COMMODITY_SWAPS||FX_OPTIONS||INTEREST_RATE_SWAPS,Confidential Information
+desk_location,Trading desk identification code,DESK_NY_001||DESK_LN_002||DESK_TK_003||DESK_HK_004||DESK_SG_005,Non-Sensitive PII
+login_credentials,Trading platform access credentials,LOGIN_HASH_001||LOGIN_HASH_002||LOGIN_HASH_003||LOGIN_HASH_004||LOGIN_HASH_005,Sensitive PII
+cme_market_data,Licensed CME Group market feed,CME_FEED_001||CME_FEED_002||CME_FEED_003||CME_FEED_004||CME_FEED_005,Licensed Data
+margin_requirements,Internal margin calculation rules,MARGIN_50PCT||MARGIN_75PCT||MARGIN_100PCT||MARGIN_125PCT||MARGIN_150PCT,Confidential Information
+trader_id_badge,Employee identification number,TD001||TD002||TD003||TD004||TD005,Non-Sensitive PII
+banking_details,Trader bank account information,BANK_ACC_001_SEC||BANK_ACC_002_SEC||BANK_ACC_003_SEC||BANK_ACC_004_SEC||BANK_ACC_005_SEC,Sensitive PII
+refinitiv_options_data,Licensed Refinitiv options analytics,REF_OPT_001||REF_OPT_002||REF_OPT_003||REF_OPT_004||REF_OPT_005,Licensed Data
+volatility_surface,Proprietary volatility calculations,VOL_SURFACE_1||VOL_SURFACE_2||VOL_SURFACE_3||VOL_SURFACE_4||VOL_SURFACE_5,Confidential Information
+work_schedule,Trader shift schedule information,SHIFT_A||SHIFT_B||SHIFT_C||SHIFT_D||SHIFT_E,Non-Sensitive PII
+driver_license,Government ID for facility access,DL789012||DL890123||DL901234||DL012345||DL123456,Sensitive PII
+cboe_market_feed,Licensed CBOE market data stream,CBOE_DATA_001||CBOE_DATA_002||CBOE_DATA_003||CBOE_DATA_004||CBOE_DATA_005,Licensed Data
+risk_limits,Confidential trading limit parameters,LIMIT_1M_USD||LIMIT_5M_USD||LIMIT_10M_USD||LIMIT_20M_USD||LIMIT_50M_USD,Confidential Information
+fx_trader_name,Name of foreign exchange trader,Mark Johnson||Lisa Zhang||Ryan Patel||Anna Kim||James Wilson,Non-Sensitive PII
+geo_loc_data,Precise geolocation of trading activity,40.7589_-73.9851||51.5074_-0.1278||35.6762_139.6503||22.3193_114.1694||1.3521_103.8198,Sensitive PII
+reuters_fx_feed,Licensed Reuters FX market data feed,RFX_001||RFX_002||RFX_003||RFX_004||RFX_005,Licensed Data
+prop_strat_fx,Proprietary FX trading strategies,CARRY_TRADE_V1||MOMENTUM_V2||GRID_TRADING_V3||SCALPING_V4||HEDGING_V5,Confidential Information
+ssn_id,Social security identification number,123-45-6789||234-56-7890||345-67-8901||456-78-9012||567-89-0123,Sensitive PII
+emp_contact,Employee contact information,trader1@fx.com||trader2@fx.com||trader3@fx.com||trader4@fx.com||trader5@fx.com,Non-Sensitive PII
+bloomberg_fxgo,Licensed Bloomberg FXGO platform data,BFXGO_001||BFXGO_002||BFXGO_003||BFXGO_004||BFXGO_005,Licensed Data
+trading_exposure,Confidential currency exposure limits,EUR_50M||USD_75M||JPY_8B||GBP_30M||AUD_45M,Confidential Information
+biometric_auth,Biometric authentication records,FINGER_ID_001||RETINA_ID_002||FACE_ID_003||VOICE_ID_004||PALM_ID_005,Sensitive PII
+desk_code,FX trading desk identifier,FX_SPOT_01||FX_FWD_02||FX_OPT_03||FX_SWAP_04||FX_NDF_05,Non-Sensitive PII
+factset_fx_data,Licensed FactSet FX analytics feed,FFX_DATA_001||FFX_DATA_002||FFX_DATA_003||FFX_DATA_004||FFX_DATA_005,Licensed Data
+pos_book_fx,Confidential FX position book details,SPOT_EUR_USD||FWD_GBP_JPY||SWAP_AUD_USD||OPT_USD_CAD||NDF_USD_CNH,Confidential Information
+secure_creds,Trading platform login credentials,LOGIN_HASH_001||LOGIN_HASH_002||LOGIN_HASH_003||LOGIN_HASH_004||LOGIN_HASH_005,Sensitive PII
+emp_id,Employee identification number,EMP001||EMP002||EMP003||EMP004||EMP005,Non-Sensitive PII
+ice_fx_stream,Licensed ICE FX market data stream,ICE_FX_001||ICE_FX_002||ICE_FX_003||ICE_FX_004||ICE_FX_005,Licensed Data
+risk_model_fx,Proprietary FX risk assessment models,VAR_MODEL_01||STRESS_TEST_02||SCENARIO_03||CORRELATION_04||VOLATILITY_05,Confidential Information
+japan_my_num,Japan-specific identification number,JPN123456||JPN234567||JPN345678||JPN456789||JPN567890,Sensitive PII
+terminal_id,Trading terminal identification,TERM_001||TERM_002||TERM_003||TERM_004||TERM_005,Non-Sensitive PII
+refinitiv_feed,Licensed Refinitiv FX data feed,RFD_001||RFD_002||RFD_003||RFD_004||RFD_005,Licensed Data
+client_orders,Confidential client order information,ORDER_BUY_EUR||ORDER_SELL_USD||ORDER_BUY_GBP||ORDER_SELL_JPY||ORDER_BUY_AUD,Confidential Information
+fi_analyst_name,Fixed income analyst name,Peter Chen||Maya Patel||Sam Wilson||Rachel Kim||Alex Thompson,Non-Sensitive PII
+acct_num_sec,Account numbers with security codes,ACC123_SEC456||ACC234_SEC567||ACC345_SEC678||ACC456_SEC789||ACC567_SEC890,Sensitive PII
+moodys_data_feed,Licensed Moody's bond rating data,MDY_FEED_001||MDY_FEED_002||MDY_FEED_003||MDY_FEED_004||MDY_FEED_005,Licensed Data
+bond_strat_model,Proprietary bond trading strategy,YIELD_CURVE_V1||DURATION_PLAY_V2||CREDIT_SPREAD_V3||CURVE_STEEPENER_V4||BUTTERFLY_V5,Confidential Information
+rrn_kr,Korean resident registration number,KR12345678||KR23456789||KR34567890||KR45678901||KR56789012,Sensitive PII
+work_email,Employee work email address,p.chen@fi.com||m.patel@fi.com||s.wilson@fi.com||r.kim@fi.com||a.thompson@fi.com,Non-Sensitive PII
+fitch_ratings_api,Licensed Fitch ratings data access,FITCH_001||FITCH_002||FITCH_003||FITCH_004||FITCH_005,Licensed Data
+yield_curve_pred,Confidential yield curve predictions,UST_2Y_3.5||UST_5Y_4.2||UST_10Y_4.8||UST_20Y_5.1||UST_30Y_5.3,Confidential Information
+sys_cred,System login credentials encrypted,HASH_CRED_001||HASH_CRED_002||HASH_CRED_003||HASH_CRED_004||HASH_CRED_005,Sensitive PII
+desk_identifier,Fixed income desk identifier code,FI_GOVT_01||FI_CORP_02||FI_HY_03||FI_EM_04||FI_STRUCT_05,Non-Sensitive PII
+spglobal_bond_data,Licensed S&P Global bond data,SPG_BOND_001||SPG_BOND_002||SPG_BOND_003||SPG_BOND_004||SPG_BOND_005,Licensed Data
+trade_positions,Confidential bond position details,UST_LONG_10Y||CORP_SHORT_5Y||HY_LONG_3Y||EM_SHORT_7Y||TIPS_LONG_15Y,Confidential Information
+bio_auth_data,Biometric authentication data,BIO_FINGER_001||BIO_FACE_002||BIO_VOICE_003||BIO_IRIS_004||BIO_PALM_005,Sensitive PII
+trader_id,Trader identification code,TRD001||TRD002||TRD003||TRD004||TRD005,Non-Sensitive PII
+markit_iboxx,Licensed IBoxx index data feed,IBOXX_001||IBOXX_002||IBOXX_003||IBOXX_004||IBOXX_005,Licensed Data
+client_port_data,Confidential client portfolio details,PORT_GOVT_1||PORT_CORP_2||PORT_HY_3||PORT_EM_4||PORT_STRUCT_5,Confidential Information
+health_info,Employee health insurance data,HEALTH_A1||HEALTH_B2||HEALTH_C3||HEALTH_D4||HEALTH_E5,Sensitive PII
+emp_location,Employee office location code,LOC_NY||LOC_LN||LOC_TK||LOC_HK||LOC_SG,Non-Sensitive PII
+bloomberg_feed,Licensed Bloomberg terminal data,BBG_FI_001||BBG_FI_002||BBG_FI_003||BBG_FI_004||BBG_FI_005,Licensed Data
+risk_limits_fi,Confidential fixed income risk limits,LIMIT_UST_50M||LIMIT_CORP_30M||LIMIT_HY_20M||LIMIT_EM_25M||LIMIT_STRUCT_15M,Confidential Information
+analyst_business_title,Professional title of IB analyst,Associate Director||Vice President||Executive Director||Managing Director||Senior Analyst,Non-Sensitive PII
+passport_details,International identification numbers,P123456789||P234567890||P345678901||P456789012||P567890123,Sensitive PII
+thomson_dealware,Licensed Thomson Reuters deal data,TR_DEAL_001||TR_DEAL_002||TR_DEAL_003||TR_DEAL_004||TR_DEAL_005,Licensed Data
+merger_strategy,Confidential M&A strategy details,HOSTILE_TAKEOVER_1||FRIENDLY_MERGE_2||ASSET_SALE_3||SPINOFF_4||LBO_PLAN_5,Confidential Information
+bank_acc_secure,Bank account with security codes,BACC123_SEC456||BACC234_SEC567||BACC345_SEC678||BACC456_SEC789||BACC567_SEC890,Sensitive PII
+work_phone_number,Office contact number,212-555-0101||212-555-0102||212-555-0103||212-555-0104||212-555-0105,Non-Sensitive PII
+dealogic_ma_data,Licensed Dealogic M&A database,DEAL_001||DEAL_002||DEAL_003||DEAL_004||DEAL_005,Licensed Data
+valuation_models,Confidential company valuation data,DCF_MODEL_1||LBO_MODEL_2||COMP_MODEL_3||MERGER_MODEL_4||SUM_PARTS_5,Confidential Information
+access_credentials,System login authentication details,AUTH_HASH_001||AUTH_HASH_002||AUTH_HASH_003||AUTH_HASH_004||AUTH_HASH_005,Sensitive PII
+business_email,Corporate email address,analyst1@ib.com||analyst2@ib.com||analyst3@ib.com||analyst4@ib.com||analyst5@ib.com,Non-Sensitive PII
+pitchbook_data,Licensed Pitchbook market data,PB_DATA_001||PB_DATA_002||PB_DATA_003||PB_DATA_004||PB_DATA_005,Licensed Data
+deal_pipeline,Confidential upcoming deal information,IPO_TECH_1||M&A_HEALTH_2||PE_DEAL_3||SPAC_4||DEBT_RAISE_5,Confidential Information
+credit_history,Financial credit records data,FICO_750||FICO_800||FICO_680||FICO_720||FICO_780,Sensitive PII
+employee_department,Department assignment information,IB_M&A||IB_ECM||IB_DCM||IB_ADV||IB_SYND,Non-Sensitive PII
+bloomberg_ma_feed,Licensed Bloomberg M&A data feed,BBG_MA_001||BBG_MA_002||BBG_MA_003||BBG_MA_004||BBG_MA_005,Licensed Data
+board_materials,Confidential board presentation data,BOARD_DECK_1||BOARD_MEMO_2||BOARD_MINUTES_3||BOARD_STRAT_4||BOARD_VOTE_5,Confidential Information
+health_records,Employee medical information data,HEALTH_REC_001||HEALTH_REC_002||HEALTH_REC_003||HEALTH_REC_004||HEALTH_REC_005,Sensitive PII
+office_location,Work location of employee,Floor 10||Floor 11||Floor 12||Floor 14||Floor 15,Non-Sensitive PII
+factset_research,Licensed FactSet research data,FS_RES_001||FS_RES_002||FS_RES_003||FS_RES_004||FS_RES_005,Licensed Data
+synergy_analysis,Confidential merger synergy calculations,COST_SYN_1||REV_SYN_2||OP_SYN_3||TAX_SYN_4||TECH_SYN_5,Confidential Information
+researcher_name,Name of equity research analyst,David Smith||Julia Park||Andrew Chen||Maria Garcia||Tom Wilson,Non-Sensitive PII
+racial_demographics,Analyst demographic information,ASIAN||CAUCASIAN||HISPANIC||AFRICAN_AMERICAN||PACIFIC_ISLANDER,Sensitive PII
+factset_equity_data,Licensed FactSet equity research feed,FDS_EQ_001||FDS_EQ_002||FDS_EQ_003||FDS_EQ_004||FDS_EQ_005,Licensed Data
+research_models,Confidential equity valuation models,DCF_TECH_1||PE_RETAIL_2||EV_HEALTH_3||SOTP_IND_4||WACC_FIN_5,Confidential Information
+login_auth_data,System authentication credentials,AUTH_CODE_001||AUTH_CODE_002||AUTH_CODE_003||AUTH_CODE_004||AUTH_CODE_005,Sensitive PII
+work_extension,Office phone extension number,EXT_1001||EXT_1002||EXT_1003||EXT_1004||EXT_1005,Non-Sensitive PII
+thomson_research,Licensed Thomson Reuters research,TR_RES_001||TR_RES_002||TR_RES_003||TR_RES_004||TR_RES_005,Licensed Data
+earnings_forecast,Confidential company earnings predictions,AAPL_Q1_EST||MSFT_Q2_EST||GOOGL_Q3_EST||AMZN_Q4_EST||META_Q1_EST,Confidential Information
+japan_residence,Japan-specific domicile information,JPN_DOM_001||JPN_DOM_002||JPN_DOM_003||JPN_DOM_004||JPN_DOM_005,Sensitive PII
+analyst_contact,Business contact information,analyst1@research.com||analyst2@research.com||analyst3@research.com||analyst4@research.com||analyst5@research.com,Non-Sensitive PII
+bloomberg_feed,Licensed Bloomberg market data,BBG_DATA_001||BBG_DATA_002||BBG_DATA_003||BBG_DATA_004||BBG_DATA_005,Licensed Data
+stock_ratings,Confidential stock recommendation data,STRONG_BUY_A||BUY_B||HOLD_C||SELL_D||STRONG_SELL_E,Confidential Information
+health_status,Employee health condition records,CONDITION_A||CONDITION_B||CONDITION_C||CONDITION_D||CONDITION_E,Sensitive PII
+desk_location,Analyst desk assignment,DESK_A1||DESK_B2||DESK_C3||DESK_D4||DESK_E5,Non-Sensitive PII
+visible_alpha,Licensed Visible Alpha research data,VA_DATA_001||VA_DATA_002||VA_DATA_003||VA_DATA_004||VA_DATA_005,Licensed Data
+client_meetings,Confidential client interaction notes,CLIENT_MEET_1||CLIENT_MEET_2||CLIENT_MEET_3||CLIENT_MEET_4||CLIENT_MEET_5,Confidential Information
+credit_card_sec,Corporate card with security code,CARD_1234_SEC||CARD_2345_SEC||CARD_3456_SEC||CARD_4567_SEC||CARD_5678_SEC,Sensitive PII
+employee_grade,Staff grade level information,GRADE_1||GRADE_2||GRADE_3||GRADE_4||GRADE_5,Non-Sensitive PII
+morningstar_data,Licensed Morningstar equity data,MS_EQ_001||MS_EQ_002||MS_EQ_003||MS_EQ_004||MS_EQ_005,Licensed Data
+research_pipeline,Confidential upcoming research reports,TECH_SECTOR_1||HEALTH_SECTOR_2||FIN_SECTOR_3||RETAIL_SECTOR_4||IND_SECTOR_5,Confidential Information
+structurer_name,Name of product structurer,Alan Wong||Nina Patel||Chris Miller||Sophie Chen||Mark Johnson,Non-Sensitive PII
+sys_biometric,Biometric system access data,RETINA_HASH_001||FINGER_HASH_002||FACE_HASH_003||VOICE_HASH_004||PALM_HASH_005,Sensitive PII
+superderivatives_data,Licensed SuperDerivatives pricing feed,SD_PRICE_001||SD_PRICE_002||SD_PRICE_003||SD_PRICE_004||SD_PRICE_005,Licensed Data
+pricing_models,Confidential derivative pricing algorithms,BLACK_SCHOLES_1||MONTE_CARLO_2||HESTON_3||DUPIRE_4||SABR_5,Confidential Information
+kr_rrn_masked,Korean resident registration number,KR_MASK_001||KR_MASK_002||KR_MASK_003||KR_MASK_004||KR_MASK_005,Sensitive PII
+business_phone,Office telephone number,555-0201||555-0202||555-0203||555-0204||555-0205,Non-Sensitive PII
+markit_derivatives,Licensed Markit derivatives data,MKT_DER_001||MKT_DER_002||MKT_DER_003||MKT_DER_004||MKT_DER_005,Licensed Data
+product_pipeline,Confidential structured product plans,AUTOCALL_1||SNOWBALL_2||BARRIER_3||RAINBOW_4||HYBRID_5,Confidential Information
+access_pin,System PIN with security code,PIN_SEC_001||PIN_SEC_002||PIN_SEC_003||PIN_SEC_004||PIN_SEC_005,Sensitive PII
+employee_title,Job title of employee,Associate||VP||Director||MD||Analyst,Non-Sensitive PII
+bloomberg_exotics,Licensed Bloomberg exotic options data,BBG_EXO_001||BBG_EXO_002||BBG_EXO_003||BBG_EXO_004||BBG_EXO_005,Licensed Data
+risk_scenarios,Confidential stress test scenarios,STRESS_VOL_1||STRESS_RATE_2||STRESS_FX_3||STRESS_CREDIT_4||STRESS_CORR_5,Confidential Information
+medical_leave,Health-related leave status data,MED_LEAVE_001||MED_LEAVE_002||MED_LEAVE_003||MED_LEAVE_004||MED_LEAVE_005,Sensitive PII
+corp_email,Corporate email address,struct1@bank.com||struct2@bank.com||struct3@bank.com||struct4@bank.com||struct5@bank.com,Non-Sensitive PII
+refinitiv_eikon,Licensed Refinitiv market data,REF_MKT_001||REF_MKT_002||REF_MKT_003||REF_MKT_004||REF_MKT_005,Licensed Data
+client_portfolios,Confidential client holding details,PORT_STRUCT_1||PORT_STRUCT_2||PORT_STRUCT_3||PORT_STRUCT_4||PORT_STRUCT_5,Confidential Information
+genetic_data,Employee genetic test results,GEN_TEST_001||GEN_TEST_002||GEN_TEST_003||GEN_TEST_004||GEN_TEST_005,Sensitive PII
+desk_code,Desk identification code,DESK_SP1||DESK_SP2||DESK_SP3||DESK_SP4||DESK_SP5,Non-Sensitive PII
+ice_options_data,Licensed ICE options market feed,ICE_OPT_001||ICE_OPT_002||ICE_OPT_003||ICE_OPT_004||ICE_OPT_005,Licensed Data
+hedge_strategy,Confidential hedging methodology,DELTA_HEDGE_1||VEGA_HEDGE_2||GAMMA_HEDGE_3||RHO_HEDGE_4||THETA_HEDGE_5,Confidential Information
+pb_contact_name,Prime broker contact name,Rachel Kim||Michael Brown||Sarah Lee||James Wilson||David Chen,Non-Sensitive PII
+debit_card_secure,Debit card with security code,CARD_4444_AUTH||CARD_5555_AUTH||CARD_6666_AUTH||CARD_7777_AUTH||CARD_8888_AUTH,Sensitive PII
+nasdaq_prime_data,Licensed Nasdaq prime brokerage feed,NSDQ_PB_001||NSDQ_PB_002||NSDQ_PB_003||NSDQ_PB_004||NSDQ_PB_005,Licensed Data
+margin_analytics,Confidential margin calculation models,MARGIN_MODEL_1||MARGIN_MODEL_2||MARGIN_MODEL_3||MARGIN_MODEL_4||MARGIN_MODEL_5,Confidential Information
+facial_recognition,Biometric facility access data,FACE_ID_001||FACE_ID_002||FACE_ID_003||FACE_ID_004||FACE_ID_005,Sensitive PII
+work_extension,Office phone extension,1234||1235||1236||1237||1238,Non-Sensitive PII
+factset_portfolio,Licensed FactSet portfolio analytics,FDS_PORT_001||FDS_PORT_002||FDS_PORT_003||FDS_PORT_004||FDS_PORT_005,Licensed Data
+client_exposures,Confidential client position details,EQUITY_EXP_1||DERIV_EXP_2||FIXED_EXP_3||FX_EXP_4||CRYPTO_EXP_5,Confidential Information
+jp_my_number,Japan My Number identification,JPN_ID_001||JPN_ID_002||JPN_ID_003||JPN_ID_004||JPN_ID_005,Sensitive PII
+employee_shift,Work shift schedule,SHIFT_A||SHIFT_B||SHIFT_C||SHIFT_D||SHIFT_E,Non-Sensitive PII
+bloomberg_prime,Licensed Bloomberg prime services data,BBG_PB_001||BBG_PB_002||BBG_PB_003||BBG_PB_004||BBG_PB_005,Licensed Data
+risk_reports,Confidential risk assessment reports,RISK_DAILY_1||RISK_WEEKLY_2||RISK_MONTHLY_3||RISK_QUARTER_4||RISK_ANNUAL_5,Confidential Information
+health_insurance,Employee health coverage status,HEALTH_FULL||HEALTH_BASIC||HEALTH_FAMILY||HEALTH_SINGLE||HEALTH_NONE,Sensitive PII
+staff_department,Employee department assignment,PB_OPS||PB_RISK||PB_CLIENT||PB_TECH||PB_ADMIN,Non-Sensitive PII
+refinitiv_prime,Licensed Refinitiv prime data feed,REF_PB_001||REF_PB_002||REF_PB_003||REF_PB_004||REF_PB_005,Licensed Data
+collateral_model,Confidential collateral valuation method,COLL_EQUITY||COLL_BOND||COLL_DERIV||COLL_FX||COLL_CRYPTO,Confidential Information
+system_password,System authentication credentials,PWD_HASH_001||PWD_HASH_002||PWD_HASH_003||PWD_HASH_004||PWD_HASH_005,Sensitive PII
+business_email,Corporate email address,pb1@bank.com||pb2@bank.com||pb3@bank.com||pb4@bank.com||pb5@bank.com,Non-Sensitive PII
+markit_securities,Licensed Markit securities data,MKT_SEC_001||MKT_SEC_002||MKT_SEC_003||MKT_SEC_004||MKT_SEC_005,Licensed Data
+lending_strategy,Confidential securities lending plans,LEND_STRAT_1||LEND_STRAT_2||LEND_STRAT_3||LEND_STRAT_4||LEND_STRAT_5,Confidential Information
+compliance_name,Name of compliance officer,John Park||Lisa Chen||Mark Wilson||Amy Singh||Robert Lee,Non-Sensitive PII
+user_credentials,System login authentication details,AUTH_HASH_001||AUTH_HASH_002||AUTH_HASH_003||AUTH_HASH_004||AUTH_HASH_005,Sensitive PII
+thomson_reg_data,Licensed Thomson Reuters regulatory feed,TR_REG_001||TR_REG_002||TR_REG_003||TR_REG_004||TR_REG_005,Licensed Data
+investigation_data,Confidential investigation details,CASE_001_INV||CASE_002_INV||CASE_003_INV||CASE_004_INV||CASE_005_INV,Confidential Information
+religion_info,Religious affiliation information,REL_DATA_001||REL_DATA_002||REL_DATA_003||REL_DATA_004||REL_DATA_005,Sensitive PII
+office_cubicle,Office workspace location,CUBE_A1||CUBE_B2||CUBE_C3||CUBE_D4||CUBE_E5,Non-Sensitive PII
+lexisnexis_kyc,Licensed LexisNexis KYC data,LEX_KYC_001||LEX_KYC_002||LEX_KYC_003||LEX_KYC_004||LEX_KYC_005,Licensed Data
+audit_findings,Confidential audit report findings,AUDIT_CRIT_1||AUDIT_HIGH_2||AUDIT_MED_3||AUDIT_LOW_4||AUDIT_INFO_5,Confidential Information
+ssn_encrypted,Encrypted social security numbers,SSN_ENC_001||SSN_ENC_002||SSN_ENC_003||SSN_ENC_004||SSN_ENC_005,Sensitive PII
+work_phone,Office contact number,212-555-0181||212-555-0182||212-555-0183||212-555-0184||212-555-0185,Non-Sensitive PII
+refinitiv_screening,Licensed Refinitiv screening data,REF_SCR_001||REF_SCR_002||REF_SCR_003||REF_SCR_004||REF_SCR_005,Licensed Data
+regulatory_reports,Confidential regulatory submissions,REG_REP_Q1||REG_REP_Q2||REG_REP_Q3||REG_REP_Q4||REG_REP_YE,Confidential Information
+criminal_check,Background check results data,CRIM_CHECK_001||CRIM_CHECK_002||CRIM_CHECK_003||CRIM_CHECK_004||CRIM_CHECK_005,Sensitive PII
+employee_title,Staff job title information,Analyst||Associate||Manager||Director||VP,Non-Sensitive PII
+bloomberg_comp,Licensed Bloomberg compliance data,BBG_COMP_001||BBG_COMP_002||BBG_COMP_003||BBG_COMP_004||BBG_COMP_005,Licensed Data
+policy_violations,Confidential violation records,VIOLATION_1||VIOLATION_2||VIOLATION_3||VIOLATION_4||VIOLATION_5,Confidential Information
+veteran_status,Military service status information,VET_STATUS_001||VET_STATUS_002||VET_STATUS_003||VET_STATUS_004||VET_STATUS_005,Sensitive PII
+corp_email,Corporate email address,comp1@firm.com||comp2@firm.com||comp3@firm.com||comp4@firm.com||comp5@firm.com,Non-Sensitive PII
+dow_jones_risk,Licensed Dow Jones risk data feed,DJ_RISK_001||DJ_RISK_002||DJ_RISK_003||DJ_RISK_004||DJ_RISK_005,Licensed Data
+escalation_logs,Confidential incident escalations,ESC_LOG_001||ESC_LOG_002||ESC_LOG_003||ESC_LOG_004||ESC_LOG_005,Confidential Information
+risk_analyst_name,Name of risk analyst,Henry Zhang||Maya Patel||Daniel Kim||Laura Chen||Tom Wilson,Non-Sensitive PII
+biometric_access,Biometric system authentication data,RETINA_001||FINGER_002||FACE_003||VOICE_004||PALM_005,Sensitive PII
+reuters_risk_data,Licensed Reuters risk analytics feed,RTR_RISK_001||RTR_RISK_002||RTR_RISK_003||RTR_RISK_004||RTR_RISK_005,Licensed Data
+var_models,Confidential value at risk calculations,VAR_99_1D||VAR_95_10D||VAR_99_1M||VAR_95_1Y||VAR_99_STRESS,Confidential Information
+krw_credit_info,Korean credit information data,KRW_CRED_001||KRW_CRED_002||KRW_CRED_003||KRW_CRED_004||KRW_CRED_005,Sensitive PII
+desk_location,Work desk assignment code,DESK_R1||DESK_R2||DESK_R3||DESK_R4||DESK_R5,Non-Sensitive PII
+moodys_analytics,Licensed Moody's Analytics data,MOODYS_001||MOODYS_002||MOODYS_003||MOODYS_004||MOODYS_005,Licensed Data
+stress_scenarios,Confidential stress test parameters,STRESS_1Y||STRESS_3Y||STRESS_5Y||STRESS_7Y||STRESS_10Y,Confidential Information
+health_records,Employee health condition data,HEALTH_A1||HEALTH_B2||HEALTH_C3||HEALTH_D4||HEALTH_E5,Sensitive PII
+work_email,Corporate email address,risk1@bank.com||risk2@bank.com||risk3@bank.com||risk4@bank.com||risk5@bank.com,Non-Sensitive PII
+bloomberg_risk,Licensed Bloomberg risk data feed,BBG_RISK_001||BBG_RISK_002||BBG_RISK_003||BBG_RISK_004||BBG_RISK_005,Licensed Data
+portfolio_limits,Confidential risk limit thresholds,LIMIT_EQ_1||LIMIT_FI_2||LIMIT_FX_3||LIMIT_COM_4||LIMIT_DERIV_5,Confidential Information
+login_creds,System access credentials,LOGIN_SEC_001||LOGIN_SEC_002||LOGIN_SEC_003||LOGIN_SEC_004||LOGIN_SEC_005,Sensitive PII
+employee_grade,Staff level designation,GRADE_1||GRADE_2||GRADE_3||GRADE_4||GRADE_5,Non-Sensitive PII
+factset_risk,Licensed FactSet risk metrics,FDS_RISK_001||FDS_RISK_002||FDS_RISK_003||FDS_RISK_004||FDS_RISK_005,Licensed Data
+correlation_matrix,Confidential correlation calculations,CORR_EQ_FI||CORR_FI_FX||CORR_FX_COM||CORR_EQ_COM||CORR_FI_COM,Confidential Information
+union_membership,Trade union affiliation status,UNION_A1||UNION_A2||UNION_A3||UNION_A4||UNION_A5,Sensitive PII
+office_phone,Work telephone number,555-0301||555-0302||555-0303||555-0304||555-0305,Non-Sensitive PII
+markit_risk_data,Licensed Markit risk analytics,MKT_RISK_001||MKT_RISK_002||MKT_RISK_003||MKT_RISK_004||MKT_RISK_005,Licensed Data
+sensitivity_report,Confidential risk sensitivity analysis,DELTA_1||GAMMA_2||VEGA_3||THETA_4||RHO_5,Confidential Information
+credit_officer_name,Name of credit risk officer,Alex Thompson||Nina Gupta||James Chen||Sarah Kim||Mike Wilson,Non-Sensitive PII
+social_security_num,Social security identification number,123-45-6789||234-56-7890||345-67-8901||456-78-9012||567-89-0123,Sensitive PII
+sp_credit_data,Licensed S&P credit rating data,SP_CR_001||SP_CR_002||SP_CR_003||SP_CR_004||SP_CR_005,Licensed Data
+default_models,Confidential default prediction models,DEF_MODEL_1||DEF_MODEL_2||DEF_MODEL_3||DEF_MODEL_4||DEF_MODEL_5,Confidential Information
+geo_track_data,Precise geolocation tracking data,40.7589_-73.9851||51.5074_-0.1278||35.6762_139.6503||22.3193_114.1694||1.3521_103.8198,Sensitive PII
+employee_division,Division assignment information,CREDIT_DIV_1||CREDIT_DIV_2||CREDIT_DIV_3||CREDIT_DIV_4||CREDIT_DIV_5,Non-Sensitive PII
+moodys_credit_feed,Licensed Moody's credit data feed,MDY_CR_001||MDY_CR_002||MDY_CR_003||MDY_CR_004||MDY_CR_005,Licensed Data
+exposure_limits,Confidential credit exposure thresholds,LIMIT_A1||LIMIT_A2||LIMIT_A3||LIMIT_B1||LIMIT_B2,Confidential Information
+political_views,Political affiliation information,POL_VIEW_001||POL_VIEW_002||POL_VIEW_003||POL_VIEW_004||POL_VIEW_005,Sensitive PII
+work_phone,Office telephone number,555-0401||555-0402||555-0403||555-0404||555-0405,Non-Sensitive PII
+fitch_analytics,Licensed Fitch ratings analytics,FITCH_001||FITCH_002||FITCH_003||FITCH_004||FITCH_005,Licensed Data
+risk_methodology,Confidential risk assessment method,METHOD_1||METHOD_2||METHOD_3||METHOD_4||METHOD_5,Confidential Information
+genetic_profile,Genetic testing information,GEN_DATA_001||GEN_DATA_002||GEN_DATA_003||GEN_DATA_004||GEN_DATA_005,Sensitive PII
+business_email,Corporate email address,credit1@bank.com||credit2@bank.com||credit3@bank.com||credit4@bank.com||credit5@bank.com,Non-Sensitive PII
+bloomberg_credit,Licensed Bloomberg credit data,BBG_CR_001||BBG_CR_002||BBG_CR_003||BBG_CR_004||BBG_CR_005,Licensed Data
+portfolio_strategy,Confidential portfolio management strategy,STRAT_1||STRAT_2||STRAT_3||STRAT_4||STRAT_5,Confidential Information
+system_password,System access credentials,PWD_HASH_001||PWD_HASH_002||PWD_HASH_003||PWD_HASH_004||PWD_HASH_005,Sensitive PII
+employee_title,Job title information,Analyst||Associate||VP||Director||MD,Non-Sensitive PII
+refinitiv_credit,Licensed Refinitiv credit analytics,REF_CR_001||REF_CR_002||REF_CR_003||REF_CR_004||REF_CR_005,Licensed Data
+client_ratings,Confidential internal client ratings,AAA_INT||AA_INT||A_INT||BBB_INT||BB_INT,Confidential Information
+ops_analyst_name,Name of operations analyst,Kevin Park||Lisa Chen||Ryan Smith||Emma Wong||David Kim,Non-Sensitive PII
+fingerprint_data,Biometric authentication pattern,BIO_FP_001||BIO_FP_002||BIO_FP_003||BIO_FP_004||BIO_FP_005,Sensitive PII
+ibm_risk_data,Licensed IBM risk management platform,IBM_RISK_001||IBM_RISK_002||IBM_RISK_003||IBM_RISK_004||IBM_RISK_005,Licensed Data
+incident_reports,Confidential operational incident details,INC_REP_001||INC_REP_002||INC_REP_003||INC_REP_004||INC_REP_005,Confidential Information
+driver_license,Government-issued identification,DL123456||DL234567||DL345678||DL456789||DL567890,Sensitive PII
+business_unit,Department assignment information,OPS_TEAM_1||OPS_TEAM_2||OPS_TEAM_3||OPS_TEAM_4||OPS_TEAM_5,Non-Sensitive PII
+sas_ops_platform,Licensed SAS operational analytics,SAS_OPS_001||SAS_OPS_002||SAS_OPS_003||SAS_OPS_004||SAS_OPS_005,Licensed Data
+control_framework,Confidential control documentation,CTRL_DOC_1||CTRL_DOC_2||CTRL_DOC_3||CTRL_DOC_4||CTRL_DOC_5,Confidential Information
+medical_status,Employee health condition records,MED_STAT_001||MED_STAT_002||MED_STAT_003||MED_STAT_004||MED_STAT_005,Sensitive PII
+work_extension,Office phone extension number,EXT_1234||EXT_2345||EXT_3456||EXT_4567||EXT_5678,Non-Sensitive PII
+oracle_risk_cloud,Licensed Oracle risk management suite,ORC_001||ORC_002||ORC_003||ORC_004||ORC_005,Licensed Data
+process_controls,Confidential control assessments,CTRL_ASS_1||CTRL_ASS_2||CTRL_ASS_3||CTRL_ASS_4||CTRL_ASS_5,Confidential Information
+credit_records,Financial credit history data,CR_HIST_001||CR_HIST_002||CR_HIST_003||CR_HIST_004||CR_HIST_005,Sensitive PII
+employee_email,Corporate email address,ops1@bank.com||ops2@bank.com||ops3@bank.com||ops4@bank.com||ops5@bank.com,Non-Sensitive PII
+thomson_ops_data,Licensed Thomson Reuters ops data,TR_OPS_001||TR_OPS_002||TR_OPS_003||TR_OPS_004||TR_OPS_005,Licensed Data
+risk_assessments,Confidential risk evaluation results,RISK_EVL_1||RISK_EVL_2||RISK_EVL_3||RISK_EVL_4||RISK_EVL_5,Confidential Information
+system_password,System authentication credentials,PWD_SEC_001||PWD_SEC_002||PWD_SEC_003||PWD_SEC_004||PWD_SEC_005,Sensitive PII
+office_location,Work location information,FLOOR_1||FLOOR_2||FLOOR_3||FLOOR_4||FLOOR_5,Non-Sensitive PII
+bloomberg_ops,Licensed Bloomberg operational data,BBG_OPS_001||BBG_OPS_002||BBG_OPS_003||BBG_OPS_004||BBG_OPS_005,Licensed Data
+audit_findings,Confidential audit observations,AUDIT_OBS_1||AUDIT_OBS_2||AUDIT_OBS_3||AUDIT_OBS_4||AUDIT_OBS_5,Confidential Information
+algo_dev_name,Name of algorithm developer,Sam Lee||Rita Patel||Jack Chen||Amy Shah||Mark Wu,Non-Sensitive PII
+bio_auth_code,Biometric authentication data,BIO_AUTH_001||BIO_AUTH_002||BIO_AUTH_003||BIO_AUTH_004||BIO_AUTH_005,Sensitive PII
+rtrs_mkt_data,Licensed Reuters market data feed,RTR_MKT_001||RTR_MKT_002||RTR_MKT_003||RTR_MKT_004||RTR_MKT_005,Licensed Data
+algo_strat_code,Confidential trading algorithm code,ALGO_HFT_1||ALGO_HFT_2||ALGO_HFT_3||ALGO_HFT_4||ALGO_HFT_5,Confidential Information
+rrn_num,Korean resident registration number,RRN123456||RRN234567||RRN345678||RRN456789||RRN567890,Sensitive PII
+emp_loc,Employee desk location code,LOC_A1||LOC_B2||LOC_C3||LOC_D4||LOC_E5,Non-Sensitive PII
+bbg_algo_feed,Licensed Bloomberg algorithm data,BBG_ALGO_001||BBG_ALGO_002||BBG_ALGO_003||BBG_ALGO_004||BBG_ALGO_005,Licensed Data
+exec_params,Confidential execution parameters,EXEC_PARAM_1||EXEC_PARAM_2||EXEC_PARAM_3||EXEC_PARAM_4||EXEC_PARAM_5,Confidential Information
+med_rec,Employee medical records data,MED_REC_001||MED_REC_002||MED_REC_003||MED_REC_004||MED_REC_005,Sensitive PII
+wrk_email,Work email address,dev1@algo.com||dev2@algo.com||dev3@algo.com||dev4@algo.com||dev5@algo.com,Non-Sensitive PII
+ref_tick_data,Licensed Refinitiv tick data,REF_TICK_001||REF_TICK_002||REF_TICK_003||REF_TICK_004||REF_TICK_005,Licensed Data
+perf_metrics,Confidential performance statistics,PERF_STAT_1||PERF_STAT_2||PERF_STAT_3||PERF_STAT_4||PERF_STAT_5,Confidential Information
+sys_pwd,System login credentials,PWD_ENC_001||PWD_ENC_002||PWD_ENC_003||PWD_ENC_004||PWD_ENC_005,Sensitive PII
+emp_id,Employee identification code,EID_001||EID_002||EID_003||EID_004||EID_005,Non-Sensitive PII
+ice_data_feed,Licensed ICE market data feed,ICE_DATA_001||ICE_DATA_002||ICE_DATA_003||ICE_DATA_004||ICE_DATA_005,Licensed Data
+trade_logic,Confidential trading logic rules,LOGIC_RULE_1||LOGIC_RULE_2||LOGIC_RULE_3||LOGIC_RULE_4||LOGIC_RULE_5,Confidential Information
+crim_hist,Criminal background check results,CRIM_CHK_001||CRIM_CHK_002||CRIM_CHK_003||CRIM_CHK_004||CRIM_CHK_005,Sensitive PII
+wrk_phone,Work phone number,555-0501||555-0502||555-0503||555-0504||555-0505,Non-Sensitive PII
+factset_algo,Licensed FactSet algorithm data,FDS_ALGO_001||FDS_ALGO_002||FDS_ALGO_003||FDS_ALGO_004||FDS_ALGO_005,Licensed Data
+risk_limits,Confidential trading risk limits,RISK_LMT_1||RISK_LMT_2||RISK_LMT_3||RISK_LMT_4||RISK_LMT_5,Confidential Information
+wm_adv_name,Wealth management advisor name,Jay Park||Nina Shah||Rob Chen||Eva Liu||Tom Lee,Non-Sensitive PII
+cc_data,Credit card with security codes,CC_4321_SEC||CC_5432_SEC||CC_6543_SEC||CC_7654_SEC||CC_8765_SEC,Sensitive PII
+mstar_port_data,Licensed Morningstar portfolio data,MS_PORT_001||MS_PORT_002||MS_PORT_003||MS_PORT_004||MS_PORT_005,Licensed Data
+port_strat,Confidential portfolio strategy,STRAT_CONS_1||STRAT_MOD_2||STRAT_AGG_3||STRAT_INC_4||STRAT_GRW_5,Confidential Information
+ssn_enc,Encrypted social security number,SSN_ENC_001||SSN_ENC_002||SSN_ENC_003||SSN_ENC_004||SSN_ENC_005,Sensitive PII
+emp_dept,Employee department code,WM_A1||WM_B2||WM_C3||WM_D4||WM_E5,Non-Sensitive PII
+bbg_wealth_data,Licensed Bloomberg wealth data,BBG_WM_001||BBG_WM_002||BBG_WM_003||BBG_WM_004||BBG_WM_005,Licensed Data
+client_port,Confidential client portfolios,PORT_HNW_1||PORT_UHNW_2||PORT_INST_3||PORT_RET_4||PORT_CORP_5,Confidential Information
+rel_status,Religious affiliation information,REL_001||REL_002||REL_003||REL_004||REL_005,Sensitive PII
+wrk_ext,Work extension number,EXT_601||EXT_602||EXT_603||EXT_604||EXT_605,Non-Sensitive PII
+ref_wealth_feed,Licensed Refinitiv wealth feed,REF_WM_001||REF_WM_002||REF_WM_003||REF_WM_004||REF_WM_005,Licensed Data
+inv_models,Confidential investment models,MODEL_BAL_1||MODEL_GRW_2||MODEL_INC_3||MODEL_VAL_4||MODEL_ESG_5,Confidential Information
+geo_loc,Precise geolocation data,LOC_40.7N_74W||LOC_51.5N_0.1W||LOC_35.6N_139E||LOC_22.3N_114E||LOC_1.3N_103E,Sensitive PII
+bus_email,Business email address,wm1@bank.com||wm2@bank.com||wm3@bank.com||wm4@bank.com||wm5@bank.com,Non-Sensitive PII
+fds_wealth_data,Licensed FactSet wealth data,FDS_WM_001||FDS_WM_002||FDS_WM_003||FDS_WM_004||FDS_WM_005,Licensed Data
+risk_prof,Confidential risk profiling data,RISK_PROF_1||RISK_PROF_2||RISK_PROF_3||RISK_PROF_4||RISK_PROF_5,Confidential Information
+bio_scan,Biometric scan data,BIO_SCAN_001||BIO_SCAN_002||BIO_SCAN_003||BIO_SCAN_004||BIO_SCAN_005,Sensitive PII
+emp_title,Employee title code,WM_VP||WM_DIR||WM_AVP||WM_MD||WM_ANL,Non-Sensitive PII
+tr_wealth_data,Licensed Thomson Reuters wealth data,TR_WM_001||TR_WM_002||TR_WM_003||TR_WM_004||TR_WM_005,Licensed Data
+alloc_strat,Confidential allocation strategy,ALLOC_1||ALLOC_2||ALLOC_3||ALLOC_4||ALLOC_5,Confidential Information
+res_anl_name,Research analyst name,Kim Lee||Joe Shah||Ann Chen||Ray Park||Mei Wu,Non-Sensitive PII
+jp_my_num,Japan My Number identification,JPN_MY_001||JPN_MY_002||JPN_MY_003||JPN_MY_004||JPN_MY_005,Sensitive PII
+spgbl_res_data,Licensed S&P Global research data,SPG_RES_001||SPG_RES_002||SPG_RES_003||SPG_RES_004||SPG_RES_005,Licensed Data
+res_pipeline,Confidential research pipeline,RES_TECH_1||RES_FIN_2||RES_HEALTH_3||RES_ESG_4||RES_MACRO_5,Confidential Information
+drv_lic_num,Driver's license number data,DL_ENC_001||DL_ENC_002||DL_ENC_003||DL_ENC_004||DL_ENC_005,Sensitive PII
+emp_grade,Employee grade level,GRADE_A1||GRADE_A2||GRADE_B1||GRADE_B2||GRADE_C1,Non-Sensitive PII
+rtrs_res_feed,Licensed Reuters research feed,RTR_RES_001||RTR_RES_002||RTR_RES_003||RTR_RES_004||RTR_RES_005,Licensed Data
+model_params,Confidential model parameters,PARAM_1||PARAM_2||PARAM_3||PARAM_4||PARAM_5,Confidential Information
+union_mem,Trade union membership status,UNION_A1||UNION_A2||UNION_A3||UNION_A4||UNION_A5,Sensitive PII
+wrk_ph,Work phone number,555-0601||555-0602||555-0603||555-0604||555-0605,Non-Sensitive PII
+bbg_res_data,Licensed Bloomberg research data,BBG_RES_001||BBG_RES_002||BBG_RES_003||BBG_RES_004||BBG_RES_005,Licensed Data
+alpha_model,Confidential alpha generation model,ALPHA_1||ALPHA_2||ALPHA_3||ALPHA_4||ALPHA_5,Confidential Information
+sys_auth,System authentication credentials,AUTH_001||AUTH_002||AUTH_003||AUTH_004||AUTH_005,Sensitive PII
+bus_mail,Business email address,res1@firm.com||res2@firm.com||res3@firm.com||res4@firm.com||res5@firm.com,Non-Sensitive PII
+fds_res_data,Licensed FactSet research data,FDS_RES_001||FDS_RES_002||FDS_RES_003||FDS_RES_004||FDS_RES_005,Licensed Data
+val_metrics,Confidential valuation metrics,VAL_MET_1||VAL_MET_2||VAL_MET_3||VAL_MET_4||VAL_MET_5,Confidential Information
+hlth_data,Health condition information,HEALTH_001||HEALTH_002||HEALTH_003||HEALTH_004||HEALTH_005,Sensitive PII
+dept_code,Department code identifier,RES_101||RES_102||RES_103||RES_104||RES_105,Non-Sensitive PII
+mstar_res_data,Licensed Morningstar research feed,MS_RES_001||MS_RES_002||MS_RES_003||MS_RES_004||MS_RES_005,Licensed Data
+client_ranks,Confidential client rankings,RANK_A1||RANK_A2||RANK_B1||RANK_B2||RANK_C1,Confidential Information
+surv_opr_name,Surveillance operator name,Tim Lee||Amy Shah||Ben Wu||Sara Park||Max Chen,Non-Sensitive PII
+bio_auth_data,Biometric authentication patterns,BIO_SCAN_001||BIO_SCAN_002||BIO_SCAN_003||BIO_SCAN_004||BIO_SCAN_005,Sensitive PII
+nsdq_surv_data,Licensed Nasdaq surveillance feed,NSDQ_SRV_001||NSDQ_SRV_002||NSDQ_SRV_003||NSDQ_SRV_004||NSDQ_SRV_005,Licensed Data
+alert_rules,Confidential surveillance rules,RULE_INS_1||RULE_MKT_2||RULE_WASH_3||RULE_SPOOF_4||RULE_LAY_5,Confidential Information
+krn_rrn,Korean resident registration number,KRN_001||KRN_002||KRN_003||KRN_004||KRN_005,Sensitive PII
+emp_loc,Employee location code,SRV_NY||SRV_LN||SRV_TK||SRV_HK||SRV_SG,Non-Sensitive PII
+bbg_surv_feed,Licensed Bloomberg surveillance data,BBG_SRV_001||BBG_SRV_002||BBG_SRV_003||BBG_SRV_004||BBG_SRV_005,Licensed Data
+case_files,Confidential investigation cases,CASE_A1||CASE_B2||CASE_C3||CASE_D4||CASE_E5,Confidential Information
+pol_views,Political affiliation information,POL_001||POL_002||POL_003||POL_004||POL_005,Sensitive PII
+wrk_ext,Work extension number,EXT_701||EXT_702||EXT_703||EXT_704||EXT_705,Non-Sensitive PII
+ref_surv_data,Licensed Refinitiv surveillance feed,REF_SRV_001||REF_SRV_002||REF_SRV_003||REF_SRV_004||REF_SRV_005,Licensed Data
+risk_scores,Confidential risk scoring model,RISK_A1||RISK_B2||RISK_C3||RISK_D4||RISK_E5,Confidential Information
+fin_cred_data,Financial credit information,FIN_CR_001||FIN_CR_002||FIN_CR_003||FIN_CR_004||FIN_CR_005,Sensitive PII
+bus_mail,Business email address,surv1@firm.com||surv2@firm.com||surv3@firm.com||surv4@firm.com||surv5@firm.com,Non-Sensitive PII
+ice_surv_data,Licensed ICE surveillance data,ICE_SRV_001||ICE_SRV_002||ICE_SRV_003||ICE_SRV_004||ICE_SRV_005,Licensed Data
+pat_detect,Confidential pattern detection rules,PAT_1||PAT_2||PAT_3||PAT_4||PAT_5,Confidential Information
+crim_rec,Criminal record information,CRIM_001||CRIM_002||CRIM_003||CRIM_004||CRIM_005,Sensitive PII
+dept_id,Department identifier code,SURV_01||SURV_02||SURV_03||SURV_04||SURV_05,Non-Sensitive PII
+cme_surv_feed,Licensed CME surveillance feed,CME_SRV_001||CME_SRV_002||CME_SRV_003||CME_SRV_004||CME_SRV_005,Licensed Data
+alert_thresh,Confidential alert thresholds,THRESH_1||THRESH_2||THRESH_3||THRESH_4||THRESH_5,Confidential Information
+crypto_tdr_name,Cryptocurrency trader name,Jay Kim||Rita Patel||Mike Chen||Sue Park||Dan Lee,Non-Sensitive PII
+face_recog,Facial recognition access data,FACE_ID_001||FACE_ID_002||FACE_ID_003||FACE_ID_004||FACE_ID_005,Sensitive PII
+cmbl_crypto_data,Licensed CoinMarketCap data feed,CMC_001||CMC_002||CMC_003||CMC_004||CMC_005,Licensed Data
+wallet_strat,Confidential wallet strategy details,COLD_WALLET_1||HOT_WALLET_2||MULTI_SIG_3||THRESH_SIG_4||TIME_LOCK_5,Confidential Information
+jp_residence,Japan domicile registration info,JP_DOM_001||JP_DOM_002||JP_DOM_003||JP_DOM_004||JP_DOM_005,Sensitive PII
+emp_id,Employee identifier code,EMP_C1||EMP_C2||EMP_C3||EMP_C4||EMP_C5,Non-Sensitive PII
+cg_market_feed,Licensed CoinGecko market feed,CG_MKT_001||CG_MKT_002||CG_MKT_003||CG_MKT_004||CG_MKT_005,Licensed Data
+trade_algos,Confidential trading algorithms,ALGO_BTC_1||ALGO_ETH_2||ALGO_ALT_3||ALGO_DeFi_4||ALGO_NFT_5,Confidential Information
+bank_acc_sec,Bank account with security codes,BNK_SEC_001||BNK_SEC_002||BNK_SEC_003||BNK_SEC_004||BNK_SEC_005,Sensitive PII
+wrk_phone,Work phone number,555-0801||555-0802||555-0803||555-0804||555-0805,Non-Sensitive PII
+messari_data,Licensed Messari crypto data,MSR_001||MSR_002||MSR_003||MSR_004||MSR_005,Licensed Data
+risk_limits,Confidential risk limit rules,LIMIT_BTC_1||LIMIT_ETH_2||LIMIT_ALT_3||LIMIT_STABLE_4||LIMIT_DeFi_5,Confidential Information
+pwd_hash,System password hash data,PWD_HASH_001||PWD_HASH_002||PWD_HASH_003||PWD_HASH_004||PWD_HASH_005,Sensitive PII
+bus_email,Business email address,crypto1@firm.com||crypto2@firm.com||crypto3@firm.com||crypto4@firm.com||crypto5@firm.com,Non-Sensitive PII
+glassnode_feed,Licensed Glassnode analytics feed,GN_DATA_001||GN_DATA_002||GN_DATA_003||GN_DATA_004||GN_DATA_005,Licensed Data
+exec_strategy,Confidential execution strategy,EXEC_SPOT_1||EXEC_PERP_2||EXEC_OPT_3||EXEC_YIELD_4||EXEC_STAKE_5,Confidential Information
+med_info,Medical condition information,MED_001||MED_002||MED_003||MED_004||MED_005,Sensitive PII
+desk_code,Trading desk code,CRYPTO_01||CRYPTO_02||CRYPTO_03||CRYPTO_04||CRYPTO_05,Non-Sensitive PII
+kaiko_data,Licensed Kaiko market data,KK_DATA_001||KK_DATA_002||KK_DATA_003||KK_DATA_004||KK_DATA_005,Licensed Data
+pos_book,Confidential position book data,POS_BTC_1||POS_ETH_2||POS_ALT_3||POS_STABLE_4||POS_DeFi_5,Confidential Information
