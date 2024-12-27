@@ -399,3 +399,63 @@ med_info,Medical condition information,MED_001||MED_002||MED_003||MED_004||MED_0
 desk_code,Trading desk code,CRYPTO_01||CRYPTO_02||CRYPTO_03||CRYPTO_04||CRYPTO_05,Non-Sensitive PII
 kaiko_data,Licensed Kaiko market data,KK_DATA_001||KK_DATA_002||KK_DATA_003||KK_DATA_004||KK_DATA_005,Licensed Data
 pos_book,Confidential position book data,POS_BTC_1||POS_ETH_2||POS_ALT_3||POS_STABLE_4||POS_DeFi_5,Confidential Information
+fund_adm_name,Fund administrator name,Alan Zhou||Maria Santos||Jake Miller||Priya Rao||Chris Taylor,Non-Sensitive PII
+nat_orig_data,Birth origin classification data,ORG_CAT_001||ORG_CAT_002||ORG_CAT_003||ORG_CAT_004||ORG_CAT_005,Sensitive PII
+ftse_idx_feed,Licensed FTSE index data feed,FTSE_001||FTSE_002||FTSE_003||FTSE_004||FTSE_005,Licensed Data
+nav_formulas,Confidential NAV calculation methods,NAV_CALC_1||NAV_CALC_2||NAV_CALC_3||NAV_CALC_4||NAV_CALC_5,Confidential Information
+iris_pat_code,Iris pattern recognition code,IRIS_001||IRIS_002||IRIS_003||IRIS_004||IRIS_005,Sensitive PII
+emp_code,Employee identification code,EMP_F1||EMP_F2||EMP_F3||EMP_F4||EMP_F5,Non-Sensitive PII
+msci_fund_data,Licensed MSCI fund analytics,MSCI_001||MSCI_002||MSCI_003||MSCI_004||MSCI_005,Licensed Data
+fee_structure,Confidential fee calculation models,FEE_MOD_1||FEE_MOD_2||FEE_MOD_3||FEE_MOD_4||FEE_MOD_5,Confidential Information
+mem_assoc,Organization membership details,MEM_GRP_001||MEM_GRP_002||MEM_GRP_003||MEM_GRP_004||MEM_GRP_005,Sensitive PII
+desk_phone,Office desk phone number,555-0901||555-0902||555-0903||555-0904||555-0905,Non-Sensitive PII
+hedge_data_feed,Licensed hedge fund database,HF_DATA_001||HF_DATA_002||HF_DATA_003||HF_DATA_004||HF_DATA_005,Licensed Data
+alloc_method,Confidential allocation methodology,ALLOC_A1||ALLOC_A2||ALLOC_A3||ALLOC_A4||ALLOC_A5,Confidential Information
+phys_features,Physical identification markers,PHYS_001||PHYS_002||PHYS_003||PHYS_004||PHYS_005,Sensitive PII
+work_mail,Work email address,adm1@fund.com||adm2@fund.com||adm3@fund.com||adm4@fund.com||adm5@fund.com,Non-Sensitive PII
+preqin_analytics,Licensed Preqin fund analytics,PRQ_001||PRQ_002||PRQ_003||PRQ_004||PRQ_005,Licensed Data
+recon_rules,Confidential reconciliation rules,RECON_1||RECON_2||RECON_3||RECON_4||RECON_5,Confidential Information
+auth_ptrn,Authentication pattern sequence,AUTH_PAT_001||AUTH_PAT_002||AUTH_PAT_003||AUTH_PAT_004||AUTH_PAT_005,Sensitive PII
+floor_loc,Office floor location,FL_10||FL_11||FL_12||FL_14||FL_15,Non-Sensitive PII
+exch_mkt_data,Licensed exchange market feed,EXCH_001||EXCH_002||EXCH_003||EXCH_004||EXCH_005,Licensed Data
+asset_matrix,Confidential asset allocation matrix,MATRIX_1||MATRIX_2||MATRIX_3||MATRIX_4||MATRIX_5,Confidential Information
+clr_opr_name,Clearing operator name,Helen Wu||Marcus Roy||Diana Lee||Paul Shah||Eva Chen,Non-Sensitive PII
+voice_data_id,Voice identification pattern,VOICE_001||VOICE_002||VOICE_003||VOICE_004||VOICE_005,Sensitive PII
+eurex_mkt_feed,Licensed Eurex market data feed,EUR_MKT_001||EUR_MKT_002||EUR_MKT_003||EUR_MKT_004||EUR_MKT_005,Licensed Data
+margin_calc,Confidential margin calculation methods,MRGN_FUT_1||MRGN_OPT_2||MRGN_SWAP_3||MRGN_FWD_4||MRGN_SPREAD_5,Confidential Information
+mem_group_data,Group affiliation information,GRP_AFF_001||GRP_AFF_002||GRP_AFF_003||GRP_AFF_004||GRP_AFF_005,Sensitive PII
+staff_id,Staff identification number,STF_101||STF_102||STF_103||STF_104||STF_105,Non-Sensitive PII
+cme_clear_data,Licensed CME clearing feed,CME_CLR_001||CME_CLR_002||CME_CLR_003||CME_CLR_004||CME_CLR_005,Licensed Data
+clear_method,Confidential clearing algorithms,CLR_ALG_1||CLR_ALG_2||CLR_ALG_3||CLR_ALG_4||CLR_ALG_5,Confidential Information
+body_metrics,Physical measurement patterns,BODY_MET_001||BODY_MET_002||BODY_MET_003||BODY_MET_004||BODY_MET_005,Sensitive PII
+work_station,Workstation identifier,WS_A1||WS_A2||WS_A3||WS_A4||WS_A5,Non-Sensitive PII
+ice_clear_feed,Licensed ICE clearing data,ICE_CLR_001||ICE_CLR_002||ICE_CLR_003||ICE_CLR_004||ICE_CLR_005,Licensed Data
+netting_rules,Confidential netting procedures,NET_PROC_1||NET_PROC_2||NET_PROC_3||NET_PROC_4||NET_PROC_5,Confidential Information
+entry_code,Building access code pattern,ENT_CODE_001||ENT_CODE_002||ENT_CODE_003||ENT_CODE_004||ENT_CODE_005,Sensitive PII
+dept_mail,Department email address,clr1@futures.com||clr2@futures.com||clr3@futures.com||clr4@futures.com||clr5@futures.com,Non-Sensitive PII
+lch_data_feed,Licensed LCH clearing data,LCH_001||LCH_002||LCH_003||LCH_004||LCH_005,Licensed Data
+risk_matrix,Confidential risk assessment matrix,RISK_MAT_1||RISK_MAT_2||RISK_MAT_3||RISK_MAT_4||RISK_MAT_5,Confidential Information
+inner_beliefs,Personal belief system data,BLF_001||BLF_002||BLF_003||BLF_004||BLF_005,Sensitive PII
+cube_number,Office cube number,CUBE_101||CUBE_102||CUBE_103||CUBE_104||CUBE_105,Non-Sensitive PII
+dtcc_feed,Licensed DTCC market feed,DTCC_001||DTCC_002||DTCC_003||DTCC_004||DTCC_005,Licensed Data
+settle_method,Confidential settlement procedures,STL_PROC_1||STL_PROC_2||STL_PROC_3||STL_PROC_4||STL_PROC_5,Confidential Information
+serv_agent_name,Asset servicing agent name,Tony Chen||Rita Maji||Sam Wong||Lia Park||Dev Patel,Non-Sensitive PII
+hand_pattern,Hand geometry identification,HAND_GEO_001||HAND_GEO_002||HAND_GEO_003||HAND_GEO_004||HAND_GEO_005,Sensitive PII
+mstar_corp_feed,Licensed Morningstar corporate feed,MS_CORP_001||MS_CORP_002||MS_CORP_003||MS_CORP_004||MS_CORP_005,Licensed Data
+event_matrix,Confidential corporate action matrix,EVT_MAT_1||EVT_MAT_2||EVT_MAT_3||EVT_MAT_4||EVT_MAT_5,Confidential Information
+dna_markers,Molecular identification pattern,DNA_PAT_001||DNA_PAT_002||DNA_PAT_003||DNA_PAT_004||DNA_PAT_005,Sensitive PII
+agent_code,Agent identification code,AGT_101||AGT_102||AGT_103||AGT_104||AGT_105,Non-Sensitive PII
+ftse_corp_data,Licensed FTSE corporate data,FTSE_CORP_001||FTSE_CORP_002||FTSE_CORP_003||FTSE_CORP_004||FTSE_CORP_005,Licensed Data
+proc_method,Confidential processing methodology,PROC_1||PROC_2||PROC_3||PROC_4||PROC_5,Confidential Information
+body_scan,Body scanning identification,SCAN_001||SCAN_002||SCAN_003||SCAN_004||SCAN_005,Sensitive PII
+desk_id,Desk identification number,DSK_A1||DSK_A2||DSK_A3||DSK_A4||DSK_A5,Non-Sensitive PII
+tsx_corp_feed,Licensed TSX corporate feed,TSX_001||TSX_002||TSX_003||TSX_004||TSX_005,Licensed Data
+adj_formula,Confidential adjustment calculations,ADJ_CALC_1||ADJ_CALC_2||ADJ_CALC_3||ADJ_CALC_4||ADJ_CALC_5,Confidential Information
+inner_thoughts,Personal ideology markers,IDLGY_001||IDLGY_002||IDLGY_003||IDLGY_004||IDLGY_005,Sensitive PII
+team_email,Team email address,team1@asset.com||team2@asset.com||team3@asset.com||team4@asset.com||team5@asset.com,Non-Sensitive PII
+msci_corp_data,Licensed MSCI corporate data,MSCI_CORP_001||MSCI_CORP_002||MSCI_CORP_003||MSCI_CORP_004||MSCI_CORP_005,Licensed Data
+impact_model,Confidential impact assessment model,IMPACT_1||IMPACT_2||IMPACT_3||IMPACT_4||IMPACT_5,Confidential Information
+entry_pattern,Building entry sequence pattern,ENTRY_001||ENTRY_002||ENTRY_003||ENTRY_004||ENTRY_005,Sensitive PII
+floor_seat,Floor seating assignment,SEAT_101||SEAT_102||SEAT_103||SEAT_104||SEAT_105,Non-Sensitive PII
+sgx_corp_feed,Licensed SGX corporate feed,SGX_001||SGX_002||SGX_003||SGX_004||SGX_005,Licensed Data
+benefit_rules,Confidential entitlement rules,BEN_RULE_1||BEN_RULE_2||BEN_RULE_3||BEN_RULE_4||BEN_RULE_5,Confidential Information
