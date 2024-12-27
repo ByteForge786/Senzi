@@ -39,3 +39,102 @@ organ_pattern,Organic pattern recognition,ORG_PAT_001||ORG_PAT_002||ORG_PAT_003|
 staff_alias,Staff alias identifier,ALI_X1||ALI_X2||ALI_X3||ALI_X4||ALI_X5,Non-Sensitive PII
 ice_coll_feed,Licensed ICE collateral data,ICE_COL_001||ICE_COL_002||ICE_COL_003||ICE_COL_004||ICE_COL_005,Licensed Data
 subst_rules,Confidential substitution rules,SUBST_1||SUBST_2||SUBST_3||SUBST_4||SUBST_5,Confidential Information
+pilot_name,Flight crew member name,James Chen||Sarah Khan||Mike Torres||Ana Silva||Ray Park,Non-Sensitive PII
+retina_data,Eye structure pattern for verification,RET_MAP_001||RET_MAP_002||RET_MAP_003||RET_MAP_004||RET_MAP_005,Sensitive PII
+gds_feed,Sabre global distribution stream,GDS_001||GDS_002||GDS_003||GDS_004||GDS_005,Licensed Data
+flght_patterns,Proprietary route optimization model,ROUTE_1||ROUTE_2||ROUTE_3||ROUTE_4||ROUTE_5,Confidential Information
+faith_grp,Religious association record,FAITH_001||FAITH_002||FAITH_003||FAITH_004||FAITH_005,Sensitive PII
+base_station,Home airport assignment,BASE_A1||BASE_A2||BASE_A3||BASE_A4||BASE_A5,Non-Sensitive PII
+radar_stream,Air traffic control radar feed,RDR_001||RDR_002||RDR_003||RDR_004||RDR_005,Licensed Data
+crew_rotation,Internal crew scheduling formula,ROT_1||ROT_2||ROT_3||ROT_4||ROT_5,Confidential Information
+dna_print,Genetic identification sequence,DNA_001||DNA_002||DNA_003||DNA_004||DNA_005,Sensitive PII
+crew_contact,Crew contact information,crew1@air.com||crew2@air.com||crew3@air.com||crew4@air.com||crew5@air.com,Non-Sensitive PII
+meteo_data,Weather forecasting system feed,MET_001||MET_002||MET_003||MET_004||MET_005,Licensed Data
+maint_schedule,Internal maintenance protocols,MAINT_1||MAINT_2||MAINT_3||MAINT_4||MAINT_5,Confidential Information
+palm_geometry,Palm structure measurements,PALM_001||PALM_002||PALM_003||PALM_004||PALM_005,Sensitive PII
+roster_id,Duty roster identifier,ROST_1||ROST_2||ROST_3||ROST_4||ROST_5,Non-Sensitive PII
+nav_system,Navigation system database,NAV_001||NAV_002||NAV_003||NAV_004||NAV_005,Licensed Data
+fuel_strategy,Internal fuel optimization model,FUEL_1||FUEL_2||FUEL_3||FUEL_4||FUEL_5,Confidential Information
+med_condition,Health assessment record,MED_001||MED_002||MED_003||MED_004||MED_005,Sensitive PII
+hangar_code,Aircraft hangar assignment,HGR_1||HGR_2||HGR_3||HGR_4||HGR_5,Non-Sensitive PII
+traffic_feed,Air traffic flow database,TRF_001||TRF_002||TRF_003||TRF_004||TRF_005,Licensed Data
+safety_model,Internal risk assessment method,SAFE_1||SAFE_2||SAFE_3||SAFE_4||SAFE_5,Confidential Information
+tech_name,System technician name,Ray Smith||Lina Park||Omar Shah||Eva Chen||Tom Wilson,Non-Sensitive PII
+tissue_map,Biological tissue pattern,BIO_001||BIO_002||BIO_003||BIO_004||BIO_005,Sensitive PII
+pharma_db,Pharmaceutical database access,PHRM_001||PHRM_002||PHRM_003||PHRM_004||PHRM_005,Licensed Data
+proc_method,Operating room scheduling algorithm,OPS_1||OPS_2||OPS_3||OPS_4||OPS_5,Confidential Information
+immuno_data,Immunological profile record,IMM_001||IMM_002||IMM_003||IMM_004||IMM_005,Sensitive PII
+staff_badge,Staff identification number,BDG_101||BDG_102||BDG_103||BDG_104||BDG_105,Non-Sensitive PII
+clinical_feed,Clinical trials database,CTR_001||CTR_002||CTR_003||CTR_004||CTR_005,Licensed Data
+treat_protocol,Treatment methodology pattern,TRT_1||TRT_2||TRT_3||TRT_4||TRT_5,Confidential Information
+genome_seq,Genomic sequence information,GEN_001||GEN_002||GEN_003||GEN_004||GEN_005,Sensitive PII
+dept_code,Department assignment code,DPT_1||DPT_2||DPT_3||DPT_4||DPT_5,Non-Sensitive PII
+research_db,Research database subscription,RES_001||RES_002||RES_003||RES_004||RES_005,Licensed Data
+drug_formula,Drug formulation method,FORM_1||FORM_2||FORM_3||FORM_4||FORM_5,Confidential Information
+blood_type,Blood composition data,BLD_001||BLD_002||BLD_003||BLD_004||BLD_005,Sensitive PII
+pager_num,Hospital pager number,PGR_1||PGR_2||PGR_3||PGR_4||PGR_5,Non-Sensitive PII
+imaging_sys,Medical imaging system feed,IMG_001||IMG_002||IMG_003||IMG_004||IMG_005,Licensed Data
+lab_sequence,Laboratory testing protocol,LAB_1||LAB_2||LAB_3||LAB_4||LAB_5,Confidential Information
+mental_state,Psychological evaluation data,PSY_001||PSY_002||PSY_003||PSY_004||PSY_005,Sensitive PII
+locker_num,Staff locker number,LKR_1||LKR_2||LKR_3||LKR_4||LKR_5,Non-Sensitive PII
+pathology_db,Pathology database access,PTH_001||PTH_002||PTH_003||PTH_004||PTH_005,Licensed Data
+care_pathway,Patient care planning method,CARE_1||CARE_2||CARE_3||CARE_4||CARE_5,Confidential Information
+astro_name,Mission crew member name,John Lee||Maria Patel||Alex Kim||Sara Chen||Mark Davis,Non-Sensitive PII
+brain_signal,Neural activity pattern,NEUR_001||NEUR_002||NEUR_003||NEUR_004||NEUR_005,Sensitive PII
+satellite_feed,Orbital tracking system data,SAT_001||SAT_002||SAT_003||SAT_004||SAT_005,Licensed Data
+launch_sequence,Rocket launch procedure model,LNCH_1||LNCH_2||LNCH_3||LNCH_4||LNCH_5,Confidential Information
+body_adapt,Physical adaptation metrics,ADPT_001||ADPT_002||ADPT_003||ADPT_004||ADPT_005,Sensitive PII
+mission_id,Mission identification code,MSN_101||MSN_102||MSN_103||MSN_104||MSN_105,Non-Sensitive PII
+weather_sys,Space weather monitoring feed,WTH_001||WTH_002||WTH_003||WTH_004||WTH_005,Licensed Data
+orbit_calc,Orbital mechanics formula,ORB_1||ORB_2||ORB_3||ORB_4||ORB_5,Confidential Information
+gene_response,Genetic response pattern,GRS_001||GRS_002||GRS_003||GRS_004||GRS_005,Sensitive PII
+module_code,Space module assignment,MOD_1||MOD_2||MOD_3||MOD_4||MOD_5,Non-Sensitive PII
+telescope_data,Space telescope image feed,TEL_001||TEL_002||TEL_003||TEL_004||TEL_005,Licensed Data
+fuel_mix,Propulsion system formula,PROP_1||PROP_2||PROP_3||PROP_4||PROP_5,Confidential Information
+wellness_data,Astronaut health metrics,WEL_001||WEL_002||WEL_003||WEL_004||WEL_005,Sensitive PII
+comm_channel,Communication channel code,COM_1||COM_2||COM_3||COM_4||COM_5,Non-Sensitive PII
+radar_system,Space object tracking feed,RAD_001||RAD_002||RAD_003||RAD_004||RAD_005,Licensed Data
+docking_proc,Docking procedure protocol,DOCK_1||DOCK_2||DOCK_3||DOCK_4||DOCK_5,Confidential Information
+stress_pattern,Psychological stress indicators,STR_001||STR_002||STR_003||STR_004||STR_005,Sensitive PII
+bay_number,Equipment bay assignment,BAY_1||BAY_2||BAY_3||BAY_4||BAY_5,Non-Sensitive PII
+spectrum_feed,Spectral analysis system,SPC_001||SPC_002||SPC_003||SPC_004||SPC_005,Licensed Data
+payload_plan,Payload integration method,PAY_1||PAY_2||PAY_3||PAY_4||PAY_5,Confidential Information
+quantum_eng,Engineering team member name,Ying Lee||Raj Shah||Lisa Wu||Dan Park||Maya Chen,Non-Sensitive PII
+mind_pattern,Thought process mapping,MND_001||MND_002||MND_003||MND_004||MND_005,Sensitive PII
+qubit_stream,Quantum state measurement feed,QBT_001||QBT_002||QBT_003||QBT_004||QBT_005,Licensed Data
+gate_sequence,Quantum gate array design,GATE_1||GATE_2||GATE_3||GATE_4||GATE_5,Confidential Information
+nerve_signal,Neural circuit mapping,NRV_001||NRV_002||NRV_003||NRV_004||NRV_005,Sensitive PII
+lab_badge,Laboratory access code,LAB_101||LAB_102||LAB_103||LAB_104||LAB_105,Non-Sensitive PII
+error_feed,Error correction system data,ERR_001||ERR_002||ERR_003||ERR_004||ERR_005,Licensed Data
+cooling_method,Quantum cooling protocol,COOL_1||COOL_2||COOL_3||COOL_4||COOL_5,Confidential Information
+brain_wave,Brain activity measurement,BRW_001||BRW_002||BRW_003||BRW_004||BRW_005,Sensitive PII
+zone_access,Lab zone assignment code,ZON_1||ZON_2||ZON_3||ZON_4||ZON_5,Non-Sensitive PII
+particle_data,Particle interaction feed,PRT_001||PRT_002||PRT_003||PRT_004||PRT_005,Licensed Data
+chip_design,Quantum processor blueprint,CHIP_1||CHIP_2||CHIP_3||CHIP_4||CHIP_5,Confidential Information
+cell_pattern,Cellular response mapping,CELL_001||CELL_002||CELL_003||CELL_004||CELL_005,Sensitive PII
+project_code,Project assignment number,PRJ_1||PRJ_2||PRJ_3||PRJ_4||PRJ_5,Non-Sensitive PII
+laser_system,Quantum laser control feed,LSR_001||LSR_002||LSR_003||LSR_004||LSR_005,Licensed Data
+noise_filter,Quantum noise reduction method,NOISE_1||NOISE_2||NOISE_3||NOISE_4||NOISE_5,Confidential Information
+dna_response,DNA structure analysis,DNA_001||DNA_002||DNA_003||DNA_004||DNA_005,Sensitive PII
+room_number,Laboratory room assignment,RM_101||RM_102||RM_103||RM_104||RM_105,Non-Sensitive PII
+entangle_feed,Entanglement measurement data,ENT_001||ENT_002||ENT_003||ENT_004||ENT_005,Licensed Data
+shield_design,Magnetic shielding method,SHLD_1||SHLD_2||SHLD_3||SHLD_4||SHLD_5,Confidential Information
+marine_tech,Research technician name,Wei Chen||Amir Shah||Nina Park||Jack Lee||Zoe Wu,Non-Sensitive PII
+tissue_sample,Marine organism DNA pattern,TSP_001||TSP_002||TSP_003||TSP_004||TSP_005,Sensitive PII
+sonar_feed,Underwater mapping system,SNR_001||SNR_002||SNR_003||SNR_004||SNR_005,Licensed Data
+current_model,Ocean current prediction method,CUR_1||CUR_2||CUR_3||CUR_4||CUR_5,Confidential Information
+genome_data,Species genetic mapping,GNM_001||GNM_002||GNM_003||GNM_004||GNM_005,Sensitive PII
+vessel_id,Research vessel assignment,VSL_101||VSL_102||VSL_103||VSL_104||VSL_105,Non-Sensitive PII
+buoy_system,Ocean monitoring network feed,BUY_001||BUY_002||BUY_003||BUY_004||BUY_005,Licensed Data
+sample_method,Specimen collection protocol,SAMP_1||SAMP_2||SAMP_3||SAMP_4||SAMP_5,Confidential Information
+hormone_level,Marine mammal hormone data,HRM_001||HRM_002||HRM_003||HRM_004||HRM_005,Sensitive PII
+crew_station,Ship station assignment,STN_1||STN_2||STN_3||STN_4||STN_5,Non-Sensitive PII
+climate_feed,Ocean temperature database,CLIM_001||CLIM_002||CLIM_003||CLIM_004||CLIM_005,Licensed Data
+dive_protocol,Underwater operation method,DIVE_1||DIVE_2||DIVE_3||DIVE_4||DIVE_5,Confidential Information
+cell_culture,Organism tissue analysis,CLT_001||CLT_002||CLT_003||CLT_004||CLT_005,Sensitive PII
+deck_level,Ship deck assignment code,DCK_1||DCK_2||DCK_3||DCK_4||DCK_5,Non-Sensitive PII
+satellite_data,Ocean surface monitoring feed,SAT_001||SAT_002||SAT_003||SAT_004||SAT_005,Licensed Data
+reef_mapping,Coral reef structure analysis,REEF_1||REEF_2||REEF_3||REEF_4||REEF_5,Confidential Information
+immune_system,Species immunity pattern,IMM_001||IMM_002||IMM_003||IMM_004||IMM_005,Sensitive PII
+cabin_number,Ship cabin assignment,CAB_1||CAB_2||CAB_3||CAB_4||CAB_5,Non-Sensitive PII
+
