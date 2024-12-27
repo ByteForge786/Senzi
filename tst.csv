@@ -1,0 +1,41 @@
+attribute_name,description,sample_values,label
+idx_eng_name,Index engineer name,Adam Chen||Maya Gill||Ryan Park||Zara Shah||Tom Wu,Non-Sensitive PII
+eye_movement,Eye movement tracking pattern,EYE_PAT_001||EYE_PAT_002||EYE_PAT_003||EYE_PAT_004||EYE_PAT_005,Sensitive PII
+russell_idx_feed,Licensed Russell index data,RUS_IDX_001||RUS_IDX_002||RUS_IDX_003||RUS_IDX_004||RUS_IDX_005,Licensed Data
+weight_method,Confidential weighting methodology,WGT_MTH_1||WGT_MTH_2||WGT_MTH_3||WGT_MTH_4||WGT_MTH_5,Confidential Information
+brain_wave,Brain wave pattern sequence,BRN_WAV_001||BRN_WAV_002||BRN_WAV_003||BRN_WAV_004||BRN_WAV_005,Sensitive PII
+emp_alias,Employee alias code,EMP_X1||EMP_X2||EMP_X3||EMP_X4||EMP_X5,Non-Sensitive PII
+stoxx_idx_data,Licensed STOXX index feed,STOXX_001||STOXX_002||STOXX_003||STOXX_004||STOXX_005,Licensed Data
+rebal_rules,Confidential rebalancing rules,RBL_RULE_1||RBL_RULE_2||RBL_RULE_3||RBL_RULE_4||RBL_RULE_5,Confidential Information
+group_belief,Group affiliation markers,GRP_BLF_001||GRP_BLF_002||GRP_BLF_003||GRP_BLF_004||GRP_BLF_005,Sensitive PII
+desk_loc,Desk location code,LOC_X1||LOC_X2||LOC_X3||LOC_X4||LOC_X5,Non-Sensitive PII
+nikkei_data,Licensed Nikkei index data,NIK_001||NIK_002||NIK_003||NIK_004||NIK_005,Licensed Data
+const_model,Confidential construction model,CONST_1||CONST_2||CONST_3||CONST_4||CONST_5,Confidential Information
+cell_pattern,Cellular identification data,CELL_001||CELL_002||CELL_003||CELL_004||CELL_005,Sensitive PII
+work_contact,Work contact details,idx1@index.com||idx2@index.com||idx3@index.com||idx4@index.com||idx5@index.com,Non-Sensitive PII
+hsi_feed,Licensed Hang Seng index feed,HSI_001||HSI_002||HSI_003||HSI_004||HSI_005,Licensed Data
+factor_rules,Confidential factor methodology,FCTR_1||FCTR_2||FCTR_3||FCTR_4||FCTR_5,Confidential Information
+mind_pattern,Mental pattern recognition,MND_PAT_001||MND_PAT_002||MND_PAT_003||MND_PAT_004||MND_PAT_005,Sensitive PII
+team_code,Team identification code,TEAM_X1||TEAM_X2||TEAM_X3||TEAM_X4||TEAM_X5,Non-Sensitive PII
+dj_idx_feed,Licensed Dow Jones index feed,DJ_IDX_001||DJ_IDX_002||DJ_IDX_003||DJ_IDX_004||DJ_IDX_005,Licensed Data
+div_method,Confidential dividend methodology,DIV_MTH_1||DIV_MTH_2||DIV_MTH_3||DIV_MTH_4||DIV_MTH_5,Confidential Information
+coll_mgr_name,Collateral manager name,Noah Kim||Lisa Shah||Eric Chen||Maya Rao||Alex Wu,Non-Sensitive PII
+nerve_pattern,Neural pattern recognition data,NEURAL_001||NEURAL_002||NEURAL_003||NEURAL_004||NEURAL_005,Sensitive PII
+markit_coll_feed,Licensed Markit collateral data,MKT_COL_001||MKT_COL_002||MKT_COL_003||MKT_COL_004||MKT_COL_005,Licensed Data
+haircut_model,Confidential haircut calculations,HAIR_MDL_1||HAIR_MDL_2||HAIR_MDL_3||HAIR_MDL_4||HAIR_MDL_5,Confidential Information
+body_rhythm,Body rhythm identification,RHYTHM_001||RHYTHM_002||RHYTHM_003||RHYTHM_004||RHYTHM_005,Sensitive PII
+mgr_code,Manager identification code,MGR_X1||MGR_X2||MGR_X3||MGR_X4||MGR_X5,Non-Sensitive PII
+ftse_coll_data,Licensed FTSE collateral feed,FTSE_COL_001||FTSE_COL_002||FTSE_COL_003||FTSE_COL_004||FTSE_COL_005,Licensed Data
+pledge_rules,Confidential pledging methodology,PLDG_1||PLDG_2||PLDG_3||PLDG_4||PLDG_5,Confidential Information
+thought_seq,Thought sequence pattern,THT_SEQ_001||THT_SEQ_002||THT_SEQ_003||THT_SEQ_004||THT_SEQ_005,Sensitive PII
+cube_loc,Cube location identifier,CUBE_X1||CUBE_X2||CUBE_X3||CUBE_X4||CUBE_X5,Non-Sensitive PII
+moodys_coll_feed,Licensed Moodys collateral data,MDY_COL_001||MDY_COL_002||MDY_COL_003||MDY_COL_004||MDY_COL_005,Licensed Data
+value_method,Confidential valuation methodology,VAL_MTH_1||VAL_MTH_2||VAL_MTH_3||VAL_MTH_4||VAL_MTH_5,Confidential Information
+brain_sig,Brain signal pattern data,BRAIN_001||BRAIN_002||BRAIN_003||BRAIN_004||BRAIN_005,Sensitive PII
+team_mail,Team email address,coll1@firm.com||coll2@firm.com||coll3@firm.com||coll4@firm.com||coll5@firm.com,Non-Sensitive PII
+spgbl_coll_data,Licensed S&P collateral feed,SP_COL_001||SP_COL_002||SP_COL_003||SP_COL_004||SP_COL_005,Licensed Data
+margin_model,Confidential margin methodology,MRGN_1||MRGN_2||MRGN_3||MRGN_4||MRGN_5,Confidential Information
+organ_pattern,Organic pattern recognition,ORG_PAT_001||ORG_PAT_002||ORG_PAT_003||ORG_PAT_004||ORG_PAT_005,Sensitive PII
+staff_alias,Staff alias identifier,ALI_X1||ALI_X2||ALI_X3||ALI_X4||ALI_X5,Non-Sensitive PII
+ice_coll_feed,Licensed ICE collateral data,ICE_COL_001||ICE_COL_002||ICE_COL_003||ICE_COL_004||ICE_COL_005,Licensed Data
+subst_rules,Confidential substitution rules,SUBST_1||SUBST_2||SUBST_3||SUBST_4||SUBST_5,Confidential Information
