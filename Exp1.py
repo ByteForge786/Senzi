@@ -1,3 +1,119 @@
+import joblib
+import pandas as pd
+import numpy as np
+from typing import Dict, Tuple
+
+def save_trained_model(analyzer, X_train: pd.DataFrame, y_train: np.ndarray, 
+                      model_path: str = 'xgboost_model.joblib',
+                      encoder_path: str = 'label_encoder.joblib') -> None:
+    """
+    Train and save the XGBoost model and label encoder.
+    
+    Args:
+        analyzer: Trained AttributeAnalyzer instance
+        X_train: Training features
+        y_train: Training labels
+        model_path: Path to save XGBoost model
+        encoder_path: Path to save label encoder
+    """
+    # Train final model (not cross-validated)
+    model = xgb.XGBClassifier(
+        objective='multi:softprob',
+        max_depth=6,
+        learning_rate=0.1,
+        n_estimators=100
+    )
+    
+    # Fit the model on all training data
+    model.fit(X_train, y_train)
+    
+    # Save the model and label encoder
+    joblib.dump(model, model_path)
+    joblib.dump(analyzer.label_encoder, encoder_path)
+    
+def predict_attribute(attribute_name: str, description: str, 
+                     label_definitions: Dict[str, str],
+                     model_path: str = 'xgboost_model.joblib',
+                     encoder_path: str = 'label_encoder.joblib') -> Dict[str, float]:
+    """
+    Make prediction for a single attribute using saved model.
+    
+    Args:
+        attribute_name: Name of the attribute
+        description: Description of the attribute
+        label_definitions: Dictionary of label definitions
+        model_path: Path to saved XGBoost model
+        encoder_path: Path to saved label encoder
+        
+    Returns:
+        Dictionary with predicted label and probabilities for each class
+    """
+    # Load saved model and encoder
+    model = joblib.load(model_path)
+    label_encoder = joblib.load(encoder_path)
+    
+    # Initialize text processor
+    text_processor = TextProcessor()
+    
+    # Prepare input data
+    text_with_context = f"Attribute name: {attribute_name} Description context: {description}"
+    combined_embedding = text_processor.chunk_and_embed(text_with_context)
+    
+    # Calculate similarities with label definitions
+    similarities = {}
+    for label, definition in label_definitions.items():
+        def_text = f"Label {label} is defined as: {definition}"
+        def_embedding = text_processor.chunk_and_embed(def_text)
+        sim_score = cosine_similarity(combined_embedding, def_embedding.reshape(1, -1))[0][0]
+        similarities[f'similarity_{label}'] = sim_score
+    
+    # Create feature DataFrame
+    features = {}
+    features.update({f'emb_{i}': val for i, val in enumerate(combined_embedding.flatten())})
+    features.update(similarities)
+    
+    X = pd.DataFrame([features])
+    
+    # Get predictions and probabilities
+    y_pred = model.predict(X)
+    y_prob = model.predict_proba(X)[0]
+    
+    # Create results dictionary
+    predicted_label = label_encoder.inverse_transform(y_pred)[0]
+    class_probabilities = {
+        label: float(prob) 
+        for label, prob in zip(label_encoder.classes_, y_prob)
+    }
+    
+    return {
+        'predicted_label': predicted_label,
+        'probabilities': class_probabilities
+    }
+
+# Example usage:
+"""
+# After training, save the model
+save_trained_model(analyzer, X_train, y_train)
+
+# Later, make predictions
+label_definitions = {
+    'sensitive_pii': 'Definition of sensitive PII...',
+    'confidential': 'Definition of confidential...',
+    # ... other label definitions
+}
+
+prediction = predict_attribute(
+    attribute_name="email_address",
+    description="User's email address for login",
+    label_definitions=label_definitions
+)
+
+print(f"Predicted label: {prediction['predicted_label']}")
+print("\nProbabilities:")
+for label, prob in prediction['probabilities'].items():
+    print(f"{label}: {prob:.3f}")
+"""
+
 import pandas as pd
 import numpy as np
 from sentence_transformers import SentenceTransformer
