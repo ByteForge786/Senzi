@@ -252,3 +252,81 @@ test_predictions = trainer.predict_attributes(
 # Save results:
 save_predictions(test_predictions, "test_predictions.csv")
 """
+def main():
+    """
+    Enhanced main function that includes model saving and prediction capabilities.
+    """
+    logger = setup_logging()
+    
+    try:
+        logger.info("Starting attribute analysis pipeline...")
+        
+        # Load and validate input data
+        train_data = pd.read_csv('train.csv')
+        test_data = pd.read_csv('test.csv')
+        
+        required_columns = {'attribute_name', 'description', 'label'}
+        if not required_columns.issubset(train_data.columns):
+            raise ValueError(f"Training data missing required columns: {required_columns}")
+            
+        # Parse label definitions
+        logger.info("Parsing label definitions...")
+        label_parser = LabelDefinitionParser()
+        label_definitions = label_parser.parse_label_definitions('label_definitions.txt')
+        
+        # Initialize analyzer and process data
+        analyzer = AttributeAnalyzer()
+        
+        logger.info("Computing cosine similarities...")
+        cosine_results = analyzer.analyze_cosine_similarities(train_data, label_definitions)
+        
+        logger.info("Preparing XGBoost data...")
+        X_train, y_train = analyzer.prepare_xgboost_data(train_data, label_definitions, is_training=True)
+        X_test, y_test = analyzer.prepare_xgboost_data(test_data, label_definitions, is_training=False)
+        
+        logger.info("Training XGBoost model...")
+        xgboost_results = analyzer.train_xgboost(X_train, y_train)
+        
+        # Print initial classification report
+        y_pred = xgboost_results['predictions']
+        y_pred_labels = analyzer.label_encoder.inverse_transform(y_pred)
+        y_train_labels = analyzer.label_encoder.inverse_transform(y_train)
+        
+        logger.info("\nInitial XGBoost Classification Report (Train):")
+        print(classification_report(y_train_labels, y_pred_labels))
+        
+        # Save model and make predictions using enhanced functionality
+        logger.info("Saving trained model...")
+        trainer = ModelTrainer(analyzer)
+        model_paths = trainer.save_trained_model(X_train, y_train, label_definitions)
+        timestamp = model_paths['model'].split('_')[-1].split('.')[0]
+        
+        # Make predictions on test data
+        logger.info("Making predictions on test data...")
+        test_predictions = trainer.predict_attributes(
+            test_data,
+            timestamp,
+            has_labels=True
+        )
+        
+        # Save all results
+        logger.info("Saving results...")
+        cosine_results.to_csv('cosine_similarities.csv', index=False)
+        save_predictions(test_predictions, f'predictions_{timestamp}.csv')
+        
+        # Save label mapping for reference
+        pd.DataFrame({'label': analyzer.label_encoder.classes_}).to_csv('label_mapping.csv', index=False)
+        
+        logger.info("Pipeline completed successfully!")
+        return cosine_results, xgboost_results, test_predictions
+        
+    except Exception as e:
+        logger.error(f"Pipeline failed: {str(e)}")
+        raise
+
+if __name__ == "__main__":
+    try:
+        results, xgb_results, predictions = main()
+    except Exception as e:
+        logging.error(f"Pipeline failed: {str(e)}")
+        raise
