@@ -20,6 +20,211 @@ def save_trained_model(self, X_train: pd.DataFrame, y_train: np.ndarray,
         
         self.logger.info("Training XGBoost model with cross-validation...")
         
+        # Get number of classes
+        num_classes = len(np.unique(y_train))
+        self.logger.info(f"Number of classes: {num_classes}")
+        
+        # Define model parameters
+        params = {
+            'objective': 'multi:softprob',
+            'max_depth': 6,
+            'learning_rate': 0.1,
+            'num_class': num_classes,  # Added number of classes
+            'tree_method': 'hist',  # For faster training
+            'eval_metric': 'mlogloss',
+            'early_stopping_rounds': 10,
+            'n_jobs': -1  # Use all CPU cores
+        }
+        
+        # Initialize models for cross-validation
+        n_folds = 5
+        models = []
+        best_score = float('inf')
+        best_model = None
+        
+        # Perform cross-validation and keep track of best model
+        kf = KFold(n_splits=n_folds, shuffle=True, random_state=42)
+        
+        for fold, (train_idx, val_idx) in enumerate(kf.split(X_train), 1):
+            X_fold_train, X_fold_val = X_train.iloc[train_idx], X_train.iloc[val_idx]
+            y_fold_train, y_fold_val = y_train[train_idx], y_train[val_idx]
+            
+            self.logger.info(f"Training fold {fold}/{n_folds}")
+            
+            # Create DMatrix for faster training
+            dtrain = xgb.DMatrix(X_fold_train, label=y_fold_train)
+            dval = xgb.DMatrix(X_fold_val, label=y_fold_val)
+            
+            # Train model
+            model = xgb.train(
+                params,
+                dtrain,
+                num_boost_round=100,  # Added explicit number of rounds
+                evals=[(dval, 'val')],
+                early_stopping_rounds=10,
+                verbose_eval=False
+            )
+            
+            # Get validation score
+            val_pred = model.predict(dval)
+            val_score = log_loss(y_fold_val, val_pred)
+            
+            self.logger.info(f"Fold {fold} validation loss: {val_score:.4f}")
+            
+            if val_score < best_score:
+                best_score = val_score
+                best_model = model
+                self.logger.info(f"New best model found with validation loss: {val_score:.4f}")
+        
+        # Train final model on full dataset using best model's parameters
+        self.logger.info("Training final model on full dataset...")
+        dtrain_full = xgb.DMatrix(X_train, label=y_train)
+        
+        # Use best_ntree_limit if available, otherwise use default 100 rounds
+        num_boost_round = getattr(best_model, 'best_ntree_limit', 100)
+        
+        final_model = xgb.train(
+            params,
+            dtrain_full,
+            num_boost_round=num_boost_round
+        )
+        
+        # Save all components
+        joblib.dump(final_model, paths['model'])
+        joblib.dump(self.analyzer.label_encoder, paths['encoder'])
+        joblib.dump(self.analyzer.text_processor, paths['text_processor'])
+        joblib.dump(label_definitions, paths['definitions'])
+        
+        self.logger.info(f"Best model saved successfully in {self.model_dir}")
+        self.logger.info(f"Best validation log loss: {best_score:.4f}")
+        
+        return paths
+        
+    except Exception as e:
+        self.logger.error(f"Error saving model: {str(e)}")
+        raise
+
+
+def predict_attributes(self, 
+                          input_data: Union[pd.DataFrame, Tuple[str, str]], 
+                          model_timestamp: str,
+                          has_labels: bool = False,
+                          batch_size: int = 1000) -> pd.DataFrame:
+    """
+    Make predictions using the saved best model.
+    
+    Args:
+        input_data: Either DataFrame with columns [attribute_name, description] 
+                   or tuple of (attribute_name, description)
+        model_timestamp: Timestamp of model to use (format: YYYYMMDD_HHMMSS)
+        has_labels: Whether input data includes true labels
+        batch_size: Batch size for processing large datasets
+    
+    Returns:
+        DataFrame with predictions and probabilities
+    """
+    try:
+        # Load saved best model components
+        model_paths = {
+            'model': os.path.join(self.model_dir, f'xgboost_model_{model_timestamp}.joblib'),
+            'encoder': os.path.join(self.model_dir, f'label_encoder_{model_timestamp}.joblib'),
+            'definitions': os.path.join(self.model_dir, f'label_definitions_{model_timestamp}.joblib')
+        }
+        
+        self.logger.info("Loading saved best model and components...")
+        model = joblib.load(model_paths['model'])
+        label_encoder = joblib.load(model_paths['encoder'])
+        label_definitions = joblib.load(model_paths['definitions'])
+        
+        # Convert single attribute to DataFrame if needed
+        if isinstance(input_data, tuple):
+            input_data = pd.DataFrame({
+                'attribute_name': [input_data[0]],
+                'description': [input_data[1]]
+            })
+        
+        # Prepare features in batches
+        all_features = []
+        total_batches = len(input_data) // batch_size + (1 if len(input_data) % batch_size else 0)
+        
+        with ThreadPoolExecutor() as executor:
+            for i in tqdm(range(0, len(input_data), batch_size), 
+                         desc="Processing batches", 
+                         total=total_batches):
+                batch = input_data.iloc[i:i+batch_size]
+                batch_features, _ = self.analyzer.prepare_xgboost_data(
+                    batch, label_definitions, is_training=False
+                )
+                all_features.append(batch_features)
+        
+        # Combine all features
+        X = pd.concat(all_features, axis=0)
+        
+        # Create DMatrix for prediction
+        dtest = xgb.DMatrix(X)
+        
+        # Make predictions using best model
+        self.logger.info("Making predictions with best model...")
+        y_prob = model.predict(dtest)
+        y_pred = y_prob.argmax(axis=1)
+        
+        # Create results DataFrame
+        results = pd.DataFrame({
+            'attribute_name': input_data['attribute_name'],
+            'description': input_data['description'],
+            'predicted_label': label_encoder.inverse_transform(y_pred)
+        })
+        
+        # Add probability columns for each label
+        for i, label in enumerate(label_encoder.classes_):
+            results[f'probability_{label}'] = y_prob[:, i]
+        
+        # Add accuracy metrics if labels are present
+        if has_labels and 'label' in input_data.columns:
+            results['true_label'] = input_data['label']
+            results['correct'] = results['predicted_label'] == results['true_label']
+            accuracy = accuracy_score(results['true_label'], results['predicted_label'])
+            self.logger.info(f"Overall accuracy: {accuracy:.4f}")
+            
+            # Add detailed classification report
+            report = classification_report(
+                results['true_label'], 
+                results['predicted_label'],
+                output_dict=True
+            )
+            results.attrs['classification_report'] = report
+        
+        return results
+        
+    except Exception as e:
+        self.logger.error(f"Error in prediction: {str(e)}")
+        raise
+
+
+
+
+def save_trained_model(self, X_train: pd.DataFrame, y_train: np.ndarray,
+                          label_definitions: Dict[str, str]) -> Dict[str, str]:
+    """
+    Train and save the best XGBoost model with all components needed for prediction.
+    Uses cross-validation to find the best model.
+    
+    Returns:
+        Dictionary with paths to saved model files
+    """
+    try:
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        
+        # Save paths
+        paths = {
+            'model': os.path.join(self.model_dir, f'xgboost_model_{timestamp}.joblib'),
+            'encoder': os.path.join(self.model_dir, f'label_encoder_{timestamp}.joblib'),
+            'text_processor': os.path.join(self.model_dir, f'text_processor_{timestamp}.joblib'),
+            'definitions': os.path.join(self.model_dir, f'label_definitions_{timestamp}.joblib')
+        }
+        
+        self.logger.info("Training XGBoost model with cross-validation...")
+        
         # Define model parameters
         params = {
             'objective': 'multi:softprob',
