@@ -1,3 +1,102 @@
+def save_trained_model(self, X_train: pd.DataFrame, y_train: np.ndarray,
+                          label_definitions: Dict[str, str]) -> Dict[str, str]:
+    """
+    Train and save the best XGBoost model with all components needed for prediction.
+    Uses cross-validation to find the best model.
+    
+    Returns:
+        Dictionary with paths to saved model files
+    """
+    try:
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        
+        # Save paths
+        paths = {
+            'model': os.path.join(self.model_dir, f'xgboost_model_{timestamp}.joblib'),
+            'encoder': os.path.join(self.model_dir, f'label_encoder_{timestamp}.joblib'),
+            'text_processor': os.path.join(self.model_dir, f'text_processor_{timestamp}.joblib'),
+            'definitions': os.path.join(self.model_dir, f'label_definitions_{timestamp}.joblib')
+        }
+        
+        self.logger.info("Training XGBoost model with cross-validation...")
+        
+        # Define model parameters
+        params = {
+            'objective': 'multi:softprob',
+            'max_depth': 6,
+            'learning_rate': 0.1,
+            'n_estimators': 100,
+            'tree_method': 'hist',  # For faster training
+            'eval_metric': 'mlogloss',
+            'early_stopping_rounds': 10,
+            'n_jobs': -1  # Use all CPU cores
+        }
+        
+        # Initialize models for cross-validation
+        n_folds = 5
+        models = []
+        best_score = float('inf')
+        best_model = None
+        
+        # Perform cross-validation and keep track of best model
+        kf = KFold(n_splits=n_folds, shuffle=True, random_state=42)
+        
+        for fold, (train_idx, val_idx) in enumerate(kf.split(X_train), 1):
+            X_fold_train, X_fold_val = X_train.iloc[train_idx], X_train.iloc[val_idx]
+            y_fold_train, y_fold_val = y_train[train_idx], y_train[val_idx]
+            
+            self.logger.info(f"Training fold {fold}/{n_folds}")
+            
+            # Create DMatrix for faster training
+            dtrain = xgb.DMatrix(X_fold_train, label=y_fold_train)
+            dval = xgb.DMatrix(X_fold_val, label=y_fold_val)
+            
+            # Train model
+            model = xgb.train(
+                params,
+                dtrain,
+                evals=[(dval, 'val')],
+                early_stopping_rounds=10,
+                verbose_eval=False
+            )
+            
+            # Get validation score
+            val_pred = model.predict(dval)
+            val_score = log_loss(y_fold_val, val_pred)
+            
+            self.logger.info(f"Fold {fold} validation loss: {val_score:.4f}")
+            
+            if val_score < best_score:
+                best_score = val_score
+                best_model = model
+                self.logger.info(f"New best model found with validation loss: {val_score:.4f}")
+        
+        # Train final model on full dataset using best model's parameters
+        self.logger.info("Training final model on full dataset...")
+        dtrain_full = xgb.DMatrix(X_train, label=y_train)
+        final_model = xgb.train(
+            params,
+            dtrain_full,
+            num_boost_round=best_model.best_ntree_limit
+        )
+        
+        # Save all components
+        joblib.dump(final_model, paths['model'])
+        joblib.dump(self.analyzer.label_encoder, paths['encoder'])
+        joblib.dump(self.analyzer.text_processor, paths['text_processor'])
+        joblib.dump(label_definitions, paths['definitions'])
+        
+        self.logger.info(f"Best model saved successfully in {self.model_dir}")
+        self.logger.info(f"Best validation log loss: {best_score:.4f}")
+        
+        return paths
+        
+    except Exception as e:
+        self.logger.error(f"Error saving model: {str(e)}")
+        raise
+
+
+
 import joblib
 import pandas as pd
 import numpy as np
